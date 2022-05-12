@@ -10,12 +10,12 @@ public abstract class User {
     private int aantalPunten;
     private ArrayList<Rit> ritten = new ArrayList<>();
 
-    public User(String naam, String gebruikersnaam, String wachtwoord, boolean isAdmin, int aantalPunten) {
+    public User(String naam, String gebruikersnaam, String wachtwoord, boolean isAdmin) {
         this.naam = naam;
         this.gebruikersNaam = gebruikersnaam;
         this.wachtwoord = wachtwoord;
         this.isAdmin = isAdmin;
-        this.aantalPunten = aantalPunten;
+        this.aantalPunten = 0;
     }
 
     public String getNaam() {
