@@ -19,6 +19,9 @@ public class InvoerSchermController {
     private CheckBox autoCheckBox;
 
     @FXML
+    private ChoiceBox<String> boxKeuzesDag;
+
+    @FXML
     private CheckBox elektrischCheckbox;
 
     @FXML
@@ -44,7 +47,7 @@ public class InvoerSchermController {
     void verzendGegevens(ActionEvent event) {
         int aantalBehaaldePunten = 0;
 
-        if (boxKeuzes.getSelectionModel().isEmpty()) {
+        if (boxKeuzes.getSelectionModel().isEmpty() || boxKeuzesDag.getSelectionModel().isEmpty()) {
             System.out.println("Niks geselecteerd");
         } else {
             if (kilometerVeld.getText().isEmpty()) {
@@ -54,8 +57,8 @@ public class InvoerSchermController {
                     aantalBehaaldePunten += 1000;
                 }
                 Integer kilometers = Integer.parseInt(kilometerVeld.getText());
-                Voertuig x = boxKeuzes.getSelectionModel().getSelectedItem();
-                aantalBehaaldePunten += x.berekenPunten(kilometers);
+                Voertuig voertuig = boxKeuzes.getSelectionModel().getSelectedItem();
+                aantalBehaaldePunten += voertuig.berekenPunten(kilometers);
                 System.out.println(aantalBehaaldePunten);
             }
         }
