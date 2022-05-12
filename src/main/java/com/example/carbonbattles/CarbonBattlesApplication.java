@@ -24,8 +24,8 @@ public class CarbonBattlesApplication extends Application {
         ChoiceBox<String> box2 = (ChoiceBox<String>) scene.lookup("#boxKeuzesDag");
         box2.setItems(FXCollections.observableArrayList("Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag"));
 
-        FXMLLoader fxmlLoader = new FXMLLoader(CarbonBattlesApplication.class.getResource("Dashboard-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+       // FXMLLoader fxmlLoader = new FXMLLoader(CarbonBattlesApplication.class.getResource("Dashboard-view.fxml"));
+        //Scene scene = new Scene(fxmlLoader.load(), 320, 240);
 
         stage.setTitle("Hello!");
         stage.setScene(scene);

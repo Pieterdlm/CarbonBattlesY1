@@ -6,5 +6,10 @@ public class Manager extends User {
         super(naam, gebruikersnaam, wachtwoord, isAdmin, aantalPunten);
     }
 
+    @Override
+    public void createARit(Integer kilometers, Voertuig voertuig) {
+
+    }
+
 
 }

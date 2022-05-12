@@ -4,5 +4,5 @@ import java.util.ArrayList;
 
 public class Menu {
 
-    ArrayList keuzes = new ArrayList<User>();
+    ArrayList<Keuze> keuzes = new ArrayList<>();
 }
