@@ -7,6 +7,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class InvoerSchermController {
@@ -16,8 +18,6 @@ public class InvoerSchermController {
     @FXML
     private ChoiceBox<Voertuig> boxKeuzes;
 
-    @FXML
-    private ChoiceBox<String> boxKeuzesDag;
 
     @FXML
     private CheckBox elektrischCheckbox;
@@ -26,30 +26,31 @@ public class InvoerSchermController {
     private TextField kilometerVeld;
 
     @FXML
-    private Button verzendButton;
-
-    @FXML
     void maakVoertuigElektrisch(ActionEvent event) {
     }
 
     @FXML
     void verzendGegevens(ActionEvent event) {
-        int aantalBehaaldePunten = 0;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDateTime now = LocalDateTime.now();
 
-        if (boxKeuzes.getSelectionModel().isEmpty() || boxKeuzesDag.getSelectionModel().isEmpty()) {
+        if (boxKeuzes.getSelectionModel().isEmpty()) {
             System.out.println("Niks geselecteerd");
         } else {
             if (kilometerVeld.getText().isEmpty()) {
                 System.out.println("Niks ingevoerd");
             } else {
-                if (elektrischCheckbox.isSelected()) {
-                    aantalBehaaldePunten += 1000;
-                }
+
                 Integer kilometers = Integer.parseInt(kilometerVeld.getText());
                 Voertuig voertuig = boxKeuzes.getSelectionModel().getSelectedItem();
 
-                carbonbattle.getUsers().get(0).createARit(kilometers, voertuig);
-                System.out.println(carbonbattle.getUsers().get(0).getAantalPunten());
+                //Maakt een Rit aan en geeft dit mee aan een gebruiker, moet nog een oplossing voor komen hoe je ingelogde user hier plaatst!!!
+                carbonbattle.getUsers().get(0).createARit(kilometers, voertuig, elektrischCheckbox.isSelected(), dtf.format(now));
+
+                //Test printen van het aantal punten van een rit
+                System.out.println(carbonbattle.getUsers().get(0).getNaam() + " heeft "+
+                                    carbonbattle.getUsers().get(0).getAantalPunten() + " punten ontvangen op " +
+                                    carbonbattle.getUsers().get(0).getRitten().get(0).getDatum());
             }
         }
     }

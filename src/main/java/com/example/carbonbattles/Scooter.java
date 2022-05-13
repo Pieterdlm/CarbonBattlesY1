@@ -8,7 +8,10 @@ public class Scooter extends Voertuig{
     }
 
     @Override
-    public int berekenPunten(int kilometers) {
+    public int berekenPunten(int kilometers, boolean elektrischOfNiet) {
+        if (elektrischOfNiet){
+            return 150 + (getBaseLinePunten() - (kilometers * 3));
+        }
         return getBaseLinePunten() - (kilometers * 3);
     }
 }

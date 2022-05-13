@@ -7,7 +7,7 @@ public class Manager extends User {
     }
 
     @Override
-    public void createARit(Integer kilometers, Voertuig voertuig) {
+    public void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum) {
 
     }
 

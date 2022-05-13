@@ -17,14 +17,9 @@
             <Insets top="10.0" />
          </padding>
       </CheckBox>
-      <HBox alignment="CENTER" prefHeight="25.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="15.0" prefWidth="200.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" text="Vervoersmiddel">
-               <HBox.margin>
-                  <Insets right="200.0" />
-               </HBox.margin>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Dag">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -34,11 +29,6 @@
       <HBox alignment="CENTER" prefHeight="25.0" prefWidth="200.0">
          <children>
             <ChoiceBox fx:id="boxKeuzes" prefWidth="150.0" />
-            <ChoiceBox fx:id="boxKeuzesDag" prefWidth="150.0">
-               <HBox.margin>
-                  <Insets left="50.0" />
-               </HBox.margin>
-            </ChoiceBox>
          </children>
       </HBox>
       <TextField fx:id="kilometerVeld" promptText="Voer hier uw aantal kilometers in" />

@@ -7,7 +7,7 @@ public class CarbonBattles {
 
     private ArrayList<User> initList(){
         ArrayList<User> lijst= new ArrayList<>();
-        lijst.add(new Medewerker("Adam", "696969", "Adam123", false, 3));
+        lijst.add(new Medewerker("Adam", "696969", "Adam123", false));
         return lijst;
     }
 

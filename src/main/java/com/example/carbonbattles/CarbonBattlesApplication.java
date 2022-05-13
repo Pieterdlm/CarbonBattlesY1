@@ -13,16 +13,13 @@ import java.io.IOException;
 public class CarbonBattlesApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        //Hier moet de inlogscherm view geladen worden
         FXMLLoader fxmlLoader = new FXMLLoader(CarbonBattlesApplication.class.getResource("InvoerScherm-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 750, 300);
 
         //ChoiceBoxVervoersmiddel Toevoegen
         ChoiceBox<Voertuig> box = (ChoiceBox<Voertuig>) scene.lookup("#boxKeuzes");
         box.setItems(FXCollections.observableArrayList(new Auto(), new Fiets(), new Trein(), new Scooter()));
-
-        //ChoiceBoxDagen toevoegen
-        ChoiceBox<String> box2 = (ChoiceBox<String>) scene.lookup("#boxKeuzesDag");
-        box2.setItems(FXCollections.observableArrayList("Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag"));
 
        // FXMLLoader fxmlLoader = new FXMLLoader(CarbonBattlesApplication.class.getResource("Dashboard-view.fxml"));
         //Scene scene = new Scene(fxmlLoader.load(), 320, 240);

@@ -5,7 +5,7 @@ public abstract class Voertuig {
     private boolean elektrischOfNiet;
     private final int baseLinePunten = 300;
 
-    public abstract int berekenPunten(int kilometers);
+    public abstract int berekenPunten(int kilometers, boolean elektrischOfNiet);
 
     public Voertuig() {
     }
