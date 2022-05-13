@@ -22,6 +22,10 @@ public abstract class User {
         return naam;
     }
 
+    public ArrayList<Rit> getRitten() {
+        return ritten;
+    }
+
     public void setNaam(String naam) {
         this.naam = naam;
     }
@@ -57,4 +61,6 @@ public abstract class User {
     public void setAantalPunten(int aantalPunten) {
         this.aantalPunten = aantalPunten;
     }
+
+    public abstract void createARit(Integer kilometers, Voertuig voertuig);
 }

@@ -7,16 +7,14 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
+import java.util.ArrayList;
+
 public class InvoerSchermController {
 
-    private Voertuig voertuig;
-    //private User medewerker;
+    private CarbonBattles carbonbattle = new CarbonBattles();
 
     @FXML
     private ChoiceBox<Voertuig> boxKeuzes;
-
-    @FXML
-    private CheckBox autoCheckBox;
 
     @FXML
     private ChoiceBox<String> boxKeuzesDag;
@@ -25,16 +23,7 @@ public class InvoerSchermController {
     private CheckBox elektrischCheckbox;
 
     @FXML
-    private CheckBox fietsCheckBox;
-
-    @FXML
     private TextField kilometerVeld;
-
-    @FXML
-    private CheckBox scooterCheckBox;
-
-    @FXML
-    private CheckBox treinCheckBox;
 
     @FXML
     private Button verzendButton;
@@ -58,8 +47,9 @@ public class InvoerSchermController {
                 }
                 Integer kilometers = Integer.parseInt(kilometerVeld.getText());
                 Voertuig voertuig = boxKeuzes.getSelectionModel().getSelectedItem();
-                aantalBehaaldePunten += voertuig.berekenPunten(kilometers);
-                System.out.println(aantalBehaaldePunten);
+
+                carbonbattle.getUsers().get(0).createARit(kilometers, voertuig);
+                System.out.println(carbonbattle.getUsers().get(0).getAantalPunten());
             }
         }
     }
