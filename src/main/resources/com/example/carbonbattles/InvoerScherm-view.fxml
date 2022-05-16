@@ -12,7 +12,7 @@
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="750.0" prefHeight="400.0" prefWidth="600.0" spacing="25.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.InvoerSchermController">
    <children>
       <Label contentDisplay="CENTER" text="Invoer Scherm CarbonBattles" />
-      <CheckBox fx:id="elektrischCheckbox" mnemonicParsing="false" onAction="#maakVoertuigElektrisch" text="Elektrisch">
+      <CheckBox fx:id="elektrischCheckbox" mnemonicParsing="false" text="Elektrisch">
          <padding>
             <Insets top="10.0" />
          </padding>
@@ -24,14 +24,24 @@
                   <Insets />
                </HBox.margin>
             </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Datum rit">
+               <HBox.margin>
+                  <Insets left="250.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="25.0" prefWidth="200.0">
          <children>
-            <ChoiceBox fx:id="boxKeuzes" prefWidth="150.0" />
+            <ChoiceBox fx:id="boxKeuzes" prefWidth="150.0">
+               <HBox.margin>
+                  <Insets right="250.0" />
+               </HBox.margin></ChoiceBox>
+            <TextField fx:id="datumVeld" promptText="Voer hier de datum in" />
          </children>
       </HBox>
       <TextField fx:id="kilometerVeld" promptText="Voer hier uw aantal kilometers in" />
       <Button fx:id="verzendButton" mnemonicParsing="false" onAction="#verzendGegevens" text="Verzenden" />
+      <Button fx:id="backToMenuButton" alignment="CENTER" minWidth="450.0" mnemonicParsing="false" onAction="#gaNaarMenuScherm" text="Back to menu" />
    </children>
 </VBox>
