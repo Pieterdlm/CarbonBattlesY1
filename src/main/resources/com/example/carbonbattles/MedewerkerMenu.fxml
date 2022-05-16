@@ -12,9 +12,9 @@
    <top>
       <AnchorPane prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6;" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutX="271.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CarbonBattles" textAlignment="CENTER" wrappingWidth="330.6708984375">
+            <Text layoutX="341.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CarbonBattles" textAlignment="CENTER" wrappingWidth="218.6708984375">
                <font>
-                  <Font name="Symbol" size="36.0" />
+                  <Font name="Impact" size="36.0" />
                </font>
             </Text>
          </children></AnchorPane>
