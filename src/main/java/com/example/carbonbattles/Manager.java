@@ -11,5 +11,11 @@ public class Manager extends User {
 
     }
 
+    @Override
+    public void showRanglijst() {
+        Ranglijst rang  = new Ranglijst();
+        rang.toonRanglijstManager();
+    }
+
 
 }
