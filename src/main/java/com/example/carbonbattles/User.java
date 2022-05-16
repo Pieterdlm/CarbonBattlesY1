@@ -9,6 +9,7 @@ public abstract class User {
     private boolean isAdmin;
     private int aantalPunten;
     private ArrayList<Rit> ritten = new ArrayList<>();
+    private ArrayList<Beloning> beloningen = new ArrayList<Beloning>();
 
     public User(String naam, String gebruikersnaam, String wachtwoord, boolean isAdmin) {
         this.naam = naam;
@@ -62,5 +63,8 @@ public abstract class User {
         this.aantalPunten = aantalPunten;
     }
 
+    public abstract void createARit(Integer kilometers, Voertuig voertuig);
+
+    public abstract void showRanglijst();
     public abstract void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum);
 }

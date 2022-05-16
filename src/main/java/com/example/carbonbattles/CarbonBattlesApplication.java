@@ -11,22 +11,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CarbonBattlesApplication extends Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        //Hier moet de inlogscherm view geladen worden
-        FXMLLoader fxmlLoader = new FXMLLoader(CarbonBattlesApplication.class.getResource("InvoerScherm-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 750, 300);
 
-        //ChoiceBoxVervoersmiddel Toevoegen
-        ChoiceBox<Voertuig> box = (ChoiceBox<Voertuig>) scene.lookup("#boxKeuzes");
-        box.setItems(FXCollections.observableArrayList(new Auto(), new Fiets(), new Trein(), new Scooter()));
+    Stage stage = new Stage();
 
-       // FXMLLoader fxmlLoader = new FXMLLoader(CarbonBattlesApplication.class.getResource("Dashboard-view.fxml"));
-        //Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+@Override
+public void start(Stage stage2) throws IOException {
+    Parent root = FXMLLoader.load(getClass().getResource("Auth.fxml"));
+    Scene scene = new Scene(root);
+    stage.setTitle("CarbonBattles");
+    stage.setScene(scene);
+    stage.setResizable(false);
+    stage.show();
     }
 
     public static void main(String[] args) {
