@@ -1,9 +1,21 @@
 package com.example.carbonbattles;
 
+import javafx.fxml.FXML;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import javafx.scene.control.*;
+
+
 
 public class Ranglijst {
+
+    @FXML
+    private TableView<String> tableView;
+    @FXML
+    private TableColumn<String, String> naamColumn;
+    @FXML
+    private TableColumn<String, String> puntenColumn;
     private CarbonBattles lijst;
     private ArrayList<User> medewerkers;
 
@@ -24,6 +36,7 @@ public class Ranglijst {
             User temp = medewerkers.get(i);
             medewerkers.set(i, medewerkers.get(m));
             medewerkers.set(m, temp);
+
         }
 
         //System.out.println(medewerkers)
@@ -32,4 +45,5 @@ public class Ranglijst {
     public void toonRanglijstManager(){
 
     }
+    
 }
