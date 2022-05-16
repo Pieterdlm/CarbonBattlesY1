@@ -9,6 +9,7 @@ public abstract class User {
     private boolean isAdmin;
     private int aantalPunten;
     private ArrayList<Rit> ritten = new ArrayList<>();
+    private ArrayList<Beloning> beloningen = new ArrayList<Beloning>();
 
     public User(String naam, String gebruikersnaam, String wachtwoord, boolean isAdmin) {
         this.naam = naam;
