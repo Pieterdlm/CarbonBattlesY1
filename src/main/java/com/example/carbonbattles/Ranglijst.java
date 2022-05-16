@@ -17,7 +17,7 @@ public class Ranglijst {
         for(int i=0;i<medewerkers.size()-1;i++){
             int m = i;
             for(int j=i+1;j<medewerkers.size();j++){
-                if(//medewerkers.get(m).getAantalPunten() < //medewerkers.get(j).getAantalPunten())
+                if(medewerkers.get(m).getAantalPunten() < medewerkers.get(j).getAantalPunten())
                 m = j;
             }
             //omruilen elementen positie i en m

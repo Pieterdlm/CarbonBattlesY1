@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" minWidth="520.0" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.AuthenticateController">
+<left>
+    <AnchorPane prefHeight="407.0" prefWidth="250.0" style="-fx-background-color: #ADD8E6;" BorderPane.alignment="CENTER">
+        <children>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="25.0" layoutY="100.0">
+            </ImageView>
+            <Label layoutX="39.0" layoutY="373.0" text="© 2021 Clear Port. All Rights Reserved" underline="true">
+                <font>
+                    <Font name="Arial" size="10.0" />
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+</left>
+<right>
+    <AnchorPane prefHeight="400.0" prefWidth="270.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+        <children>
+            <Label alignment="CENTER" layoutX="60.0" layoutY="95.0" prefHeight="28.0" prefWidth="150.0" text="SIGN IN" textAlignment="CENTER">
+                <font>
+                    <Font name="Calibri Bold" size="24.0" />
+                </font>
+            </Label>
+            <TextField fx:id="usernameTextField" alignment="CENTER" layoutX="60.0" layoutY="145.0" prefHeight="27.0" prefWidth="150.0" promptText="Email" style="-fx-background-radius: 50; -fx-background-color: F8F8F8;">
+                <font>
+                    <Font name="Candara" size="14.0" />
+                </font>
+            </TextField>
+            <Button fx:id="signInButton" contentDisplay="CENTER" layoutX="60.0" layoutY="245.0" mnemonicParsing="false" onAction="#signInButtonOnAction" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: black; -fx-background-radius: 90;" text="SIGN IN" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font name="Calibri Bold" size="14.0" />
+                </font>
+            </Button>
+            <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="60.0" layoutY="180.0" prefHeight="27.0" prefWidth="150.0" promptText="Password" style="-fx-background-radius: 50; -fx-background-color: F8F8F8;">
+                <font>
+                    <Font name="Calibri" size="14.0" />
+                </font>
+            </PasswordField>
+            <Hyperlink fx:id="forgotPasswordLink" layoutX="60.0" layoutY="210.0" prefHeight="13.0" prefWidth="67.0" text="Forgot Password?" textFill="#5bb0ff">
+                <font>
+                    <Font name="Calibri Bold" size="8.0" />
+                </font>
+            </Hyperlink>
+            <Hyperlink fx:id="notMemberLink" layoutX="93.0" layoutY="273.0" text="Not a member? Sign Up" textFill="#7f7c7c" underline="true">
+                <font>
+                    <Font name="Calibri Bold" size="10.0" />
+                </font>
+            </Hyperlink>
+            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutY="122.0" prefHeight="17.0" prefWidth="292.0" textFill="#e86464" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <font>
+                    <Font name="Calibri Bold" size="12.0" />
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+</right>
+</BorderPane>
