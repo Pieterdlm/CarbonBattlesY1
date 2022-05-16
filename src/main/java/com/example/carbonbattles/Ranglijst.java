@@ -13,7 +13,7 @@ public class Ranglijst {
     }
 
 
-    public void toonRanglijst() {
+    public void toonRanglijstMedewerkers() {
         for(int i=0;i<medewerkers.size()-1;i++){
             int m = i;
             for(int j=i+1;j<medewerkers.size();j++){
@@ -25,6 +25,11 @@ public class Ranglijst {
             medewerkers.set(i, medewerkers.get(m));
             medewerkers.set(m, temp);
         }
-        System.out.println(medewerkers);
+
+        //System.out.println(medewerkers)
+    }
+
+    public void toonRanglijstManager(){
+
     }
 }
