@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.MenuController">
    <top>
       <AnchorPane prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6;" BorderPane.alignment="CENTER">
          <children>
@@ -21,11 +22,30 @@
    <bottom>
       <AnchorPane prefHeight="520.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="520.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Invoer" />
-            <Button layoutX="300.0" mnemonicParsing="false" prefHeight="520.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Ranglijst" />
-            <Button layoutX="600.0" mnemonicParsing="false" prefHeight="520.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Mijn info" />
-            <ImageView fitHeight="520.0" fitWidth="300.0" layoutX="300.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="520.0" fitWidth="300.0" layoutX="600.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="invoerFoto" fitHeight="520.0" fitWidth="300.0" opacity="0.19" pickOnBounds="true">
+               <image>
+                  <Image url="@b0ecbb43cfb94f7fb611b2568adab038.jpg" />
+               </image></ImageView>
+            <ImageView fx:id="rangLijstFoto" fitHeight="520.0" fitWidth="300.0" layoutX="300.0" opacity="0.25" pickOnBounds="true">
+               <image>
+                  <Image url="@rompgB5l.png" />
+               </image></ImageView>
+            <ImageView fx:id="mijnInfoFoto" fitHeight="520.0" fitWidth="300.0" layoutX="600.0" opacity="0.25" pickOnBounds="true">
+               <image>
+                  <Image url="@dSQDPGmH.png" />
+               </image></ImageView>
+            <Button fx:id="invoerButton" mnemonicParsing="false" onAction="#invoerSwitchOnAction" prefHeight="520.0" prefWidth="300.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="INVOER">
+               <font>
+                  <Font name="Impact" size="36.0" />
+               </font></Button>
+            <Button fx:id="rangLijstButton" layoutX="300.0" mnemonicParsing="false" prefHeight="520.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="RANGLIJST">
+               <font>
+                  <Font name="Impact" size="36.0" />
+               </font></Button>
+            <Button fx:id="mijnInfoButton" layoutX="600.0" mnemonicParsing="false" prefHeight="520.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="MIJN INFO">
+               <font>
+                  <Font name="Impact" size="36.0" />
+               </font></Button>
          </children>
       </AnchorPane>
    </bottom>
