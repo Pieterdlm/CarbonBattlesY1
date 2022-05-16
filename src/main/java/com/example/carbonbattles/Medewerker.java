@@ -7,8 +7,8 @@ public class Medewerker extends User {
     }
 
     @Override
-    public void createARit(Integer kilometers, Voertuig voertuig) {
-        Rit rit = new Rit(kilometers, voertuig);
+    public void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum) {
+        Rit rit = new Rit(kilometers, voertuig, elektrischOfNiet, datum);
         setAantalPunten(rit.berekenAantalPunten() + getAantalPunten());
         getRitten().add(rit);
     }

@@ -63,7 +63,7 @@ public abstract class User {
         this.aantalPunten = aantalPunten;
     }
 
-    public abstract void createARit(Integer kilometers, Voertuig voertuig);
 
     public abstract void showRanglijst();
+    public abstract void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum);
 }

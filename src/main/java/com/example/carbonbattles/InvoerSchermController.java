@@ -3,11 +3,19 @@ package com.example.carbonbattles;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class InvoerSchermController {
@@ -18,40 +26,49 @@ public class InvoerSchermController {
     private ChoiceBox<Voertuig> boxKeuzes;
 
     @FXML
-    private ChoiceBox<String> boxKeuzesDag;
-
-    @FXML
     private CheckBox elektrischCheckbox;
 
     @FXML
     private TextField kilometerVeld;
 
     @FXML
-    private Button verzendButton;
+    private TextField datumVeld;
 
     @FXML
-    void maakVoertuigElektrisch(ActionEvent event) {
+    void gaNaarMenuScherm(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MedewerkerMenu.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("CarbonBattles");
+        stage.setResizable(false);
+        stage.show();
     }
 
     @FXML
     void verzendGegevens(ActionEvent event) {
-        int aantalBehaaldePunten = 0;
-
-        if (boxKeuzes.getSelectionModel().isEmpty() || boxKeuzesDag.getSelectionModel().isEmpty()) {
+        if (boxKeuzes.getSelectionModel().isEmpty()) {
             System.out.println("Niks geselecteerd");
         } else {
-            if (kilometerVeld.getText().isEmpty()) {
-                System.out.println("Niks ingevoerd");
+            if (checkInputWaarden()) {
+                System.out.println("ERROR");
             } else {
-                if (elektrischCheckbox.isSelected()) {
-                    aantalBehaaldePunten += 1000;
-                }
+
                 Integer kilometers = Integer.parseInt(kilometerVeld.getText());
                 Voertuig voertuig = boxKeuzes.getSelectionModel().getSelectedItem();
 
-                carbonbattle.getUsers().get(0).createARit(kilometers, voertuig);
-                System.out.println(carbonbattle.getUsers().get(0).getAantalPunten());
+                //Maakt een Rit aan en geeft dit mee aan een gebruiker, moet nog een oplossing voor komen hoe je ingelogde user hier plaatst!!!
+                carbonbattle.getUsers().get(0).createARit(kilometers, voertuig, elektrischCheckbox.isSelected(), datumVeld.getText());
+
+                //Test printen van het aantal punten van een rit
+                System.out.println(carbonbattle.getUsers().get(0).getNaam() + " heeft " +
+                        carbonbattle.getUsers().get(0).getAantalPunten() + " punten ontvangen op " +
+                        carbonbattle.getUsers().get(0).getRitten().get(0).getDatum());
             }
         }
+    }
+
+    private boolean checkInputWaarden() {
+        return kilometerVeld.getText().isEmpty() || kilometerVeld.getText().equals("0") || datumVeld.getText().isEmpty() || kilometerVeld.getText().contains("-");
     }
 }
