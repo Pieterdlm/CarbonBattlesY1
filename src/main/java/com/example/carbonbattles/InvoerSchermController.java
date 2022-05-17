@@ -36,13 +36,23 @@ public class InvoerSchermController {
 
     @FXML
     void gaNaarMenuScherm(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MedewerkerMenu.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("CarbonBattles");
-        stage.setResizable(false);
-        stage.show();
+        if (CarbonBattles.getUsers().get(0).isAdmin()) {
+            Parent root = FXMLLoader.load(getClass().getResource("ManagerMenu.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("CarbonBattles");
+            stage.setResizable(false);
+            stage.show();
+        } else {
+            Parent root = FXMLLoader.load(getClass().getResource("MedewerkerMenu.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("CarbonBattles");
+            stage.setResizable(false);
+            stage.show();
+        }
     }
 
     @FXML
