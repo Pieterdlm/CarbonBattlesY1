@@ -7,7 +7,13 @@ public class CarbonBattles {
 
     private static ArrayList<User> initList(){
         ArrayList<User> lijst= new ArrayList<>();
-        lijst.add(new Manager("Adam", "Adam123", "696969", true));
+        //Manager Optie
+        lijst.add(new Manager("Adam", "Adam123", "696969"));
+
+        //Er moet mogelijkheid komen om van User te switchen om beide menus te tonen aan product owner!!!!
+
+        //Medewerker Optie
+        //lijst.add(new Manager("Adam", "Adam123", "696969"));
         return lijst;
     }
 
