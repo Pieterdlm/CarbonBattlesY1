@@ -18,6 +18,7 @@ public class Ranglijst {
     private TableColumn<String, String> puntenColumn;
     private CarbonBattles lijst;
     private ArrayList<User> medewerkers;
+    private ArrayList<User> top5;
 
     public Ranglijst(){
         lijst = new CarbonBattles();
@@ -43,6 +44,21 @@ public class Ranglijst {
     }
 
     public void toonRanglijstManager(){
+        for(int i=0;i<medewerkers.size()-1;i++){
+            int m = i;
+            for(int j=i+1;j<medewerkers.size();j++){
+                if(medewerkers.get(m).getAantalPunten() < medewerkers.get(j).getAantalPunten())
+                    m = j;
+            }
+            //omruilen elementen positie i en m
+            User temp = medewerkers.get(i);
+            medewerkers.set(i, medewerkers.get(m));
+            medewerkers.set(m, temp);
+        }
+        for (int i = 0; i < 4; i++) {
+            top5.add(medewerkers.get(i));
+        }
+
 
     }
     
