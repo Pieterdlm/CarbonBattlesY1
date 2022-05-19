@@ -35,9 +35,7 @@ public class Ranglijst implements Initializable {
     private Parent root;
     private Stage stage;
 
-    private CarbonBattles lijst;
     private ArrayList<User> medewerkers = new ArrayList<>();
-    private ArrayList<User> top5 = new ArrayList<>();
 
     public Ranglijst() {
         for (User u :CarbonBattles.getUsers()) {
@@ -54,53 +52,30 @@ public class Ranglijst implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
         puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-        if (CarbonBattles.getIngelogdeUser().isAdmin()) {
-            toonRanglijstManager();
-        } else {
-            toonRanglijstMedewerkers();
-        }
+        toonRanglijstMedewerkers(medewerkers);
+
     }
 
 
-    public void toonRanglijstMedewerkers() {
-        for (int i = 0; i < medewerkers.size(); i++) {
+    public void toonRanglijstMedewerkers(ArrayList<User> lijst) {
+        for (int i = 0; i < lijst.size(); i++) {
             int m = i;
-            for (int j = i + 1; j < medewerkers.size(); j++) {
-                if (medewerkers.get(m).getAantalPunten() < medewerkers.get(j).getAantalPunten())
+            for (int j = i + 1; j < lijst.size(); j++) {
+                if (lijst.get(m).getAantalPunten() < lijst.get(j).getAantalPunten())
                     m = j;
             }
 
 
             //omruilen elementen positie i en m
-            User temp = medewerkers.get(i);
-            medewerkers.set(i, medewerkers.get(m));
-            medewerkers.set(m, temp);
+            User temp = lijst.get(i);
+            lijst.set(i, lijst.get(m));
+            lijst.set(m, temp);
 
 
         }
-        list.addAll(medewerkers);
+        list.addAll(lijst);
         tabelUsers.setItems(list);
     }
-
-    public void toonRanglijstManager() {
-        for (int i = 0; i < medewerkers.size() - 1; i++) {
-            int m = i;
-            for (int j = i + 1; j < medewerkers.size(); j++) {
-                if (medewerkers.get(m).getAantalPunten() < medewerkers.get(j).getAantalPunten())
-                    m = j;
-            }
-            //omruilen elementen positie i en m
-            User temp = medewerkers.get(i);
-            medewerkers.set(i, medewerkers.get(m));
-            medewerkers.set(m, temp);
-        }
-        for (int i = 0; i < 5; i++) {
-            top5.add(medewerkers.get(i));
-        }
-        list.addAll(top5);
-        tabelUsers.setItems(list);
-    }
-
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
         if (CarbonBattles.getIngelogdeUser().isAdmin()) {
