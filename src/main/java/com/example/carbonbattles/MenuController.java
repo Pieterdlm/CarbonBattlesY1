@@ -43,8 +43,6 @@ public class MenuController {
         Parent root = FXMLLoader.load(getClass().getResource("RangLijst.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        ChoiceBox<Voertuig> box = (ChoiceBox<Voertuig>) scene.lookup("#boxKeuzes");
-        box.setItems(FXCollections.observableArrayList(new Auto(), new Fiets(), new Trein(), new Scooter()));
         stage.setScene(scene);
         stage.setTitle("CarbonBattles");
         stage.setResizable(false);
@@ -55,8 +53,6 @@ public class MenuController {
         Parent root = FXMLLoader.load(getClass().getResource("InfoScherm.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        ChoiceBox<Voertuig> box = (ChoiceBox<Voertuig>) scene.lookup("#boxKeuzes");
-        box.setItems(FXCollections.observableArrayList(new Auto(), new Fiets(), new Trein(), new Scooter()));
         stage.setScene(scene);
         stage.setTitle("CarbonBattles");
         stage.setResizable(false);
@@ -64,11 +60,9 @@ public class MenuController {
     }
 
     public void dashBoardSwitchOnAction(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("InfoScherm.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Dashboard-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        ChoiceBox<Voertuig> box = (ChoiceBox<Voertuig>) scene.lookup("#boxKeuzes");
-        box.setItems(FXCollections.observableArrayList(new Auto(), new Fiets(), new Trein(), new Scooter()));
         stage.setScene(scene);
         stage.setTitle("CarbonBattles");
         stage.setResizable(false);
