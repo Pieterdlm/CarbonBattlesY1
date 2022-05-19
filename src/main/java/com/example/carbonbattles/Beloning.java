@@ -2,10 +2,12 @@ package com.example.carbonbattles;
 
 public class Beloning {
     private String naam;
-    private String voorwaarde;
+    private String Beloning;
+    private Integer nettoPuntenVerandering;
 
-    public Beloning(String naam, String voorwaarde){
+    public Beloning(String naam, String beloning, Integer nettoPuntenVerandering) {
         this.naam = naam;
-        this.voorwaarde =voorwaarde;
+        Beloning = beloning;
+        this.nettoPuntenVerandering = nettoPuntenVerandering;
     }
 }
