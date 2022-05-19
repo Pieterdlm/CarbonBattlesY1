@@ -9,12 +9,6 @@ public class Manager extends User {
 
     @Override
     public void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum) {
-
     }
 
-    @Override
-    public void showRanglijst() {
-        Ranglijst rang  = new Ranglijst();
-        rang.toonRanglijstManager();
-    }
 }
