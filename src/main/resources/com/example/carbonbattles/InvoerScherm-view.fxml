@@ -41,7 +41,8 @@
          </children>
       </HBox>
       <TextField fx:id="kilometerVeld" promptText="Voer hier uw aantal kilometers in" />
-      <Button fx:id="verzendButton" mnemonicParsing="false" onAction="#verzendGegevens" text="Verzenden" />
+      <Button fx:id="verzendButton" mnemonicParsing="false" onAction="#verzendGegevens" style="-fx-background-color: #ff0000;" text="Verzenden" />
+      <Label fx:id="infoShower" contentDisplay="CENTER" />
       <Button fx:id="backToMenuButton" alignment="CENTER" minWidth="450.0" mnemonicParsing="false" onAction="#gaNaarMenuScherm" text="Back to menu" />
    </children>
 </VBox>

@@ -37,6 +37,7 @@ public class MenuController {
         stage.setTitle("CarbonBattles");
         stage.setResizable(false);
         stage.show();
+
     }
 
     public void rangLijstSwitchOnAction(ActionEvent event) throws IOException {
