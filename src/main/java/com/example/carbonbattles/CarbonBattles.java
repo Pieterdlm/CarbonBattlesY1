@@ -17,15 +17,18 @@ public class CarbonBattles {
     private static ArrayList<User> initList(){
         ArrayList<User> lijst= new ArrayList<>();
         //Medewerker Optie
-        lijst.add(new Medewerker("Adam", "Adam123", "696969"));
+        lijst.add(new Medewerker("Adam", "Adam1234", "696969"));
         lijst.add(new Medewerker("Konrad", "Konrad123", "696969"));
         lijst.add(new Medewerker("Tarun", "Tarun123", "696969"));
+        lijst.add(new Medewerker("Tarun3", "Tarun123", "696969"));
+        lijst.add(new Medewerker("Tarun4", "Tarun123", "696969"));
+        lijst.add(new Medewerker("Tarun5", "Tarun123", "696969"));
 
 
         //Er moet mogelijkheid komen om van User te switchen om beide menus te tonen aan product owner!!!!
 
         //Manager Optie
-        //lijst.add(new Manager("Adam", "Adam123", "696969"));
+        lijst.add(new Manager("Adam2", "Adam123", "696969"));
         return lijst;
     }
 
