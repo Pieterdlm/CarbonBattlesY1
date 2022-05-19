@@ -21,7 +21,20 @@ public class Rit {
         return elektrischOfNiet;
     }
 
+    public Voertuig getVoertuig(){
+        return voertuig;
+    }
+
+    public int getAantalKilometers(){
+        return aantalKilometers;
+    }
+
     public String getDatum() {
         return datum;
+    }
+
+    @Override
+    public String toString() {
+        return "Rit van " + datum + "           " + "+ " + berekenAantalPunten() + " Punten";
     }
 }
