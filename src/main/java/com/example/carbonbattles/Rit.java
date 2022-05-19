@@ -14,7 +14,11 @@ public class Rit {
     }
 
     public int berekenAantalPunten(){
-        return voertuig.berekenPunten(aantalKilometers, elektrischOfNiet);
+        if (voertuig.berekenPunten(aantalKilometers, elektrischOfNiet) > 0){
+            return voertuig.berekenPunten(aantalKilometers,elektrischOfNiet);
+        }else{
+            return 0;
+        }
     }
 
     public boolean getElektrischOfNiet(){

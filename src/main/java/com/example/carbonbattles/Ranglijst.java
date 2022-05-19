@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -35,15 +36,14 @@ public class Ranglijst implements Initializable {
     private Stage stage;
 
     private CarbonBattles lijst;
-    private ArrayList<User> medewerkers;
+    private ArrayList<User> medewerkers = new ArrayList<>();
     private ArrayList<User> top5 = new ArrayList<>();
 
-    public Ranglijst(){
-        medewerkers = CarbonBattles.getUsers();
-        for (int i = 0; i < medewerkers.size(); i++) {
-            if (medewerkers.get(i).isAdmin()){
-                medewerkers.remove(i);
-            }
+    public Ranglijst() {
+        for (User u :CarbonBattles.getUsers()) {
+                if (!u.isAdmin()){
+                    medewerkers.add(u);
+                }
         }
     }
 
@@ -54,22 +54,22 @@ public class Ranglijst implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
         puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-            if(CarbonBattles.getIngelogdeUser().isAdmin()){
-                toonRanglijstManager();
-            }
-            else{
-                toonRanglijstMedewerkers();
-            }
+        if (CarbonBattles.getIngelogdeUser().isAdmin()) {
+            toonRanglijstManager();
+        } else {
+            toonRanglijstMedewerkers();
         }
+    }
 
 
     public void toonRanglijstMedewerkers() {
-        for(int i=0;i<medewerkers.size();i++){
+        for (int i = 0; i < medewerkers.size(); i++) {
             int m = i;
-            for(int j=i+1;j<medewerkers.size();j++){
-                if(medewerkers.get(m).getAantalPunten() < medewerkers.get(j).getAantalPunten())
+            for (int j = i + 1; j < medewerkers.size(); j++) {
+                if (medewerkers.get(m).getAantalPunten() < medewerkers.get(j).getAantalPunten())
                     m = j;
             }
+
 
             //omruilen elementen positie i en m
             User temp = medewerkers.get(i);
@@ -82,11 +82,11 @@ public class Ranglijst implements Initializable {
         tabelUsers.setItems(list);
     }
 
-    public void toonRanglijstManager(){
-        for(int i=0;i<medewerkers.size()-1;i++){
+    public void toonRanglijstManager() {
+        for (int i = 0; i < medewerkers.size() - 1; i++) {
             int m = i;
-            for(int j=i+1;j<medewerkers.size();j++){
-                if(medewerkers.get(m).getAantalPunten() < medewerkers.get(j).getAantalPunten())
+            for (int j = i + 1; j < medewerkers.size(); j++) {
+                if (medewerkers.get(m).getAantalPunten() < medewerkers.get(j).getAantalPunten())
                     m = j;
             }
             //omruilen elementen positie i en m
@@ -96,7 +96,6 @@ public class Ranglijst implements Initializable {
         }
         for (int i = 0; i < 5; i++) {
             top5.add(medewerkers.get(i));
-
         }
         list.addAll(top5);
         tabelUsers.setItems(list);
@@ -122,7 +121,4 @@ public class Ranglijst implements Initializable {
             stage.show();
         }
     }
-
-
-
 }

@@ -36,10 +36,10 @@ public class AuthenticateController extends CarbonBattles {
 
 
     public void signInButtonOnAction(ActionEvent event) throws IOException {
+        Parent root;
         for (User u : CarbonBattles.getUsers()) {
             if (u.getGebruikersNaam().equals(usernameTextField.getText().toString())) {
                 if (u.getWachtwoord().equals(passwordField.getText().toString())) {
-                    Parent root;
                     if (u.isAdmin()) {
                         setIngelogdeUser(u);
                         root = FXMLLoader.load(getClass().getResource("ManagerMenu.fxml"));
@@ -55,6 +55,7 @@ public class AuthenticateController extends CarbonBattles {
                     stage.show();
 
                 } else {
+                    System.out.println("Hahaha123");
                     loginMessageLabel.setText("Incorrect credentials!");
                 }
             }
@@ -62,6 +63,7 @@ public class AuthenticateController extends CarbonBattles {
                 loginMessageLabel.setText("Please enter your Username and Password.");
             }
             else {
+                System.out.println(usernameTextField.getText() + " " + passwordField.getText());
                 loginMessageLabel.setText("Incorrect credentials!");
             }
         }
