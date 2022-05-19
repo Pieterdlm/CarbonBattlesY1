@@ -80,7 +80,7 @@ public class InvoerSchermController {
                 //Test printen van het aantal punten van een rit (Verwijder na afronden Sprint)
                 System.out.println(CarbonBattles.getIngelogdeUser().getNaam() + " heeft " +
                         CarbonBattles.getIngelogdeUser().getAantalPunten() + " punten ontvangen op " +
-                        CarbonBattles.getIngelogdeUser().getRitten().get(g));
+                        CarbonBattles.getIngelogdeUser().getRitten().get(0));
             }
         }
     }

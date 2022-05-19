@@ -41,11 +41,11 @@ public class AuthenticateController extends CarbonBattles {
                 if (u.getWachtwoord().equals(passwordField.getText().toString())) {
                     Parent root;
                     if (u.isAdmin()) {
+                        setIngelogdeUser(u);
                         root = FXMLLoader.load(getClass().getResource("ManagerMenu.fxml"));
-                        setIngelogdeUser(u);
                     } else {
-                        root = FXMLLoader.load(getClass().getResource("MedewerkerMenu.fxml"));
                         setIngelogdeUser(u);
+                        root = FXMLLoader.load(getClass().getResource("MedewerkerMenu.fxml"));
                     }
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
@@ -53,6 +53,7 @@ public class AuthenticateController extends CarbonBattles {
                     stage.setTitle("CarbonBattles");
                     stage.setResizable(false);
                     stage.show();
+
                 } else {
                     loginMessageLabel.setText("Incorrect credentials!");
                 }
