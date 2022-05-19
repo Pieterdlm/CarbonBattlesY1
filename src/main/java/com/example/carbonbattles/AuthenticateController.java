@@ -42,9 +42,10 @@ public class AuthenticateController extends CarbonBattles {
                     Parent root;
                     if (u.isAdmin()) {
                         root = FXMLLoader.load(getClass().getResource("ManagerMenu.fxml"));
-
+                        setIngelogdeUser(u);
                     } else {
                         root = FXMLLoader.load(getClass().getResource("MedewerkerMenu.fxml"));
+                        setIngelogdeUser(u);
                     }
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
@@ -65,32 +66,4 @@ public class AuthenticateController extends CarbonBattles {
         }
     }
 }
-//        if(usernameTextField.getText().toString().equals(CarbonBattles.getUsers().contains(usernameTextField.getText())) && passwordField.getText().toString().equals(getUsers().contains(usernameTextField.getText()))) {
-//            loginMessageLabel.setText("Succes!");
-//            if (getUsers().contains(isAdmin))   {
-//                Parent root = FXMLLoader.load(getClass().getResource("MedewerkerMenu.fxml"));
-//                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//                scene = new Scene(root);
-//                stage.setScene(scene);
-//                stage.setTitle("CarbonBattles");
-//                stage.setResizable(false);
-//                stage.show();
-//            }
-//            else{
-//                Parent root = FXMLLoader.load(getClass().getResource("ManagerMenu.fxml"));
-//                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//                scene = new Scene(root);
-//                stage.setScene(scene);
-//                stage.setTitle("CarbonBattles");
-//                stage.setResizable(false);
-//                stage.show();
-//            }
-//        }
-//        else if (usernameTextField.getText().isBlank() == true && passwordField.getText().isBlank() == true){
-//            loginMessageLabel.setText("Please enter your Username and Password.");
-//        }
-//        else{
-//            loginMessageLabel.setText("Incorrect credentials!");
-//        }
-//    }
 

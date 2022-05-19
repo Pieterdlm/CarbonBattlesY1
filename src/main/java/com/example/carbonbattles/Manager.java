@@ -17,6 +17,4 @@ public class Manager extends User {
         Ranglijst rang  = new Ranglijst();
         rang.toonRanglijstManager();
     }
-
-
 }

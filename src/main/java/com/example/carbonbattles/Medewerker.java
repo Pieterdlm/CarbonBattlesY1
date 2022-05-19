@@ -10,15 +10,19 @@ public class Medewerker extends User {
     @Override
     public void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum) {
         Rit rit = new Rit(kilometers, voertuig, elektrischOfNiet, datum);
-        setAantalPunten(rit.berekenAantalPunten() + getAantalPunten());
-        getRitten().add(rit);
+
+        if (rit.berekenAantalPunten() + getAantalPunten() > 0){
+            setAantalPunten(rit.berekenAantalPunten() + getAantalPunten());
+        }else {
+            setAantalPunten(0);
+        }
+            getRitten().add(rit);
     }
 
     @Override
     public void showRanglijst() {
         Ranglijst rang  = new Ranglijst();
         rang.toonRanglijstMedewerkers();
-
     }
 
 }
