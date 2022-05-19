@@ -1,30 +1,51 @@
 package com.example.carbonbattles;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 
+import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.ResourceBundle;
+
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 
-
-public class Ranglijst {
+public class Ranglijst implements Initializable {
 
     @FXML
-    private TableView<String> tableView;
+    private TableView<User> tabelUsers;
     @FXML
-    private TableColumn<String, String> naamColumn;
+    private TableColumn<User, String> naamColumn;
     @FXML
-    private TableColumn<String, String> puntenColumn;
+    private TableColumn<User, Integer> puntenColumn;
     private CarbonBattles lijst;
     private ArrayList<User> medewerkers;
-    private ArrayList<User> top5;
+    private ArrayList<User> top5 = new ArrayList<>();
 
     public Ranglijst(){
         lijst = new CarbonBattles();
         medewerkers = lijst.getUsers();
     }
 
+
+    ObservableList<User> list = FXCollections.observableArrayList();
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
+        puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
+        for (User u : CarbonBattles.getUsers()){
+            if(u.isAdmin()){
+                toonRanglijstManager();
+            }
+            else{
+                toonRanglijstMedewerkers();
+            }
+        }
+    }
 
     public void toonRanglijstMedewerkers() {
         for(int i=0;i<medewerkers.size()-1;i++){
@@ -38,9 +59,10 @@ public class Ranglijst {
             medewerkers.set(i, medewerkers.get(m));
             medewerkers.set(m, temp);
 
+            list.addAll(medewerkers);
+            tabelUsers.setItems(list);
         }
 
-        //System.out.println(medewerkers)
     }
 
     public void toonRanglijstManager(){
@@ -58,8 +80,8 @@ public class Ranglijst {
         for (int i = 0; i < 4; i++) {
             top5.add(medewerkers.get(i));
         }
-
-
+        list.addAll(top5);
+        tabelUsers.setItems(list);
     }
-    
+
 }
