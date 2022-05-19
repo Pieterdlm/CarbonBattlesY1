@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
@@ -17,7 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class Ranglijst implements Initializable {
 
     @FXML
-    private TableView<User> tableView;
+    private TableView<User> tabelUsers;
     @FXML
     private TableColumn<User, String> naamColumn;
     @FXML
@@ -38,6 +37,14 @@ public class Ranglijst implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
         puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
+        for (User u : CarbonBattles.getUsers()){
+            if(u.isAdmin()){
+                toonRanglijstManager();
+            }
+            else{
+                toonRanglijstMedewerkers();
+            }
+        }
     }
 
     public void toonRanglijstMedewerkers() {
@@ -53,7 +60,7 @@ public class Ranglijst implements Initializable {
             medewerkers.set(m, temp);
 
             list.addAll(medewerkers);
-            tableView.setItems(list);
+            tabelUsers.setItems(list);
         }
 
     }
@@ -74,7 +81,7 @@ public class Ranglijst implements Initializable {
             top5.add(medewerkers.get(i));
         }
         list.addAll(top5);
-        tableView.setItems(list);
+        tabelUsers.setItems(list);
     }
-    
+
 }

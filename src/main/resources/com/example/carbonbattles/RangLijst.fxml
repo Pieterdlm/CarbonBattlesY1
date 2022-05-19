@@ -23,7 +23,7 @@
    <bottom>
       <AnchorPane prefHeight="520.0" prefWidth="900.0" style="-fx-background-color: #3c3939;" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tableView" layoutX="250.0" layoutY="45.0" prefHeight="431.0" prefWidth="400.0">
+            <TableView fx:id="tabelUsers" layoutX="250.0" layoutY="45.0" prefHeight="431.0" prefWidth="400.0">
               <columns>
                 <TableColumn fx:id="naamColumn" prefWidth="200.0" text="Naam" />
                 <TableColumn fx:id="puntenColumn" prefWidth="199.0" text="Punten" />
