@@ -16,41 +16,30 @@
                   <Image url="@../carbonbattles3.png" />
                </image>
             </ImageView>
+            <Button fx:id="signOutButton" layoutX="806.0" layoutY="27.0" mnemonicParsing="false" onAction="#signOutOnSwitch" prefWidth="68.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 50; -fx-background-radius: 50;" text="Sign Out">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
    </top>
    <bottom>
       <AnchorPane prefHeight="520.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="invoerFoto" fitHeight="260.0" fitWidth="450.0" opacity="0.19" pickOnBounds="true">
-               <image>
-                  <Image url="@b0ecbb43cfb94f7fb611b2568adab038.jpg" />
-               </image></ImageView>
-            <ImageView fx:id="rangLijstFoto" fitHeight="260.0" fitWidth="450.0" layoutX="450.0" opacity="0.25" pickOnBounds="true">
+            <ImageView fx:id="rangLijstFoto" fitHeight="519.0" fitWidth="456.0" layoutX="444.0" opacity="0.25" pickOnBounds="true">
                <image>
                   <Image url="@rompgB5l.png" />
                </image></ImageView>
-            <ImageView fx:id="mijnInfoFoto" fitHeight="260.0" fitWidth="450.0" layoutX="450.0" layoutY="260.0" opacity="0.25" pickOnBounds="true">
-               <image>
-                  <Image url="@dSQDPGmH.png" />
-               </image></ImageView>
-            <Button fx:id="invoerButton" mnemonicParsing="false" onAction="#invoerSwitchOnAction" prefHeight="260.0" prefWidth="450.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="INVOER">
+            <Button fx:id="rangLijstButton" layoutX="450.0" mnemonicParsing="false" onAction="#rangLijstSwitchOnAction" prefHeight="520.0" prefWidth="450.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="RANGLIJST">
                <font>
                   <Font name="Impact" size="36.0" />
                </font></Button>
-            <Button fx:id="rangLijstButton" layoutX="450.0" mnemonicParsing="false" onAction="#rangLijstSwitchOnAction" prefHeight="260.0" prefWidth="450.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="RANGLIJST">
-               <font>
-                  <Font name="Impact" size="36.0" />
-               </font></Button>
-            <Button fx:id="mijnInfoButton" layoutX="450.0" layoutY="260.0" mnemonicParsing="false" onAction="#mijnInfoSwitchOnAction" prefHeight="260.0" prefWidth="450.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="MIJN INFO">
-               <font>
-                  <Font name="Impact" size="36.0" />
-               </font></Button>
-            <ImageView fx:id="dashBoardFoto" fitHeight="260.0" fitWidth="450.0" layoutY="260.0" opacity="0.25" pickOnBounds="true">
+            <ImageView fx:id="dashBoardFoto" fitHeight="260.0" fitWidth="450.0" layoutY="130.0" opacity="0.25" pickOnBounds="true">
                <image>
                   <Image url="@zV1CtKT5.png" />
                </image>
             </ImageView>
-            <Button fx:id="dashBoardButton" layoutY="260.0" mnemonicParsing="false" onAction="#dashBoardSwitchOnAction" prefHeight="260.0" prefWidth="450.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="DASHBOARD">
+            <Button fx:id="dashBoardButton" mnemonicParsing="false" onAction="#dashBoardSwitchOnAction" prefHeight="520.0" prefWidth="450.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="DASHBOARD">
                <font>
                   <Font name="Impact" size="36.0" />
                </font>

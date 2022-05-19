@@ -30,6 +30,7 @@ public class CarbonBattles {
         //Manager Optie
         lijst.add(new Manager("Admin", "Admin", "123"));
         lijst.add(new Manager("Adam2", "Adam123", "696969"));
+        lijst.add(new Manager("Adam2", "Tarun3", "123456"));
         return lijst;
     }
 
