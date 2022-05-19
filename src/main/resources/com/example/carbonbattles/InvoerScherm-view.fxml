@@ -8,10 +8,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="750.0" prefHeight="400.0" prefWidth="600.0" spacing="25.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.InvoerSchermController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="750.0" prefHeight="400.0" prefWidth="600.0" spacing="25.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.InvoerSchermController">
    <children>
-      <Label contentDisplay="CENTER" text="Invoer Scherm CarbonBattles" />
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="750.0" style="-fx-background-color: grey;" text="Invoer Scherm CarbonBattles" textAlignment="CENTER">
+         <font>
+            <Font name="Impact" size="36.0" />
+         </font></Label>
       <CheckBox fx:id="elektrischCheckbox" mnemonicParsing="false" text="Elektrisch">
          <padding>
             <Insets top="10.0" />
@@ -33,16 +37,22 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="25.0" prefWidth="200.0">
          <children>
-            <ChoiceBox fx:id="boxKeuzes" prefWidth="150.0">
+            <ChoiceBox fx:id="boxKeuzes" prefWidth="150.0" style="-fx-border-radius: 50;">
                <HBox.margin>
                   <Insets right="250.0" />
                </HBox.margin></ChoiceBox>
-            <TextField fx:id="datumVeld" promptText="Voer hier de datum in" />
+            <TextField fx:id="datumVeld" promptText="Voer hier de datum in" style="-fx-background-color: #D3D3D3; -fx-background-radius: 50;" />
          </children>
       </HBox>
-      <TextField fx:id="kilometerVeld" promptText="Voer hier uw aantal kilometers in" />
-      <Button fx:id="verzendButton" mnemonicParsing="false" onAction="#verzendGegevens" style="-fx-background-color: #ff0000;" text="Verzenden" />
+      <TextField fx:id="kilometerVeld" alignment="CENTER" prefHeight="26.0" prefWidth="561.0" promptText="Voer hier uw aantal kilometers in" style="-fx-background-color: #D3D3D3;">
+         <font>
+            <Font name="Impact" size="13.0" />
+         </font></TextField>
+      <Button fx:id="verzendButton" mnemonicParsing="false" onAction="#verzendGegevens" style="-fx-background-color: #ADD8E6;" text="Verzenden" />
       <Label fx:id="infoShower" contentDisplay="CENTER" />
-      <Button fx:id="backToMenuButton" alignment="CENTER" minWidth="450.0" mnemonicParsing="false" onAction="#gaNaarMenuScherm" text="Back to menu" />
+      <Button fx:id="backToMenuButton" alignment="CENTER" minWidth="450.0" mnemonicParsing="false" onAction="#gaNaarMenuScherm" style="-fx-border-radius: 50; -fx-background-color: grey;" text="Back to menu">
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin></Button>
    </children>
 </VBox>

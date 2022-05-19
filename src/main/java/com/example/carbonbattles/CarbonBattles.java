@@ -28,6 +28,7 @@ public class CarbonBattles {
         //Er moet mogelijkheid komen om van User te switchen om beide menus te tonen aan product owner!!!!
 
         //Manager Optie
+        lijst.add(new Manager("Admin", "Admin", "123"));
         lijst.add(new Manager("Adam2", "Adam123", "696969"));
         return lijst;
     }
