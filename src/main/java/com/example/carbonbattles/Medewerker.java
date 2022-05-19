@@ -19,10 +19,5 @@ public class Medewerker extends User {
             getRitten().add(rit);
     }
 
-    @Override
-    public void showRanglijst() {
-        Ranglijst rang  = new Ranglijst();
-        rang.toonRanglijstMedewerkers();
-    }
 
 }

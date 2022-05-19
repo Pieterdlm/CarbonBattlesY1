@@ -40,7 +40,7 @@ public class InvoerSchermController {
 
     @FXML
     void gaNaarMenuScherm(ActionEvent event) throws IOException {
-        if (CarbonBattles.getUsers().get(0).isAdmin()) {
+        if (CarbonBattles.getIngelogdeUser().isAdmin()) {
             Parent root = FXMLLoader.load(getClass().getResource("ManagerMenu.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
