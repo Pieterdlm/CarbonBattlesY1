@@ -1,10 +1,9 @@
-package com.example.carbonbattles;
+package com.example.carbonbattles.Models;
 
 public class Auto extends Voertuig{
 
     public Auto() {
-        super();
-        setNaamVoertuig("Auto");
+        super("Auto");
     }
 
     //Per Rit maximaal aantal punten ? En punten aftrekken naar mate meer kilometers ?

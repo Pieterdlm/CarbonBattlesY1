@@ -1,4 +1,4 @@
-package com.example.carbonbattles;
+package com.example.carbonbattles.Models;
 
 public abstract class Voertuig {
     private String naamVoertuig;
@@ -7,7 +7,8 @@ public abstract class Voertuig {
 
     public abstract int berekenPunten(int kilometers, boolean elektrischOfNiet);
 
-    public Voertuig() {
+    public Voertuig(String naamVoertuig) {
+        this.naamVoertuig = naamVoertuig;
     }
 
     public boolean getElektrischOfNiet() {
