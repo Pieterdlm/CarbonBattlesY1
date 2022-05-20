@@ -1,6 +1,5 @@
-
-import com.example.carbonbattles.Models.*;
 import com.example.carbonbattles.Ranglijst;
+import com.example.carbonbattles.Models.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

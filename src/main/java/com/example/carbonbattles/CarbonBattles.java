@@ -1,8 +1,5 @@
 package com.example.carbonbattles;
-
-import com.example.carbonbattles.Models.Manager;
-import com.example.carbonbattles.Models.Medewerker;
-import com.example.carbonbattles.Models.User;
+import com.example.carbonbattles.Models.*;
 
 import java.util.ArrayList;
 

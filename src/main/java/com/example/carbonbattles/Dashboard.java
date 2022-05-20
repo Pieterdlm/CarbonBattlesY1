@@ -3,6 +3,7 @@ package com.example.carbonbattles;
 import com.example.carbonbattles.Models.User;
 
 import java.util.ArrayList;
+import com.example.carbonbattles.Models.*;
 
 public class Dashboard {
 

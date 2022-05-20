@@ -1,6 +1,6 @@
 package com.example.carbonbattles;
 
-import com.example.carbonbattles.Models.User;
+import com.example.carbonbattles.Models.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
