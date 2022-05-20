@@ -1,7 +1,5 @@
 package com.example.carbonbattles.Models;
 
-import com.example.carbonbattles.Beloning;
-
 import java.util.ArrayList;
 
 public abstract class User {

@@ -1,4 +1,4 @@
-package com.example.carbonbattles;
+package com.example.carbonbattles.Models;
 
 public class Beloning {
     private String naam;
@@ -14,6 +14,6 @@ public class Beloning {
     }
 
     public String toString() {
-        return "Rit van " + datum + "           " + "+ " + nettoPuntenVerandering + " Punten";
+        return "Rit van " + datum + "           " + "+ " + nettoPuntenVerandering.toString() + " Punten";
     }
 }
