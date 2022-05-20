@@ -11,4 +11,7 @@ public class Manager extends User {
     public void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum) {
     }
 
+    @Override
+    public void createABeloning(String naam, String beloning, Integer nettoPuntenVerandering, String datum){
+    }
 }

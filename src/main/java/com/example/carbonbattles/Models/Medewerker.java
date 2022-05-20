@@ -14,5 +14,7 @@ public class Medewerker extends User {
         getRitten().add(rit);
     }
 
-
+    @Override
+    public void createABeloning(String naam, String beloning, Integer nettoPuntenVerandering, String datum){
+    }
 }

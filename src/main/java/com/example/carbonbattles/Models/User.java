@@ -1,7 +1,5 @@
 package com.example.carbonbattles.Models;
 
-import com.example.carbonbattles.Beloning;
-
 import java.util.ArrayList;
 
 public abstract class User {
@@ -66,4 +64,6 @@ public abstract class User {
     }
 
     public abstract void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum);
+
+    public abstract void createABeloning(String naam, String beloning, Integer nettoPuntenVerandering, String datum);
 }
