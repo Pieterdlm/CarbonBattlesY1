@@ -33,48 +33,19 @@ public class dashboardView implements Initializable {
     private Scene scene;
     private Parent root;
     private Stage stage;
+    private Dashboard dashboard;
 
-    private ArrayList<User> medewerkers = new ArrayList<>();
-
-
-    public dashboardView() {
-        for (User u :CarbonBattles.getUsers()) {
-            if (!u.isAdmin()){
-                medewerkers.add(u);
-            }
-        }
-    }
 
     ObservableList<User> list = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        dashboard = new Dashboard();
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
         puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-        ArrayList<User> top5 = toonRanglijstManager(medewerkers);
+        ArrayList<User> top5 = dashboard.toonRanglijstManager(dashboard.getTop5());
         list.addAll(top5);
         tabelUsers.setItems(list);
-    }
-
-
-
-    public ArrayList<User> toonRanglijstManager(ArrayList<User> lijst) {
-        ArrayList<User> top5Lijst = new ArrayList<>();
-        for (int i = 0; i < lijst.size() - 1; i++) {
-            int m = i;
-            for (int j = i + 1; j < lijst.size(); j++) {
-                if (lijst.get(m).getAantalPunten() < lijst.get(j).getAantalPunten())
-                    m = j;
-            }
-            //omruilen elementen positie i en m
-            User temp = lijst.get(i);
-            lijst.set(i, lijst.get(m));
-            lijst.set(m, temp);
-        }
-        for (int i = 0; i < 5; i++) {
-            top5Lijst.add(lijst.get(i));
-        }
-        return top5Lijst;
     }
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
