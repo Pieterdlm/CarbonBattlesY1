@@ -55,7 +55,6 @@ public class AuthenticateController extends CarbonBattles {
                     stage.show();
 
                 } else {
-                    System.out.println("Hahaha123");
                     loginMessageLabel.setText("Incorrect credentials!");
                 }
             }
@@ -63,7 +62,6 @@ public class AuthenticateController extends CarbonBattles {
                 loginMessageLabel.setText("Please enter your Username and Password.");
             }
             else {
-                System.out.println(usernameTextField.getText() + " " + passwordField.getText());
                 loginMessageLabel.setText("Incorrect credentials!");
             }
         }
