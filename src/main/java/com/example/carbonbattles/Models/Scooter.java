@@ -1,10 +1,10 @@
-package com.example.carbonbattles;
+package com.example.carbonbattles.Models;
 
 public class Scooter extends Voertuig{
 
     public Scooter() {
-        super();
-        setNaamVoertuig("Scooter");
+        super("Scooter");
+
     }
 
     @Override

@@ -6,4 +6,6 @@ module com.example.carbonbattles {
 
     opens com.example.carbonbattles to javafx.fxml;
     exports com.example.carbonbattles;
+    exports com.example.carbonbattles.Models;
+    opens com.example.carbonbattles.Models to javafx.fxml;
 }

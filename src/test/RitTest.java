@@ -1,5 +1,4 @@
-import com.example.carbonbattles.*;
-import com.example.carbonbattles.Voertuig;
+import com.example.carbonbattles.Models.*;
 import org.junit.Assert;
 import org.junit.Test;
 
