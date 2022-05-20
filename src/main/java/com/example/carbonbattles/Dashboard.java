@@ -1,5 +1,7 @@
 package com.example.carbonbattles;
 
+import com.example.carbonbattles.Models.User;
+
 import java.util.ArrayList;
 
 public class Dashboard {

@@ -21,7 +21,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 
-public class Ranglijst implements Initializable {
+public class Ranglijst {
 
     @FXML
     private TableView<User> tabelUsers;
@@ -36,28 +36,15 @@ public class Ranglijst implements Initializable {
     private Stage stage;
 
     private ArrayList<User> medewerkers = new ArrayList<>();
-
+    private ArrayList<User> gesorteerdeLijst;
     public Ranglijst() {
         for (User u :CarbonBattles.getUsers()) {
                 if (!u.isAdmin()){
                     medewerkers.add(u);
                 }
         }
+        gesorteerdeLijst = toonRanglijstMedewerkers(medewerkers);
     }
-
-
-    ObservableList<User> list = FXCollections.observableArrayList();
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
-        puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-        ArrayList<User> gesorteerdeLijst = toonRanglijstMedewerkers(medewerkers);
-        list.addAll(gesorteerdeLijst);
-        tabelUsers.setItems(list);
-
-    }
-
 
     public ArrayList<User> toonRanglijstMedewerkers(ArrayList<User> lijst) {
         for (int i = 0; i < lijst.size(); i++) {
@@ -76,23 +63,7 @@ public class Ranglijst implements Initializable {
         return lijst;
     }
 
-    public void backButtonOnAction(ActionEvent event) throws IOException {
-        if (CarbonBattles.getIngelogdeUser().isAdmin()) {
-            Parent root = FXMLLoader.load(getClass().getResource("ManagerMenu.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("CarbonBattles");
-            stage.setResizable(false);
-            stage.show();
-        } else {
-            Parent root = FXMLLoader.load(getClass().getResource("MedewerkerMenu.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("CarbonBattles");
-            stage.setResizable(false);
-            stage.show();
-        }
+    public ArrayList<User> getGesorteerdeLijst() {
+        return gesorteerdeLijst;
     }
 }
