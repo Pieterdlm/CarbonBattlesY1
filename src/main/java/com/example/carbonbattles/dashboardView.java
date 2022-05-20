@@ -34,7 +34,6 @@ public class dashboardView implements Initializable {
     private Stage stage;
 
     private ArrayList<User> medewerkers = new ArrayList<>();
-    private ArrayList<User> top5 = new ArrayList<>();
 
 
     public dashboardView() {
@@ -51,13 +50,15 @@ public class dashboardView implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
         puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-        toonRanglijstManager(medewerkers);
-
+        ArrayList<User> top5 = toonRanglijstManager(medewerkers);
+        list.addAll(top5);
+        tabelUsers.setItems(list);
     }
 
 
 
-    public void toonRanglijstManager(ArrayList<User> lijst) {
+    public ArrayList<User> toonRanglijstManager(ArrayList<User> lijst) {
+        ArrayList<User> top5Lijst = new ArrayList<>();
         for (int i = 0; i < lijst.size() - 1; i++) {
             int m = i;
             for (int j = i + 1; j < lijst.size(); j++) {
@@ -70,10 +71,9 @@ public class dashboardView implements Initializable {
             lijst.set(m, temp);
         }
         for (int i = 0; i < 5; i++) {
-            top5.add(lijst.get(i));
+            top5Lijst.add(lijst.get(i));
         }
-        list.addAll(top5);
-        tabelUsers.setItems(list);
+        return top5Lijst;
     }
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
