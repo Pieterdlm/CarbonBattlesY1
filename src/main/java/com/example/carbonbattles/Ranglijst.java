@@ -52,12 +52,14 @@ public class Ranglijst implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
         puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-        toonRanglijstMedewerkers(medewerkers);
+        ArrayList<User> gesorteerdeLijst = toonRanglijstMedewerkers(medewerkers);
+        list.addAll(gesorteerdeLijst);
+        tabelUsers.setItems(list);
 
     }
 
 
-    public void toonRanglijstMedewerkers(ArrayList<User> lijst) {
+    public ArrayList<User> toonRanglijstMedewerkers(ArrayList<User> lijst) {
         for (int i = 0; i < lijst.size(); i++) {
             int m = i;
             for (int j = i + 1; j < lijst.size(); j++) {
@@ -70,11 +72,8 @@ public class Ranglijst implements Initializable {
             User temp = lijst.get(i);
             lijst.set(i, lijst.get(m));
             lijst.set(m, temp);
-
-
         }
-        list.addAll(lijst);
-        tabelUsers.setItems(list);
+        return lijst;
     }
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
