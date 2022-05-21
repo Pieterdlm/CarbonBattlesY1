@@ -1,5 +1,6 @@
 package com.example.carbonbattles;
 
+import com.example.carbonbattles.Models.Beloning;
 import com.example.carbonbattles.Models.Rit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

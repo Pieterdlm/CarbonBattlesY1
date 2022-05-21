@@ -13,7 +13,20 @@ public class Beloning {
         this.datum = datum;
     }
 
+    public String getBeloning() {
+        return Beloning;
+    }
+
+    public String getDatum() {
+        return datum;
+    }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    @Override
     public String toString() {
-        return "Rit van " + datum + "           " + "+ " + nettoPuntenVerandering.toString() + " Punten";
+        return "Beloning gekregen op: " + datum + "           " + "- " + nettoPuntenVerandering.toString() + " Punten";
     }
 }
