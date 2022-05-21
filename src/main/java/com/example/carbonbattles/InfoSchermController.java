@@ -31,6 +31,9 @@ public class InfoSchermController implements Initializable {
     private ListView<Rit> ListView;
 
     @FXML
+    private ListView<Beloning> ListView1;
+
+    @FXML
     private Text MijnInfo;
 
     @FXML
@@ -55,7 +58,9 @@ public class InfoSchermController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<Rit> ritten = CarbonBattles.getIngelogdeUser().getRitten();
+        ArrayList<Beloning> belonings = CarbonBattles.getIngelogdeUser().getBeloningen();
         ListView.getItems().addAll(ritten);
+        ListView1.getItems().addAll(belonings);
         logo.setVisible(true);
 
         int puntenVanIngelogdeUser = CarbonBattles.getIngelogdeUser().getAantalPunten();
@@ -66,6 +71,7 @@ public class InfoSchermController implements Initializable {
     @FXML
     private void displaySelected(MouseEvent event) {
         Rit rit = ListView.getSelectionModel().getSelectedItem();
+        Beloning beloning = ListView1.getSelectionModel().getSelectedItem();
 
         if (rit == null) {
             myTextArea.setText("U heeft nog geen rit geselecteerd");

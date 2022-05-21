@@ -5,7 +5,6 @@ public class Beloning {
     private String Beloning;
     private Integer nettoPuntenVerandering;
     private String datum;
-
     public Beloning(String naam, String beloning, Integer nettoPuntenVerandering, String datum) {
         this.naam = naam;
         Beloning = beloning;
