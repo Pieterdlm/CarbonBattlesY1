@@ -1,13 +1,11 @@
-package com.example.carbonbattles;
+package com.example.carbonbattles.Models;
 
 public class Fiets extends Voertuig{
 
     public Fiets() {
-        super();
-        setNaamVoertuig("Fiets");
+        super("Fiets");
     }
 
-    //Welke berekening voor fiets ? Geen CO2 dus geen punt aftrek maar standaard aantal terug geven ofso ?
     @Override
     public int berekenPunten(int kilometers, boolean elektrischOfNiet) {
         return kilometers * 50;

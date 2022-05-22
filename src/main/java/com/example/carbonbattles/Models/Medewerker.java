@@ -1,4 +1,4 @@
-package com.example.carbonbattles;
+package com.example.carbonbattles.Models;
 
 public class Medewerker extends User {
 
@@ -10,14 +10,11 @@ public class Medewerker extends User {
     @Override
     public void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum) {
         Rit rit = new Rit(kilometers, voertuig, elektrischOfNiet, datum);
-
-        if (rit.berekenAantalPunten() + getAantalPunten() > 0){
-            setAantalPunten(rit.berekenAantalPunten() + getAantalPunten());
-        }else {
-            setAantalPunten(0);
-        }
-            getRitten().add(rit);
+        setAantalPunten(rit.berekenAantalPunten() + getAantalPunten());
+        getRitten().add(rit);
     }
 
-
+    @Override
+    public void createABeloning(String naam, String beloning, Integer nettoPuntenVerandering, String datum){
+    }
 }

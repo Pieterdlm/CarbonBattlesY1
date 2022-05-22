@@ -1,4 +1,4 @@
-package com.example.carbonbattles;
+package com.example.carbonbattles.Models;
 
 public class Rit {
     private int aantalKilometers;
@@ -10,11 +10,16 @@ public class Rit {
         this.aantalKilometers = aantalKilometers;
         this.voertuig = voertuig;
         this.elektrischOfNiet = elektrischOfNiet;
+        voertuig.setElektrischOfNiet(elektrischOfNiet);
         this.datum = datum;
     }
 
     public int berekenAantalPunten(){
-        return voertuig.berekenPunten(aantalKilometers, elektrischOfNiet);
+        if (voertuig.berekenPunten(aantalKilometers, elektrischOfNiet) > 0){
+            return voertuig.berekenPunten(aantalKilometers,elektrischOfNiet);
+        }else{
+            return 0;
+        }
     }
 
     public boolean getElektrischOfNiet(){

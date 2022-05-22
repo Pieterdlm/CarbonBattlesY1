@@ -1,6 +1,4 @@
-import com.example.carbonbattles.*;
-import javafx.event.ActionEvent;
-import org.junit.Assert;
+import com.example.carbonbattles.Models.Medewerker;
 import org.junit.Test;
 
 public class AuthenticateControllerTest {
