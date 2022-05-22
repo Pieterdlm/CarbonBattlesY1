@@ -44,4 +44,17 @@ public class Dashboard {
     public ArrayList<User> getTop5() {
         return top5;
     }
+
+//methode voor het omruilen van punten voor een beloning, die door de admin wordt toegekend
+    public int substractPoints(int punten, User user){
+        if(user.getAantalPunten()==0){
+            return user.getAantalPunten();
+        }
+        else if(user.getAantalPunten()<punten){
+            return user.getAantalPunten();
+        }
+        return user.getAantalPunten() - punten;
+    }
+
+
 }

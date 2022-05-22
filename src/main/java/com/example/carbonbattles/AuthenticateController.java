@@ -53,6 +53,7 @@ public class AuthenticateController extends CarbonBattles {
                     stage.setTitle("CarbonBattles");
                     stage.setResizable(false);
                     stage.show();
+                    break;
 
                 } else {
                     loginMessageLabel.setText("Incorrect credentials!");
