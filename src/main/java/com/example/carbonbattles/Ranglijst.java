@@ -1,39 +1,10 @@
 package com.example.carbonbattles;
 
 import com.example.carbonbattles.Models.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 
 public class Ranglijst {
-
-    @FXML
-    private TableView<User> tabelUsers;
-    @FXML
-    private TableColumn<User, String> naamColumn;
-    @FXML
-    private TableColumn<User, Integer> puntenColumn;
-    @FXML
-    private Button backToMenu;
-    private Scene scene;
-    private Parent root;
-    private Stage stage;
 
     private ArrayList<User> medewerkers = new ArrayList<>();
     private ArrayList<User> gesorteerdeLijst;
