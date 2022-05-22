@@ -71,10 +71,9 @@ public class InfoSchermController implements Initializable {
     @FXML
     private void displaySelected(MouseEvent event) {
         Rit rit = ListView.getSelectionModel().getSelectedItem();
-        Beloning beloning = ListView1.getSelectionModel().getSelectedItem();
 
         if (rit == null) {
-            myTextArea.setText("U heeft nog geen rit geselecteerd");
+            myTextArea.setText("U heeft nog geen rit of beloning geselecteerd");
         } else {
 
             String reistext = "Op: " + rit.getDatum() + " heeft u " + rit.getAantalKilometers() + " kilometer gereisd met de " +

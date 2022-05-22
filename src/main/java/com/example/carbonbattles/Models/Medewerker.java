@@ -15,6 +15,9 @@ public class Medewerker extends User {
     }
 
     @Override
-    public void createABeloning(String naam, String beloning, Integer nettoPuntenVerandering, String datum){
+    public void createABeloning(String redenVoorBeloning, String beloning, Integer nettoPuntenVerandering, String datum){
+        Beloning beloning1 = new Beloning(redenVoorBeloning, beloning, nettoPuntenVerandering, datum);
+        setAantalPunten(getAantalPunten() - nettoPuntenVerandering);
+        getBeloningen().add(beloning1);
     }
 }
