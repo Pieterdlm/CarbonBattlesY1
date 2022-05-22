@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.dashboardView">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.dashboardView">
 <top>
     <AnchorPane prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: a7e99c;" BorderPane.alignment="CENTER">
         <children>
@@ -54,7 +54,7 @@
                     </DropShadow>
                 </effect>
             </TableView>
-            <TextField fx:id="naamEmployee" layoutX="60.0" layoutY="229.0" prefHeight="25.0" prefWidth="125.0">
+            <TextField fx:id="redenVoorBeloning" layoutX="60.0" layoutY="229.0" prefHeight="25.0" prefWidth="125.0">
                <effect>
                   <DropShadow offsetY="5.0">
                      <color>
@@ -62,7 +62,7 @@
                      </color>
                   </DropShadow>
                </effect></TextField>
-            <Button layoutX="188.0" layoutY="351.0" mnemonicParsing="false" onAction="#buttonRewardEmployee" prefHeight="9.0" prefWidth="61.0" style="-fx-background-color: a7e99c;" text="Beloon">
+            <Button fx:id="buttonRewardEmployee" layoutX="188.0" layoutY="351.0" mnemonicParsing="false" onAction="#buttonRewardEmployee" prefHeight="9.0" prefWidth="61.0" style="-fx-background-color: a7e99c;" text="Beloon">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>

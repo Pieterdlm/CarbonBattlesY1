@@ -25,7 +25,6 @@ public class Ranglijst {
                     m = j;
             }
 
-
             //omruilen elementen positie i en m
             User temp = lijst.get(i);
             lijst.set(i, lijst.get(m));
