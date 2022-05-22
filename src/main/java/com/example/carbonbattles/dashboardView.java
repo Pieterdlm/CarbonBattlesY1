@@ -85,22 +85,26 @@ public class dashboardView implements Initializable {
 
     @FXML
     void buttonRewardEmployee(ActionEvent event) throws IOException {
-        int puntenAantal = getIntFromTextField(kenPuntenToe);
-        String beloning = beschrijvingBeloning.getText();
-        String naam = naamEmployee.getText();
-        String date = datum.getText();
-        User clickedUser = tabelUsers.getSelectionModel().getSelectedItem();
-        clickedUser.setAantalPunten(dashboard.substractPoints(puntenAantal, clickedUser));
+        if(!(kenPuntenToe.getText().isBlank()|| beschrijvingBeloning.getText().isBlank() || naamEmployee.getText().isBlank() || datum.getText().isBlank() )){
+            int puntenAantal = getIntFromTextField(kenPuntenToe);
+            String beloning = beschrijvingBeloning.getText();
+            String naam = naamEmployee.getText();
+            String date = datum.getText();
+            User clickedUser = tabelUsers.getSelectionModel().getSelectedItem();
+            clickedUser.setAantalPunten(dashboard.substractPoints(puntenAantal, clickedUser));
 
-        for ( int i = 0; i<tabelUsers.getItems().size(); i++) {
-            tabelUsers.getItems().clear();
+            for ( int i = 0; i<tabelUsers.getItems().size(); i++) {
+                tabelUsers.getItems().clear();
+                break;
+            }
+            dashboard = new Dashboard();
+            naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
+            puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
+            ArrayList<User> top5 = dashboard.toonRanglijstManager(dashboard.getTop5());
+            list.addAll(top5);
+            tabelUsers.setItems(list);
         }
-        dashboard = new Dashboard();
-        naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
-        puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-        ArrayList<User> top5 = dashboard.toonRanglijstManager(dashboard.getTop5());
-        list.addAll(top5);
-        tabelUsers.setItems(list);
+
     }
 
 
