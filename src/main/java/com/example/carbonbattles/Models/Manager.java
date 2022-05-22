@@ -13,5 +13,8 @@ public class Manager extends User {
 
     @Override
     public void createABeloning(String naam, String beloning, Integer nettoPuntenVerandering, String datum){
+        Beloning beloning1 = new Beloning(naam, beloning, nettoPuntenVerandering, datum);
+        setAantalPunten(getAantalPunten() + nettoPuntenVerandering);
+        getBeloningen().add(beloning1);
     }
 }
