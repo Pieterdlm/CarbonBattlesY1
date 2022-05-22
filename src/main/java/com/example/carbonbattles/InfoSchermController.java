@@ -1,5 +1,7 @@
 package com.example.carbonbattles;
 
+import com.example.carbonbattles.Models.Beloning;
+import com.example.carbonbattles.Models.Rit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +10,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -19,7 +20,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class InfoSchermController implements Initializable {
@@ -29,6 +29,9 @@ public class InfoSchermController implements Initializable {
 
     @FXML
     private ListView<Rit> ListView;
+
+    @FXML
+    private ListView<Beloning> ListView1;
 
     @FXML
     private Text MijnInfo;
@@ -55,7 +58,9 @@ public class InfoSchermController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<Rit> ritten = CarbonBattles.getIngelogdeUser().getRitten();
+        ArrayList<Beloning> belonings = CarbonBattles.getIngelogdeUser().getBeloningen();
         ListView.getItems().addAll(ritten);
+        ListView1.getItems().addAll(belonings);
         logo.setVisible(true);
 
         int puntenVanIngelogdeUser = CarbonBattles.getIngelogdeUser().getAantalPunten();
@@ -68,7 +73,7 @@ public class InfoSchermController implements Initializable {
         Rit rit = ListView.getSelectionModel().getSelectedItem();
 
         if (rit == null) {
-            myTextArea.setText("U heeft nog geen rit geselecteerd");
+            myTextArea.setText("U heeft nog geen rit of beloning geselecteerd");
         } else {
 
             String reistext = "Op: " + rit.getDatum() + " heeft u " + rit.getAantalKilometers() + " kilometer gereisd met de " +

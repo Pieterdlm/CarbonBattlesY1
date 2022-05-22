@@ -7,13 +7,13 @@
 
 <BorderPane maxHeight="-Infinity" minWidth="520.0" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.AuthenticateController">
 <left>
-    <AnchorPane prefHeight="407.0" prefWidth="250.0" style="-fx-background-color: #ADD8E6;" BorderPane.alignment="CENTER">
+    <AnchorPane prefHeight="407.0" prefWidth="250.0" style="-fx-background-color: #a7e99c;" BorderPane.alignment="CENTER">
         <children>
             <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="25.0" layoutY="100.0">
                <image>
                   <Image url="@CarbonBattles.png" />
                </image></ImageView>
-            <Label layoutX="39.0" layoutY="373.0" text="© 2022 BetaBit. All Rights Reserved" underline="true">
+            <Label layoutX="46.0" layoutY="373.0" text="© 2022 BetaBit. All Rights Reserved" underline="true">
                 <font>
                     <Font name="Arial" size="10.0" />
                 </font>
@@ -29,7 +29,7 @@
                     <Font name="Calibri Bold" size="24.0" />
                 </font>
             </Label>
-            <TextField fx:id="usernameTextField" alignment="CENTER" layoutX="60.0" layoutY="145.0" prefHeight="27.0" prefWidth="150.0" promptText="Email" style="-fx-background-radius: 50; -fx-background-color: F8F8F8;">
+            <TextField fx:id="usernameTextField" alignment="CENTER" layoutX="60.0" layoutY="145.0" prefHeight="27.0" prefWidth="150.0" promptText="Gebruikersnaam" style="-fx-background-radius: 50; -fx-background-color: F8F8F8;">
                 <font>
                     <Font name="Candara" size="14.0" />
                 </font>
@@ -39,7 +39,7 @@
                     <Font name="Calibri Bold" size="14.0" />
                 </font>
             </Button>
-            <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="60.0" layoutY="180.0" prefHeight="27.0" prefWidth="150.0" promptText="Password" style="-fx-background-radius: 50; -fx-background-color: F8F8F8;">
+            <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="60.0" layoutY="180.0" prefHeight="27.0" prefWidth="150.0" promptText="Wachtwoord" style="-fx-background-radius: 50; -fx-background-color: F8F8F8;">
                 <font>
                     <Font name="Calibri" size="14.0" />
                 </font>

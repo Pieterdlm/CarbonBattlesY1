@@ -1,6 +1,6 @@
 package com.example.carbonbattles;
 
-import javafx.collections.FXCollections;
+import com.example.carbonbattles.Models.Voertuig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,17 +8,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 public class InvoerSchermController {
 
-    private CarbonBattles carbonbattle = new CarbonBattles();
 
     @FXML
     private ChoiceBox<Voertuig> boxKeuzes;
@@ -40,7 +35,7 @@ public class InvoerSchermController {
 
     @FXML
     void gaNaarMenuScherm(ActionEvent event) throws IOException {
-        if (CarbonBattles.getUsers().get(0).isAdmin()) {
+        if (CarbonBattles.getIngelogdeUser().isAdmin()) {
             Parent root = FXMLLoader.load(getClass().getResource("ManagerMenu.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
@@ -80,7 +75,7 @@ public class InvoerSchermController {
                 //Test printen van het aantal punten van een rit (Verwijder na afronden Sprint)
                 System.out.println(CarbonBattles.getIngelogdeUser().getNaam() + " heeft " +
                         CarbonBattles.getIngelogdeUser().getAantalPunten() + " punten ontvangen op " +
-                        CarbonBattles.getIngelogdeUser().getRitten().get(0).getDatum());
+                        CarbonBattles.getIngelogdeUser().getRitten().get(0));
             }
         }
     }

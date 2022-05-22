@@ -1,4 +1,4 @@
-package com.example.carbonbattles;
+package com.example.carbonbattles.Models;
 
 public class Manager extends User {
 
@@ -9,12 +9,9 @@ public class Manager extends User {
 
     @Override
     public void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum) {
-
     }
 
     @Override
-    public void showRanglijst() {
-        Ranglijst rang  = new Ranglijst();
-        rang.toonRanglijstManager();
+    public void createABeloning(String redenVoorBeloning, String beloning, Integer nettoPuntenVerandering, String datum){
     }
 }

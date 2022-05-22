@@ -1,4 +1,4 @@
-package com.example.carbonbattles;
+package com.example.carbonbattles.Models;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ public abstract class User {
     private boolean isAdmin;
     private int aantalPunten;
     private ArrayList<Rit> ritten = new ArrayList<>();
-    private ArrayList<Beloning> beloningen = new ArrayList<Beloning>();
+    private ArrayList<Beloning> beloningen = new ArrayList<>();
 
     public User(String naam, String gebruikersnaam, String wachtwoord) {
         this.naam = naam;
@@ -63,7 +63,9 @@ public abstract class User {
         this.aantalPunten = aantalPunten;
     }
 
+    public ArrayList<Beloning> getBeloningen(){return beloningen;};
 
-    public abstract void showRanglijst();
     public abstract void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum);
+
+    public abstract void createABeloning(String redenVoorBeloning, String beloning, Integer nettoPuntenVerandering, String datum);
 }
