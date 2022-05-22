@@ -37,6 +37,7 @@ public class AuthenticateController extends CarbonBattles {
 
     public void signInButtonOnAction(ActionEvent event) throws IOException {
         Parent root;
+
         for (User u : CarbonBattles.getUsers()) {
             if (u.getGebruikersNaam().equals(usernameTextField.getText().toString())) {
                 if (u.getWachtwoord().equals(passwordField.getText().toString())) {
