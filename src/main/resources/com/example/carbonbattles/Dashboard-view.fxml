@@ -5,46 +5,120 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.dashboardView">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.dashboardView">
 <top>
-    <AnchorPane prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6;" BorderPane.alignment="CENTER">
+    <AnchorPane prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: a7e99c;" BorderPane.alignment="CENTER">
         <children>
-            <Text layoutX="344.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CarbonBattles">
-                <font>
-                    <Font name="Impact" size="36.0" />
-                </font>
+            <Button fx:id="backToMenu" layoutX="826.0" layoutY="27.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="27.0" prefWidth="60.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-background-radius: 50; -fx-border-radius: 50;" text="Menu">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="10.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../carbonbattles2.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="356.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-stroke-width: 1; -fx-stroke: black;" text="Dashboard">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="35.0" />
+               </font>
             </Text>
-            <Button fx:id="backToMenu" layoutX="798.0" layoutY="27.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="27.0" prefWidth="60.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-background-radius: 50; -fx-border-radius: 50;" text="Menu" />
         </children>
     </AnchorPane>
 </top>
-   <left>
-    <AnchorPane prefHeight="520.0" prefWidth="900.0" style="-fx-background-color: #3c3939;" BorderPane.alignment="CENTER">
+   <bottom>
+    <AnchorPane prefHeight="520.0" prefWidth="900.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
         <children>
-            <TableView fx:id="tabelUsers" layoutX="450.0" layoutY="45.0" onMouseClicked="#clickedRow" prefHeight="431.0" prefWidth="400.0" style="-fx-background-color: #EBFBFF;">
+            <TableView fx:id="tabelUsers" layoutX="440.0" layoutY="45.0" prefHeight="431.0" prefWidth="400.0" style="-fx-background-color: f9f9f9;">
                 <columns>
-                    <TableColumn fx:id="naamColumn" prefWidth="200.0" text="Naam" />
-                    <TableColumn fx:id="puntenColumn" prefWidth="199.0" text="Punten" />
+                    <TableColumn fx:id="naamColumn" prefWidth="200.0" sortable="false" text="Naam" />
+                    <TableColumn fx:id="puntenColumn" prefWidth="199.0" sortable="false" text="Punten" />
                 </columns>
                 <columnResizePolicy>
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                 </columnResizePolicy>
+                <effect>
+                    <DropShadow offsetY="5.0">
+                        <color>
+                            <Color red="0.7372549176216125" green="0.7372549176216125" blue="0.7372549176216125" />
+                        </color>
+                    </DropShadow>
+                </effect>
             </TableView>
-            <TextField fx:id="naamEmployee" layoutX="133.0" layoutY="200.0" prefHeight="25.0" prefWidth="110.0" />
-            <Button layoutX="133.0" layoutY="377.0" mnemonicParsing="false" onAction="#buttonRewardEmployee" prefHeight="39.0" prefWidth="61.0" style="-fx-background-color: #B0EBFF;" text="Reward" />
-            <Label layoutX="77.0" layoutY="200.0" prefHeight="25.0" style="-fx-background-color: #B0EBFF;" text="naam" />
-            <TextField fx:id="beschrijvingBeloning" layoutX="131.0" layoutY="240.0" prefHeight="25.0" prefWidth="264.0" />
-            <TextField fx:id="kenPuntenToe" layoutX="131.0" layoutY="280.0" prefHeight="25.0" prefWidth="110.0" />
-            <TextField fx:id="datum" layoutX="131.0" layoutY="320.0" prefHeight="25.0" prefWidth="140.0" />
-            <Label layoutX="50.0" layoutY="240.0" prefHeight="25.0" style="-fx-background-color: #B0EBFF;" text="Belonining" />
-            <Label layoutX="16.0" layoutY="280.0" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #B0EBFF;" text="Kosten in punten" />
-            <Label layoutX="71.0" layoutY="320.0" prefHeight="25.0" style="-fx-background-color: #B0EBFF;" text="Datum" />
+            <TextField fx:id="naamEmployee" layoutX="60.0" layoutY="229.0" prefHeight="25.0" prefWidth="125.0">
+               <effect>
+                  <DropShadow offsetY="5.0">
+                     <color>
+                        <Color red="0.7372549176216125" green="0.7372549176216125" blue="0.7372549176216125" />
+                     </color>
+                  </DropShadow>
+               </effect></TextField>
+            <Button layoutX="188.0" layoutY="351.0" mnemonicParsing="false" onAction="#buttonRewardEmployee" prefHeight="9.0" prefWidth="61.0" style="-fx-background-color: a7e99c;" text="Beloon">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Label layoutX="78.0" layoutY="189.0" prefHeight="25.0" text="Reden Beloning">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <TextField fx:id="beschrijvingBeloning" layoutX="252.0" layoutY="229.0" prefHeight="25.0" prefWidth="125.0">
+               <effect>
+                  <DropShadow offsetY="5.0">
+                     <color>
+                        <Color red="0.7372549176216125" green="0.7372549176216125" blue="0.7372549176216125" />
+                     </color>
+                  </DropShadow>
+               </effect></TextField>
+            <TextField fx:id="kenPuntenToe" layoutX="60.0" layoutY="301.0" prefHeight="25.0" prefWidth="125.0">
+               <effect>
+                  <DropShadow offsetY="5.0">
+                     <color>
+                        <Color red="0.7372549176216125" green="0.7372549176216125" blue="0.7372549176216125" />
+                     </color>
+                  </DropShadow>
+               </effect></TextField>
+            <TextField fx:id="datum" layoutX="252.0" layoutY="301.0" prefHeight="25.0" prefWidth="125.0" promptText="00-00-0000">
+               <effect>
+                  <DropShadow offsetY="5.0">
+                     <color>
+                        <Color red="0.7372549176216125" green="0.7372549176216125" blue="0.7372549176216125" />
+                     </color>
+                  </DropShadow>
+               </effect></TextField>
+            <Label layoutX="291.0" layoutY="189.0" prefHeight="25.0" text="Beloning" textFill="#a7e99c">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <effect>
+                  <DropShadow offsetY="1.0">
+                     <color>
+                        <Color red="0.6549019813537598" green="0.9137254953384399" blue="0.6117647290229797" />
+                     </color>
+                  </DropShadow>
+               </effect></Label>
+            <Label layoutX="73.0" layoutY="266.0" prefHeight="25.0" prefWidth="99.0" text="Kosten in punten">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label layoutX="297.0" layoutY="266.0" prefHeight="25.0" text="Datum">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Text layoutX="123.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wie wilt u belonen?">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
         </children>
     </AnchorPane>
-   </left>
+   </bottom>
 </BorderPane>
