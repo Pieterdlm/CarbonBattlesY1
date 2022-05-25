@@ -68,4 +68,7 @@ public abstract class User {
     public abstract void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum);
 
     public abstract void createABeloning(String redenVoorBeloning, String beloning, Integer nettoPuntenVerandering, String datum);
+
+    public abstract void checkAchievements();
+
 }
