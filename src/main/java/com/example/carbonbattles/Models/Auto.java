@@ -20,7 +20,7 @@ public class Auto extends Voertuig{
         if (elektrischOfNiet){
             return 0;
         }
-        return kilometers * 0.75;
+        return kilometers * 121.8;
     }
 
 }
