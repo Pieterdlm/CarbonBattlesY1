@@ -15,4 +15,12 @@ public class Auto extends Voertuig{
             return getBaseLinePunten() - (kilometers * 4);
     }
 
+    @Override
+    public double berekenCO2Uitstoot(int kilometers, boolean elektrischOfNiet) {
+        if (elektrischOfNiet){
+            return 0;
+        }
+        return kilometers * 0.75;
+    }
+
 }

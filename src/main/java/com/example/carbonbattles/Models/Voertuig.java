@@ -6,6 +6,7 @@ public abstract class Voertuig {
     private final int baseLinePunten = 300;
 
     public abstract int berekenPunten(int kilometers, boolean elektrischOfNiet);
+    public abstract double berekenCO2Uitstoot(int kilometers, boolean elektrischOfNiet);
 
     public Voertuig(String naamVoertuig) {
         this.naamVoertuig = naamVoertuig;

@@ -11,6 +11,7 @@ public class Medewerker extends User {
     public void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum) {
         Rit rit = new Rit(kilometers, voertuig, elektrischOfNiet, datum);
         setAantalPunten(rit.berekenAantalPunten() + getAantalPunten());
+        setCO2Uitstoot(rit.berekenAantalCO2Uitstoot() + getCO2Uitstoot());
         getRitten().add(rit);
     }
 
