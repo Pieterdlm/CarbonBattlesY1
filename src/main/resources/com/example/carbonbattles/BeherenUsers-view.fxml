@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.InvoerSchermController">
+<BorderPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.BeherenUsersController">
    <top>
       <AnchorPane prefHeight="49.0" prefWidth="562.0" style="-fx-background-color: #a7e99c;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="backToMenuButton" alignment="CENTER" layoutX="481.0" layoutY="14.0" minWidth="53.0" mnemonicParsing="false" onAction="#gaNaarMenuScherm" prefHeight="27.0" prefWidth="53.0" style="-fx-border-radius: 50; -fx-background-color: white; -fx-border-color: grey; -fx-background-radius: 50;" text="Menu">
+            <Button fx:id="backToMenuButton" alignment="CENTER" layoutX="483.0" layoutY="13.0" minWidth="53.0" mnemonicParsing="false" onAction="#gaNaarMenuScherm" prefHeight="27.0" prefWidth="53.0" style="-fx-border-radius: 50; -fx-background-color: white; -fx-border-color: grey; -fx-background-radius: 50;" text="Menu">
                <font>
                   <Font name="SArial Rounded MT Bold" size="12.0" />
                </font></Button>
-            <Text fill="WHITE" layoutX="230.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-stroke-width: 1; -fx-stroke: black;" text="NAAM">
+            <Text fill="WHITE" layoutX="196.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-stroke-width: 1; -fx-stroke: black;" text="USER LIST" textAlignment="CENTER">
                <font>
                   <Font name="Arial Rounded MT Bold" size="30.0" />
                </font>
@@ -27,12 +36,71 @@
    <bottom>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="550.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="81.0" fitWidth="217.0" layoutX="167.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="81.0" fitWidth="217.0" layoutX="14.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../carbonbattles3.png" />
                </image>
             </ImageView>
+            <TableView fx:id="WerknemersTableView" layoutX="14.0" layoutY="14.0" prefHeight="232.0" prefWidth="295.0">
+              <columns>
+                <TableColumn fx:id="naamColumn" prefWidth="95.0" text="Naam" />
+                <TableColumn fx:id="gebruikersNaamColumn" prefWidth="107.0" text="Gebruikersnaam" />
+                  <TableColumn fx:id="puntenColumn" prefWidth="77.0" text="Punten" />
+              </columns>
+            </TableView>
+            <Circle fill="#a7e99c" layoutX="470.0" layoutY="279.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Circle>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f9f9f999" height="200.0" layoutX="327.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.6547449827194214" green="0.9100000262260437" blue="0.6097000241279602" opacity="0.42748090624809265" />
+                     </color>
+                  </DropShadow>
+               </effect></Rectangle>
+            <ImageView fx:id="plusButtonImageView" fitHeight="79.0" fitWidth="85.0" layoutX="431.0" layoutY="240.0" onMouseClicked="#voegUserToe" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@plus-symbol.png" />
+               </image>
+            </ImageView>
+            <CheckBox fx:id="standaardWWCheckBox" layoutX="354.0" layoutY="175.0" mnemonicParsing="false" text="Standaard Wachtwoord" />
+            <Label layoutX="391.0" layoutY="120.0" text="Wachtwoord" textAlignment="CENTER" />
+            <Label layoutX="383.0" layoutY="66.0" text="Gebruikersnaam" textAlignment="CENTER" />
+            <TextField fx:id="inputWachtwoordField" alignment="CENTER" layoutX="351.0" layoutY="137.0" promptText="Uniek wachtwoord" style="-fx-background-color: f9f9f9; -fx-background-radius: 50;">
+               <effect>
+                  <DropShadow offsetY="5.0">
+                     <color>
+                        <Color red="0.7372549176216125" green="0.7372549176216125" blue="0.7372549176216125" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </TextField>
+            <TextField fx:id="inputGebruikersNaamField" alignment="CENTER" layoutX="352.0" layoutY="83.0" promptText="Unieke gebruikersnaam" style="-fx-background-color: f9f9f9; -fx-background-radius: 50;">
+               <effect>
+                  <DropShadow offsetY="5.0">
+                     <color>
+                        <Color red="0.7372549176216125" green="0.7372549176216125" blue="0.7372549176216125" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </TextField>
+            <TextField fx:id="inputNaamField" alignment="CENTER" layoutX="352.0" layoutY="31.0" promptText="Naam van de werknemer" style="-fx-background-color: f9f9f9; -fx-background-radius: 50;">
+               <effect>
+                  <DropShadow offsetY="5.0">
+                     <color>
+                        <Color red="0.7372549176216125" green="0.7372549176216125" blue="0.7372549176216125" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </TextField>
+            <Label layoutX="410.0" layoutY="14.0" text="Naam" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </bottom>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>
