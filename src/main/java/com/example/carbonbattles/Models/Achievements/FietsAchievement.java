@@ -1,8 +1,9 @@
-package com.example.carbonbattles.Models;
+package com.example.carbonbattles.Models.Achievements;
 
 import com.example.carbonbattles.CarbonBattles;
+import com.example.carbonbattles.Models.Achievements.Achievement;
 
-public class FietsAchievement extends Achievement{
+public class FietsAchievement extends Achievement {
     private int waardeBehaald = 5;
 
     public boolean checkBehaald() {

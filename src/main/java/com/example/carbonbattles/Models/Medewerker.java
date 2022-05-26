@@ -2,8 +2,10 @@ package com.example.carbonbattles.Models;
 
 
 
+import com.example.carbonbattles.Models.Achievements.Achievement;
+import com.example.carbonbattles.Models.Achievements.FietsAchievement;
+
 import java.util.ArrayList;
-import java.util.Observer;
 
 public class Medewerker extends User implements IObservable {
 

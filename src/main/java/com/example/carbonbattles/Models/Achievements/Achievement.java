@@ -1,4 +1,6 @@
-package com.example.carbonbattles.Models;
+package com.example.carbonbattles.Models.Achievements;
+
+import com.example.carbonbattles.Models.IObserver;
 
 import java.util.Observer;
 
