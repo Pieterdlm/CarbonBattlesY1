@@ -14,4 +14,12 @@ public class Scooter extends Voertuig{
         }
         return getBaseLinePunten() - (kilometers * 3);
     }
+
+    @Override
+    public double berekenCO2Uitstoot(int kilometers, boolean elektrischOfNiet) {
+        if (elektrischOfNiet){
+            return 0;
+        }
+        return kilometers * 20.0;
+    }
 }
