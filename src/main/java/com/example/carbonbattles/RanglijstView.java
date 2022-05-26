@@ -44,7 +44,7 @@ public class RanglijstView implements Initializable {
         rang = new Ranglijst();
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
         puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-        ArrayList<User> gesorteerdeLijst = rang.toonRanglijstMedewerkers(rang.getGesorteerdeLijst());
+        ArrayList<User> gesorteerdeLijst = rang.getGesorteerdeLijst();
         list.addAll(gesorteerdeLijst);
         tabelUsers.setItems(list);
 

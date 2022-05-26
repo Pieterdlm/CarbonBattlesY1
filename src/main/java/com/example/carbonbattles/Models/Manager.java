@@ -14,4 +14,5 @@ public class Manager extends User {
     @Override
     public void createABeloning(String redenVoorBeloning, String beloning, Integer nettoPuntenVerandering, String datum){
     }
+
 }

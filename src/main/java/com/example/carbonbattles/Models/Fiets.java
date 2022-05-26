@@ -10,4 +10,9 @@ public class Fiets extends Voertuig{
     public int berekenPunten(int kilometers, boolean elektrischOfNiet) {
         return kilometers * 50;
     }
+
+    @Override
+    public double berekenCO2Uitstoot(int kilometers, boolean elektrischOfNiet) {
+        return 0;
+    }
 }

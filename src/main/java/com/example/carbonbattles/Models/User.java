@@ -8,6 +8,7 @@ public abstract class User {
     private String gebruikersNaam;
     private boolean isAdmin;
     private int aantalPunten;
+    private double aantalCO2Uitstoot;
     private ArrayList<Rit> ritten = new ArrayList<>();
     private ArrayList<Beloning> beloningen = new ArrayList<>();
 
@@ -63,9 +64,18 @@ public abstract class User {
         this.aantalPunten = aantalPunten;
     }
 
+    public void setCO2Uitstoot(double aantalCO2Uitstoot){
+        this.aantalCO2Uitstoot = aantalCO2Uitstoot;
+    }
+
     public ArrayList<Beloning> getBeloningen(){return beloningen;};
 
     public abstract void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum);
 
     public abstract void createABeloning(String redenVoorBeloning, String beloning, Integer nettoPuntenVerandering, String datum);
+
+    public double getCO2Uitstoot() {
+        return aantalCO2Uitstoot;
+    }
+
 }
