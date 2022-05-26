@@ -5,24 +5,25 @@ import com.example.carbonbattles.Models.Achievements.Achievement;
 
 public class FietsAchievement extends Achievement {
     private int waardeBehaald = 5;
+    public Integer streak = 0;
 
     public boolean checkBehaald() {
-        int streak = 0;
-        for(int i = 0; i < CarbonBattles.getIngelogdeUser().getRitten().size(); i++){
-            if(CarbonBattles.getIngelogdeUser().getRitten().get(i).getVoertuig().getNaamVoertuig().equals("Fiets")) {
-                streak++;
-            }else{
-                streak = 0;
+        int indexLaatsteRit = CarbonBattles.getIngelogdeUser().getRitten().size() - 1;
+
+        if (CarbonBattles.getIngelogdeUser().getRitten().get(indexLaatsteRit).getVoertuig().getNaamVoertuig().equals("Fiets")) {
+            streak++;
+
+            if (streak == waardeBehaald) {
+                setBehaald(true);
+                levelOpwaarderen();
+                waardeBehaald = waardeBehaald * 2;
+                System.out.println("Fiets achievement behaald");
+                System.out.println(currentLevel);
+                return true;
             }
-                if(streak == waardeBehaald){
-                    System.out.println("Fiets achievement behaald");
-                    setAchievementGehaald(true);
-                    return true;
-                }
+        }else {
+            streak = 0;
         }
-        levelOpwaarderen();
-        waardeBehaald = waardeBehaald * 2;
-        setAchievementGehaald(false);
         return false;
     }
 
@@ -33,6 +34,6 @@ public class FietsAchievement extends Achievement {
 
     @Override
     public void update() {
-        CarbonBattles.getIngelogdeUser().checkAchievements();
+        CarbonBattles.getIngelogdeUser().checkAchievements(this);
     }
 }

@@ -32,6 +32,7 @@ public class Rit{
 
     }
 
+
     public boolean getElektrischOfNiet(){
         return elektrischOfNiet;
     }

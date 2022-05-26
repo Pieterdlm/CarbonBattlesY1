@@ -6,16 +6,16 @@ import java.util.Observer;
 
 public abstract class Achievement implements IObserver {
     private String naamAchievement;
-    private boolean achievementGehaald;
+    private boolean behaald;
     protected level currentLevel = level.Niet_Behaald;
 
-    public void setAchievementGehaald(boolean achievementGehaald) {
-        this.achievementGehaald = achievementGehaald;
-    }
 
     public abstract boolean checkBehaald();
 
+
+
     protected enum level {Niet_Behaald, Bronze, Silver, Gold;}
+
 
     public Achievement(String naamAchievement) {
         this.naamAchievement = naamAchievement;
@@ -23,6 +23,17 @@ public abstract class Achievement implements IObserver {
 
     public void setCurrentLevel(level currentLevel) {
         this.currentLevel = currentLevel;
+    }
+
+    public void setBehaald(boolean behaald) {
+        this.behaald = behaald;
+    }
+
+    public String getCurrentLevel() {
+        return currentLevel.toString();
+    }
+    public boolean isBehaald(){
+        return behaald;
     }
 
     public void levelOpwaarderen(){

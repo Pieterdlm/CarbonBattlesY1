@@ -1,5 +1,7 @@
 package com.example.carbonbattles.Models;
 
+import com.example.carbonbattles.Models.Achievements.Achievement;
+
 import java.util.ArrayList;
 
 public abstract class User {
@@ -19,6 +21,8 @@ public abstract class User {
         this.isAdmin = isAdmin;
         this.aantalPunten = 0;
     }
+
+    public abstract ArrayList<Achievement> getAchievements();
 
     public String getNaam() {
         return naam;
@@ -74,7 +78,8 @@ public abstract class User {
 
     public abstract void createABeloning(String redenVoorBeloning, String beloning, Integer nettoPuntenVerandering, String datum);
 
-    public abstract void checkAchievements();
+    public abstract void checkAchievements(Achievement a);
+
 
 
     public double getCO2Uitstoot() {

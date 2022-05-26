@@ -4,20 +4,21 @@ package com.example.carbonbattles.Models;
 
 import com.example.carbonbattles.Models.Achievements.Achievement;
 import com.example.carbonbattles.Models.Achievements.FietsAchievement;
+import com.example.carbonbattles.Models.Achievements.treinTijger;
 
 import java.util.ArrayList;
 
 public class Medewerker extends User implements IObservable {
 
-    private ArrayList<IObserver> observers = new ArrayList<>();
-    private ArrayList<Achievement> achievements = initializeAchievements();
+    private final ArrayList<IObserver> observers = new ArrayList<>();
+    private final ArrayList<Achievement> achievements = initializeAchievements();
 
 
 
     public Medewerker(String naam, String gebruikersnaam, String wachtwoord) {
         super(naam, gebruikersnaam, wachtwoord);
         setAdmin(false);
-        observers.add(new FietsAchievement());
+        observers.addAll(achievements);
     }
 
     @Override
@@ -43,10 +44,8 @@ public class Medewerker extends User implements IObservable {
     }
 
     @Override
-    public void checkAchievements() {
-        for(Achievement achievement : achievements){
-            achievement.checkBehaald();
-        }
+    public void checkAchievements(Achievement achievement) {
+       achievement.checkBehaald();
     }
 
 
@@ -54,6 +53,7 @@ public class Medewerker extends User implements IObservable {
         ArrayList<Achievement> lijst = new ArrayList<>();
         //Aanmaken van achievements voor Gebruikers
         lijst.add(new FietsAchievement());
+        lijst.add(new treinTijger());
         //lijst.add -> Andere achievements
         return lijst;
     }

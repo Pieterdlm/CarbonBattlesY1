@@ -1,6 +1,7 @@
 package com.example.carbonbattles.Models;
 
 import com.example.carbonbattles.CarbonBattles;
+import com.example.carbonbattles.Models.Achievements.Achievement;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -13,6 +14,11 @@ public class Manager extends User {
     }
 
     @Override
+    public ArrayList<Achievement> getAchievements() {
+        return null;
+    }
+
+    @Override
     public void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum) {
     }
 
@@ -21,7 +27,7 @@ public class Manager extends User {
     }
 
     @Override
-    public void checkAchievements() {
+    public void checkAchievements(Achievement a) {
 
     }
 
