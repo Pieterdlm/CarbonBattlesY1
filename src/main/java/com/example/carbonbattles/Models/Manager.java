@@ -1,5 +1,10 @@
 package com.example.carbonbattles.Models;
 
+import com.example.carbonbattles.CarbonBattles;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Manager extends User {
 
     public Manager(String naam, String gebruikersnaam, String wachtwoord) {
@@ -13,5 +18,15 @@ public class Manager extends User {
 
     @Override
     public void createABeloning(String redenVoorBeloning, String beloning, Integer nettoPuntenVerandering, String datum){
+    }
+
+    public ArrayList<User> alleenMedewerkers() {
+        ArrayList<User> alleMedewerkers = new ArrayList<>();
+        for (User medewerker : CarbonBattles.getUsers()) {
+            if (!medewerker.isAdmin()) {
+                alleMedewerkers.add(medewerker);
+            }
+        }
+        return alleMedewerkers;
     }
 }
