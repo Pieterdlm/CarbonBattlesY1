@@ -20,6 +20,6 @@ public class Scooter extends Voertuig{
         if (elektrischOfNiet){
             return 0;
         }
-        return kilometers * 0.50;
+        return kilometers * 20.0;
     }
 }
