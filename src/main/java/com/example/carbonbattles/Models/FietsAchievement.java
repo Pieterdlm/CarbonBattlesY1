@@ -3,6 +3,7 @@ package com.example.carbonbattles.Models;
 import com.example.carbonbattles.CarbonBattles;
 
 public class FietsAchievement extends Achievement{
+    private int waardeBehaald = 5;
 
     public boolean checkBehaald() {
         int streak = 0;
@@ -12,13 +13,14 @@ public class FietsAchievement extends Achievement{
             }else{
                 streak = 0;
             }
-                if(streak == 5){
+                if(streak == waardeBehaald){
                     System.out.println("Fiets achievement behaald");
                     setAchievementGehaald(true);
                     return true;
                 }
         }
-        currentLevel = level.Bronze;
+        levelOpwaarderen();
+        waardeBehaald = waardeBehaald * 2;
         setAchievementGehaald(false);
         return false;
     }
