@@ -48,7 +48,7 @@ public class dashboardView implements Initializable {
         dashboard = new Dashboard();
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
         puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-        ArrayList<User> top5 = dashboard.toonRanglijstManager(dashboard.getTop5());
+        ArrayList<User> top5 = dashboard.getTop5();
         list.addAll(top5);
         tabelUsers.setItems(list);
 

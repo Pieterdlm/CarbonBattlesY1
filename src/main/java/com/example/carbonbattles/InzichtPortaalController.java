@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -21,34 +20,39 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class RanglijstView implements Initializable {
+public class InzichtPortaalController implements Initializable {
 
     @FXML
     private TableView<User> tabelUsers;
     @FXML
     private TableColumn<User, String> naamColumn;
-    @FXML
-    private TableColumn<User, Integer> puntenColumn;
-    @FXML
-    private Button backToMenu;
-    private Scene scene;
-    private Parent root;
-    private Stage stage;
-
-    private Ranglijst rang;
+    private static User clickedUser;
 
     ObservableList<User> list = FXCollections.observableArrayList();
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        rang = new Ranglijst();
+        inzichtPortaal portaal = new inzichtPortaal();
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
-        puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-        ArrayList<User> gesorteerdeLijst = rang.getGesorteerdeLijst();
-        list.addAll(gesorteerdeLijst);
+        ArrayList<User> AtotZ = portaal.getAtotZLijst();
+        list.addAll(AtotZ);
         tabelUsers.setItems(list);
-
     }
+
+
+    @FXML
+    void buttonBekijkGegevens(ActionEvent event) throws IOException {
+            clickedUser = tabelUsers.getSelectionModel().getSelectedItem();
+            Parent root = FXMLLoader.load(getClass().getResource("infoSchermManager-view.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("CarbonBattles");
+            stage.setResizable(false);
+            stage.show();
+        }
+
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
         if (CarbonBattles.getIngelogdeUser().isAdmin()) {
@@ -68,5 +72,9 @@ public class RanglijstView implements Initializable {
             stage.setResizable(false);
             stage.show();
         }
+    }
+
+    public static User getClickedUser() {
+        return clickedUser;
     }
 }

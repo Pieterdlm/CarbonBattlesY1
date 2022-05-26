@@ -34,12 +34,6 @@ public class InfoSchermController implements Initializable {
     private ListView<Beloning> ListView1;
 
     @FXML
-    private Text MijnInfo;
-
-    @FXML
-    private AnchorPane rootPane;
-
-    @FXML
     private ImageView logo;
 
     @FXML
@@ -49,10 +43,7 @@ public class InfoSchermController implements Initializable {
     private TextArea myTextArea;
 
     @FXML
-    private Rectangle rectanglePunten;
-
-    @FXML
-    private Button backToMenuButton = new Button();
+    private Text aantalCO2Uitgestoten;
 
 
     @Override
@@ -65,7 +56,11 @@ public class InfoSchermController implements Initializable {
 
         int puntenVanIngelogdeUser = CarbonBattles.getIngelogdeUser().getAantalPunten();
         String puntentotaal = "" + puntenVanIngelogdeUser;
+
+        double CO2UitstootVanIngelogdeUser = CarbonBattles.getIngelogdeUser().getCO2Uitstoot();
+        String CO2Totaal = "" + CO2UitstootVanIngelogdeUser;
         aantalTotalePunten.setText(puntentotaal);
+        aantalCO2Uitgestoten.setText(CO2Totaal + "g");
     }
 
     @FXML
@@ -77,7 +72,7 @@ public class InfoSchermController implements Initializable {
         } else {
 
             String reistext = "Op: " + rit.getDatum() + " heeft u " + rit.getAantalKilometers() + " kilometer gereisd met de " +
-                    rit.getVoertuig() + ".\nU kreeg voor deze rit " + rit.berekenAantalPunten() + " punten." ;
+                    rit.getVoertuig() + ".\nU kreeg voor deze rit " + rit.berekenAantalPunten() + " punten" +".\nU heeft voor deze rit " +rit.berekenAantalCO2Uitstoot() + "g CO2 uitgestoten.";
 
               myTextArea.setText(reistext);
         }

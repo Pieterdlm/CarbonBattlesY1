@@ -20,6 +20,7 @@ public class Manager extends User {
     public void createABeloning(String redenVoorBeloning, String beloning, Integer nettoPuntenVerandering, String datum){
     }
 
+
     public ArrayList<User> alleenMedewerkers() {
         ArrayList<User> alleMedewerkers = new ArrayList<>();
         for (User medewerker : CarbonBattles.getUsers()) {

@@ -21,6 +21,14 @@ public class Rit {
             return 0;
         }
     }
+    public double berekenAantalCO2Uitstoot(){
+        if (voertuig.berekenCO2Uitstoot(aantalKilometers, elektrischOfNiet) > 0){
+            return voertuig.berekenCO2Uitstoot(aantalKilometers,elektrischOfNiet);
+        }else{
+            return 0;
+        }
+
+    }
 
     public boolean getElektrischOfNiet(){
         return elektrischOfNiet;
@@ -40,6 +48,10 @@ public class Rit {
 
     @Override
     public String toString() {
-        return "Rit van " + datum + "           " + "+ " + berekenAantalPunten() + " Punten";
+        return "Rit van " + datum + "           " + "+ " + berekenAantalPunten() + " Punten" + "   + " + berekenAantalCO2Uitstoot() + "g CO2 uitgestoten";
     }
+
+
+
+
 }
