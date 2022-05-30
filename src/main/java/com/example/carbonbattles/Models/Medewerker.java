@@ -1,10 +1,24 @@
 package com.example.carbonbattles.Models;
 
-public class Medewerker extends User {
+
+
+import com.example.carbonbattles.Models.Achievements.Achievement;
+import com.example.carbonbattles.Models.Achievements.FietsAchievement;
+import com.example.carbonbattles.Models.Achievements.treinTijger;
+
+import java.util.ArrayList;
+
+public class Medewerker extends User implements IObservable {
+
+    private final ArrayList<IObserver> observers = new ArrayList<>();
+    private final ArrayList<Achievement> achievements = initializeAchievements();
+
+
 
     public Medewerker(String naam, String gebruikersnaam, String wachtwoord) {
         super(naam, gebruikersnaam, wachtwoord);
         setAdmin(false);
+        observers.addAll(achievements);
     }
 
     @Override
@@ -13,6 +27,13 @@ public class Medewerker extends User {
         setAantalPunten(rit.berekenAantalPunten() + getAantalPunten());
         setCO2Uitstoot(rit.berekenAantalCO2Uitstoot() + getCO2Uitstoot());
         getRitten().add(rit);
+        notifyObservers();
+    }
+
+    public void notifyObservers() {
+        for(IObserver o : observers){
+            o.update();
+        }
     }
 
     @Override
@@ -20,5 +41,24 @@ public class Medewerker extends User {
         Beloning beloning1 = new Beloning(redenVoorBeloning, beloning, nettoPuntenVerandering, datum);
         setAantalPunten(getAantalPunten() - nettoPuntenVerandering);
         getBeloningen().add(beloning1);
+    }
+
+    @Override
+    public void checkAchievements(Achievement achievement) {
+       achievement.checkBehaald();
+    }
+
+
+    public ArrayList<Achievement> initializeAchievements() {
+        ArrayList<Achievement> lijst = new ArrayList<>();
+        //Aanmaken van achievements voor Gebruikers
+        lijst.add(new FietsAchievement());
+        lijst.add(new treinTijger());
+        //lijst.add -> Andere achievements
+        return lijst;
+    }
+
+    public ArrayList<Achievement> getAchievements() {
+        return achievements;
     }
 }

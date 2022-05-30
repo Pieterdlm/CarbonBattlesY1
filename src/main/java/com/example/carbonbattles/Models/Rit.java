@@ -1,6 +1,8 @@
 package com.example.carbonbattles.Models;
 
-public class Rit {
+import java.util.Observable;
+
+public class Rit{
     private int aantalKilometers;
     private Voertuig voertuig;
     private boolean elektrischOfNiet;
@@ -29,6 +31,7 @@ public class Rit {
         }
 
     }
+
 
     public boolean getElektrischOfNiet(){
         return elektrischOfNiet;
