@@ -12,6 +12,7 @@ public class Medewerker extends User implements IObservable {
 
     private final ArrayList<IObserver> observers = new ArrayList<>();
     private final ArrayList<Achievement> achievements = initializeAchievements();
+    private String statusLaatsteRit;
 
 
 
@@ -21,13 +22,27 @@ public class Medewerker extends User implements IObservable {
         observers.addAll(achievements);
     }
 
+
     @Override
     public void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum) {
         Rit rit = new Rit(kilometers, voertuig, elektrischOfNiet, datum);
-        setAantalPunten(rit.berekenAantalPunten() + getAantalPunten());
-        setCO2Uitstoot(rit.berekenAantalCO2Uitstoot() + getCO2Uitstoot());
+        int aantalPunten = rit.berekenAantalPunten() + getAantalPunten();
+        double aantalCO2 = rit.berekenAantalCO2Uitstoot() + getCO2Uitstoot();
+        setAantalPunten(aantalPunten);
+        setCO2Uitstoot(aantalCO2);
         getRitten().add(rit);
         notifyObservers();
+        statusChecker(rit);
+    }
+
+    public boolean statusChecker(Rit rit){
+        if(rit.getAantalKilometers() < 30 || rit.getElektrischOfNiet()){
+            statusLaatsteRit = "Goed Gedaan";
+            return true;
+        }   else{
+            statusLaatsteRit = "Kan Beter!";
+        }
+        return false;
     }
 
     public void notifyObservers() {
