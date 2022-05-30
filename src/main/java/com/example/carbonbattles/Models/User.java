@@ -11,6 +11,7 @@ public abstract class User {
     private boolean isAdmin;
     private int aantalPunten;
     private double aantalCO2Uitstoot;
+    private double CO2Totaal;
     private ArrayList<Rit> ritten = new ArrayList<>();
     private ArrayList<Beloning> beloningen = new ArrayList<>();
 
@@ -20,6 +21,7 @@ public abstract class User {
         this.wachtwoord = wachtwoord;
         this.isAdmin = isAdmin;
         this.aantalPunten = 0;
+        this.aantalCO2Uitstoot = 0.0;
     }
 
     public abstract ArrayList<Achievement> getAchievements();
@@ -72,7 +74,7 @@ public abstract class User {
         this.aantalCO2Uitstoot = aantalCO2Uitstoot;
     }
 
-    public ArrayList<Beloning> getBeloningen(){return beloningen;};
+    public ArrayList<Beloning> getBeloningen(){return beloningen;}
 
     public abstract void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum);
 
@@ -86,4 +88,7 @@ public abstract class User {
         return aantalCO2Uitstoot;
     }
 
+    public double getCO2Totaal() {
+        return CO2Totaal + getCO2Uitstoot();
+    }
 }

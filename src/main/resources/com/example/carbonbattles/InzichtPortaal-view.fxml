@@ -36,9 +36,11 @@
    <bottom>
       <AnchorPane prefHeight="520.0" prefWidth="900.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tabelUsers" layoutX="440.0" layoutY="45.0" prefHeight="431.0" prefWidth="400.0" style="-fx-background-color: f9f9f9;">
+            <TableView fx:id="tabelUsers" layoutX="440.0" layoutY="45.0" prefHeight="431.0" prefWidth="427.0" style="-fx-background-color: f9f9f9;">
                <columns>
                   <TableColumn fx:id="naamColumn" prefWidth="200.0" sortable="false" text="Naam" />
+                  <TableColumn fx:id="puntenColumn" prefWidth="75.0" text="Punten" />
+                  <TableColumn fx:id="Co2Column" prefWidth="75.0" text="Totale CO2 uitstoot in g" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
