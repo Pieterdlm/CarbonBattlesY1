@@ -28,15 +28,17 @@ public class FietsAchievement extends Achievement {
     }
 
     @Override
-    public String setIcon() {
-        if(currentLevel.toString().equals("Bronze")) {
+    public String setIcon() {if (currentLevel.toString().equals("Niet_Behaald")) {
+        return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
+    }
+        else if(currentLevel.toString().equals("Bronze")) {
             return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
         }else if(currentLevel.toString().equals("Silver")){
-            return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
+            return "file:src/main/resources/com/example/carbonbattles/silver-metallic.jpg";
         }else if(currentLevel.toString().equals("Gold")){
             return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
         }else{
-            return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
+            return "No Value";
         }
     }
 

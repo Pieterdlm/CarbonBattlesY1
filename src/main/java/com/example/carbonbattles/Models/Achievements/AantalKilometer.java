@@ -21,7 +21,7 @@ public class AantalKilometer extends Achievement {
                 System.out.println(currentLevel);
                 return true;
             }
-        }else {
+        } else {
             aantalKilometer = 0;
         }
         return false;
@@ -29,14 +29,16 @@ public class AantalKilometer extends Achievement {
 
     @Override
     public String setIcon() {
-            if(currentLevel.toString().equals("Bronze")) {
-                return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
-            }else if(currentLevel.toString().equals("Silver")){
-                return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
-            }else if(currentLevel.toString().equals("Gold")){
-                return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
-            }
-            return "";
+        if (currentLevel.toString().equals("Niet_Behaald")) {
+            return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
+        } else if (currentLevel.toString().equals("Bronze")) {
+            return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
+        } else if (currentLevel.toString().equals("Silver")) {
+            return "file:src/main/resources/com/example/carbonbattles/silver-metallic.jpg";
+        } else if (currentLevel.toString().equals("Gold")) {
+            return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
+        }
+        return "No Value";
     }
 
     public AantalKilometer() {

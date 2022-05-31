@@ -52,14 +52,18 @@ public class AchievementController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        for (Achievement a : achievements) {
-//            checkLevel(a);
-//        }
-        checkLevel(achievements.get(0));
+        for (Achievement a : achievements) {
+          checkLevel(a);
+       }
+        //checkLevel(achievements.get(0));
     }
 
+    //Nachecken Hoe je per Subclass de Icon aanpast van de bijbehorende Class
     private void checkLevel(Achievement a) {
-        System.out.println("TestTest");
         fietsIcon.setImage(new Image(a.setIcon()));
+        treinIcon.setImage(new Image(a.setIcon()));
+        kilometerIcon.setImage(new Image(a.setIcon()));
+        puntenIcon.setImage(new Image(a.setIcon()));
+
     }
 }

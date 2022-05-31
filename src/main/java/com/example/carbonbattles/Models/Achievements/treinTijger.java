@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class treinTijger extends Achievement {
 
     private int aantalKilometers = 0;
-    private int waardeBehaald = 50;
+    private int waardeBehaald = 200;
 
     public treinTijger() {
         super("Aantal kilometer met de trein");
@@ -30,22 +30,23 @@ public class treinTijger extends Achievement {
                 System.out.println(currentLevel);
                 return true;
             }
-        }else {
-            aantalKilometers = 0;
         }
         return false;
     }
 
     @Override
     public String setIcon() {
-            if(currentLevel.toString().equals("Bronze")) {
-                return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
-            }else if(currentLevel.toString().equals("Silver")){
-                return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
-            }else if(currentLevel.toString().equals("Gold")){
-                return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
-            }
-            return "";
+        if (currentLevel.toString().equals("Niet_Behaald")) {
+            return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
+        }
+        else if (currentLevel.toString().equals("Bronze")) {
+            return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
+        } else if (currentLevel.toString().equals("Silver")) {
+            return "file:src/main/resources/com/example/carbonbattles/silver-metallic.jpg";
+        } else if (currentLevel.toString().equals("Gold")) {
+            return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
+        }
+        return "No Value";
     }
 
 
