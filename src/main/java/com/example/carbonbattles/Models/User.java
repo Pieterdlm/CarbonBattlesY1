@@ -11,7 +11,6 @@ public abstract class User {
     private boolean isAdmin;
     private int aantalPunten;
     private double aantalCO2Uitstoot;
-    private double CO2Totaal;
     private ArrayList<Rit> ritten = new ArrayList<>();
     private ArrayList<Beloning> beloningen = new ArrayList<>();
 
@@ -84,11 +83,7 @@ public abstract class User {
 
 
 
-    public double getCO2Uitstoot() {
+    public double getAantalCO2Uitstoot() {
         return aantalCO2Uitstoot;
-    }
-
-    public double getCO2Totaal() {
-        return CO2Totaal + getCO2Uitstoot();
     }
 }

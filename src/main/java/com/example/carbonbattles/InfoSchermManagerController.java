@@ -13,8 +13,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -54,7 +52,7 @@ public class InfoSchermManagerController implements Initializable {
         ListViewBeloning.getItems().addAll(belonings);
         logo.setVisible(true);
 
-        double CO2UitstootVanGekozenMedewerker = InzichtPortaalController.getClickedUser().getCO2Uitstoot();
+        double CO2UitstootVanGekozenMedewerker = InzichtPortaalController.getClickedUser().getAantalCO2Uitstoot();
         String CO2totaal = "" + CO2UitstootVanGekozenMedewerker;
 
         int puntenVanGekozenMedewerker = InzichtPortaalController.getClickedUser().getAantalPunten();

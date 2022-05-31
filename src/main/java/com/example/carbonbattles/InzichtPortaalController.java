@@ -43,7 +43,7 @@ public class InzichtPortaalController implements Initializable {
         inzichtPortaal portaal = new inzichtPortaal();
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
         puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-        Co2Column.setCellValueFactory(new PropertyValueFactory<>("CO2Totaal"));
+        Co2Column.setCellValueFactory(new PropertyValueFactory<>("aantalCO2Uitstoot"));
         ArrayList<User> AtotZ = portaal.getAtotZLijst();
         list.addAll(AtotZ);
         tabelUsers.setItems(list);
