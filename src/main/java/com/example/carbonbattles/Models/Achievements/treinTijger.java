@@ -36,6 +36,17 @@ public class treinTijger extends Achievement {
         return false;
     }
 
+    @Override
+    public String setIcon() {
+            if(currentLevel.toString().equals("Bronze")) {
+                return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
+            }else if(currentLevel.toString().equals("Silver")){
+                return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
+            }else if(currentLevel.toString().equals("Gold")){
+            }
+            return "";
+    }
+
 
     @Override
     public void update() {
