@@ -30,6 +30,8 @@ public class RanglijstView implements Initializable {
     @FXML
     private TableColumn<User, Integer> puntenColumn;
     @FXML
+    private TableColumn<User, Double> CO2Column;
+    @FXML
     private Button backToMenu;
     private Scene scene;
     private Parent root;
@@ -42,8 +44,10 @@ public class RanglijstView implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         rang = new Ranglijst();
+
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
         puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
+        CO2Column.setCellValueFactory(new PropertyValueFactory<>("CO2Totaal"));
         ArrayList<User> gesorteerdeLijst = rang.getGesorteerdeLijst();
         list.addAll(gesorteerdeLijst);
         tabelUsers.setItems(list);
