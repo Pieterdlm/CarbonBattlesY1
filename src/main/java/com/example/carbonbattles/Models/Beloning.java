@@ -12,7 +12,19 @@ public class Beloning {
         this.nettoPuntenVerandering = nettoPuntenVerandering;
         this.datum = datum;
     }
-    
+
+    public String getDatum() {
+        return datum;
+    }
+
+    public String getBeloning() {
+        return Beloning;
+    }
+
+    public Integer getNettoPuntenVerandering() {
+        return nettoPuntenVerandering;
+    }
+
     @Override
     public String toString() {
         return "Beloning gekregen op: " + datum + "           " + "- " + nettoPuntenVerandering.toString() + " Punten";

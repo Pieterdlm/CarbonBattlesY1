@@ -64,18 +64,21 @@ public class InfoSchermController implements Initializable {
     @FXML
     private void displaySelected(MouseEvent event) {
         Rit rit = ListView.getSelectionModel().getSelectedItem();
+        Beloning beloning = ListView1.getSelectionModel().getSelectedItem();
 
-        if (rit == null) {
+        if (rit == null && beloning == null) {
             myTextArea.setText("U heeft nog geen rit of beloning geselecteerd");
         } else {
-
-            String reistext = "Op: " + rit.getDatum() + " heeft u " + rit.getAantalKilometers() + " kilometer gereisd met de " +
-                    rit.getVoertuig() + ".\nU kreeg voor deze rit " + rit.berekenAantalPunten() + " punten" +".\nU heeft voor deze rit " +rit.berekenAantalCO2Uitstoot() + "g CO2 uitgestoten.";
-
-              myTextArea.setText(reistext);
+            if (rit == null) {
+                String reistext = "Op: " + beloning.getDatum() + " heeft u de beloning '" + beloning.getBeloning() + "' ontvangen.\nDit koste u " + beloning.getNettoPuntenVerandering()+ " punten";
+                myTextArea.setText(reistext);
+            } else {
+                String reistext = "Op: " + rit.getDatum() + " heeft u " + rit.getAantalKilometers() + " kilometer gereisd met de " +
+                        rit.getVoertuig() + ".\nU kreeg voor deze rit " + rit.berekenAantalPunten() + " punten" + ".\nU heeft voor deze rit " + rit.berekenAantalCO2Uitstoot() + "g CO2 uitgestoten.";
+                myTextArea.setText(reistext);
+            }
         }
     }
-
     @FXML
     void gaTerugNaarMenu(ActionEvent event) throws IOException {
         if (CarbonBattles.getUsers().get(0).isAdmin()) {
