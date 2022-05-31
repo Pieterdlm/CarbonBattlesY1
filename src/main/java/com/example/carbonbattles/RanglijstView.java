@@ -1,5 +1,6 @@
 package com.example.carbonbattles;
 
+import com.example.carbonbattles.Models.Medewerker;
 import com.example.carbonbattles.Models.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -47,7 +48,7 @@ public class RanglijstView implements Initializable {
 
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
         puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-        CO2Column.setCellValueFactory(new PropertyValueFactory<>("CO2Totaal"));
+        CO2Column.setCellValueFactory(new PropertyValueFactory<>("aantalCO2Uitstoot"));
         ArrayList<User> gesorteerdeLijst = rang.getGesorteerdeLijst();
         list.addAll(gesorteerdeLijst);
         tabelUsers.setItems(list);

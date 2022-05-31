@@ -27,6 +27,20 @@ public class MenuController {
     private Parent root;
     private Stage stage;
 
+    @FXML
+    private Button achievementsButton;
+
+
+    @FXML
+    void achievementSwitch(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Achievements-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("CarbonBattles");
+        stage.setResizable(false);
+        stage.show();
+    }
 
     public void invoerSwitchOnAction(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("InvoerScherm-view.fxml"));
@@ -38,7 +52,6 @@ public class MenuController {
         stage.setTitle("CarbonBattles");
         stage.setResizable(false);
         stage.show();
-
     }
 
     public void rangLijstSwitchOnAction(ActionEvent event) throws IOException {

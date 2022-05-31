@@ -12,8 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -57,7 +55,7 @@ public class InfoSchermController implements Initializable {
         int puntenVanIngelogdeUser = CarbonBattles.getIngelogdeUser().getAantalPunten();
         String puntentotaal = "" + puntenVanIngelogdeUser;
 
-        double CO2UitstootVanIngelogdeUser = CarbonBattles.getIngelogdeUser().getCO2Uitstoot();
+        double CO2UitstootVanIngelogdeUser = CarbonBattles.getIngelogdeUser().getAantalCO2Uitstoot();
         String CO2Totaal = "" + CO2UitstootVanIngelogdeUser;
         aantalTotalePunten.setText(puntentotaal);
         aantalCO2Uitgestoten.setText(CO2Totaal + "g");

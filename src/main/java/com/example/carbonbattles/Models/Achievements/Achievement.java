@@ -12,7 +12,7 @@ public abstract class Achievement implements IObserver {
 
     public abstract boolean checkBehaald();
 
-
+    public abstract String setIcon();
 
     protected enum level {Niet_Behaald, Bronze, Silver, Gold;}
 
