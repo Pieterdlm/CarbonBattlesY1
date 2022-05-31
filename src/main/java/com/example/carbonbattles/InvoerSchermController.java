@@ -1,6 +1,7 @@
 package com.example.carbonbattles;
 
-import com.example.carbonbattles.Models.Voertuig;
+import com.example.carbonbattles.Models.*;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -85,5 +86,18 @@ public class InvoerSchermController {
                 || kilometerVeld.getText().equals("0")
                 || datumVeld.getText().isEmpty()
                 || kilometerVeld.getText().contains("-");
+    }
+
+    @FXML
+    void toonElektrischMenu(ActionEvent event) {
+        switchKeuzes(elektrischCheckbox.isSelected());
+    }
+
+    private void switchKeuzes(boolean selected) {
+        if(selected){
+            boxKeuzes.setItems(FXCollections.observableArrayList(new Auto(), new Scooter()));
+        } else {
+            boxKeuzes.setItems(FXCollections.observableArrayList(new Auto(), new Fiets(), new Trein(), new Scooter()));
+        }
     }
 }
