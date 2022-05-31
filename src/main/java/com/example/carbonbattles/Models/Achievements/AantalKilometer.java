@@ -9,11 +9,11 @@ public class AantalKilometer extends Achievement {
 
     @Override
     public boolean checkBehaald() {
-        int aantalKilometers = CarbonBattles.getIngelogdeUser().getRitten().size() - 1;
+        int laatstUitgevoerdeRit = CarbonBattles.getIngelogdeUser().getRitten().size() - 1;
 
-        if (!CarbonBattles.getIngelogdeUser().getRitten().get(aantalKilometers).getVoertuig().getNaamVoertuig().equals("Auto")) {
-            aantalKilometers = aantalKilometers + CarbonBattles.getIngelogdeUser().getRitten().get(aantalKilometers).getAantalKilometers();
-            if (aantalKilometers == kilometerGehaald) {
+        if (!CarbonBattles.getIngelogdeUser().getRitten().get(laatstUitgevoerdeRit).getVoertuig().getNaamVoertuig().equals("Auto")) {
+            aantalKilometer= aantalKilometer + CarbonBattles.getIngelogdeUser().getRitten().get(laatstUitgevoerdeRit).getAantalKilometers();
+            if (aantalKilometer >= kilometerGehaald) {
                 setBehaald(true);
                 levelOpwaarderen();
                 kilometerGehaald = kilometerGehaald * 2;
@@ -21,8 +21,6 @@ public class AantalKilometer extends Achievement {
                 System.out.println(currentLevel);
                 return true;
             }
-        } else {
-            aantalKilometer = 0;
         }
         return false;
     }
