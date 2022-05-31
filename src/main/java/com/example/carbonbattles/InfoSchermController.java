@@ -96,6 +96,7 @@ public class InfoSchermController implements Initializable {
             stage.setTitle("CarbonBattles");
             stage.setResizable(false);
             stage.show();
+
         }
     }
 }
