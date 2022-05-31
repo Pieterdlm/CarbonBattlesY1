@@ -43,6 +43,7 @@ public class treinTijger extends Achievement {
             }else if(currentLevel.toString().equals("Silver")){
                 return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
             }else if(currentLevel.toString().equals("Gold")){
+                return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
             }
             return "";
     }

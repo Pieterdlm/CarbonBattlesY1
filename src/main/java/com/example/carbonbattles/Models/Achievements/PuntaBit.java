@@ -26,6 +26,18 @@ public class PuntaBit extends Achievement{
     }
 
     @Override
+    public String setIcon() {
+        if(currentLevel.toString().equals("Bronze")) {
+            return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
+        }else if(currentLevel.toString().equals("Silver")){
+            return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
+        }else if(currentLevel.toString().equals("Gold")){
+            return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
+        }
+        return "";
+    }
+
+    @Override
     public void update() {
         CarbonBattles.getIngelogdeUser().checkAchievements(this);
     }

@@ -52,13 +52,10 @@ public class AchievementController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        fietsIcon.setImage(new Image("file:src/main/resources/com/example/carbonbattles/zV1CtKT5.png"));
 //        for (Achievement a : achievements) {
 //            checkLevel(a);
 //        }
-
         checkLevel(achievements.get(0));
-
     }
 
     private void checkLevel(Achievement a) {
