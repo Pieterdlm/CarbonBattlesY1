@@ -26,6 +26,11 @@ public class PuntaBit extends Achievement{
     }
 
     @Override
+    public String setIcon() {
+        return null;
+    }
+
+    @Override
     public void update() {
         CarbonBattles.getIngelogdeUser().checkAchievements(this);
     }
