@@ -6,7 +6,7 @@ public class PuntaBit extends Achievement{
 
     private int waardeBehaald = 2500;
 
-    public PuntaBit(String naamAchievement) {
+    public PuntaBit() {
         super("aantal punten behaald");
     }
 
