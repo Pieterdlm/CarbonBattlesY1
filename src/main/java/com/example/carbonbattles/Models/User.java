@@ -10,7 +10,7 @@ public abstract class User {
     private String gebruikersNaam;
     private boolean isAdmin;
     private int aantalPunten;
-    private Double aantalCO2Uitstoot;
+    private double aantalCO2Uitstoot;
     private ArrayList<Rit> ritten = new ArrayList<>();
     private ArrayList<Beloning> beloningen = new ArrayList<>();
 
@@ -82,8 +82,8 @@ public abstract class User {
     public abstract void checkAchievements(Achievement a);
 
 
+
     public double getAantalCO2Uitstoot() {
         return aantalCO2Uitstoot;
     }
-
 }
