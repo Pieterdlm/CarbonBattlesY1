@@ -40,22 +40,21 @@
          <children>
             <ImageView fx:id="fietsIcon" fitHeight="150.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fiets icon.png" />
-               </image>
-            </ImageView>
+                  <Image url="@fiets%20icon%20nog%20niet%20behaald.png" />
+               </image></ImageView>
             <ImageView fx:id="treinIcon" fitHeight="107.0" fitWidth="116.0" layoutX="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fiets icon.png" />
+                  <Image url="@fiets%20icon%20nog%20niet%20behaald.png" />
                </image>
             </ImageView>
             <ImageView fx:id="kilometerIcon" fitHeight="103.0" fitWidth="101.0" layoutX="207.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fiets icon.png" />
+                  <Image url="@fiets icon nog niet behaald.png" />
                </image>
             </ImageView>
             <ImageView fx:id="puntenIcon" fitHeight="103.0" fitWidth="99.0" layoutX="308.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@fiets icon.png" />
+                  <Image url="@fiets icon nog niet behaald.png" />
                </image>
             </ImageView>
          </children>
