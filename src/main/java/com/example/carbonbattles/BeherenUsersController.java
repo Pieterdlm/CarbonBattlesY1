@@ -1,9 +1,12 @@
 package com.example.carbonbattles;
 
-import com.example.carbonbattles.CarbonBattles;
 import com.example.carbonbattles.Models.Manager;
 import com.example.carbonbattles.Models.Medewerker;
 import com.example.carbonbattles.Models.User;
+import javafx.animation.FillTransition;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
+import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,8 +18,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,6 +47,13 @@ public class BeherenUsersController implements Initializable {
 
     ObservableList<User> list = FXCollections.observableArrayList();
 
+    //looks
+    @FXML
+    private ImageView plusButtonImageView;
+
+    @FXML
+    private Rectangle rectangle;
+
 
     //Invulvelden items
     @FXML
@@ -53,6 +67,9 @@ public class BeherenUsersController implements Initializable {
 
     @FXML
     private CheckBox standaardWWCheckBox;
+
+    @FXML
+    private Label errorMessage;
 
     Manager manager = new Manager("Admin", "admin", "admin");
 
@@ -74,12 +91,6 @@ public class BeherenUsersController implements Initializable {
         //User aanmaken en toevoegen aan arraylist
         UserToevoegen();
 
-        // Testen of arraylist klopt. Print in de terminal  ------- Later verwijderen.
-        for (User users : CarbonBattles.getUsers()){
-            System.out.println(users.getNaam() + " - " + users.getGebruikersNaam() + " - " + users.getWachtwoord() + "");
-        }
-        System.out.println("------------------");
-
         //updaten van tableview
         WerknemersTableView.getItems().clear();
         list.addAll(manager.alleenMedewerkers());
@@ -98,13 +109,63 @@ public class BeherenUsersController implements Initializable {
         String naam = inputNaamField.getText();
         String gebruikersNaam = inputGebruikersNaamField.getText();
         String wachtwoord;
-        if (!standaardWWCheckBox.isSelected()) {
-            wachtwoord = inputWachtwoordField.getText();
+
+        boolean gebruikersNaamInUse =  true;
+
+        for (User users : manager.alleenMedewerkers()) {
+            if (gebruikersNaam.equals(users.getGebruikersNaam())) {
+                errorMessage.setText("Kies andere gebruikersnaam");
+                gebruikersNaamInUse = false;
+            }
         }
-        else {wachtwoord = "welkom123";}
-        ArrayList<User> alleWerknemers = CarbonBattles.getUsers();
-        alleWerknemers.add(new Medewerker(naam, gebruikersNaam, wachtwoord));
+
+        if (!checkCredentials() && gebruikersNaamInUse) {
+
+                if (!standaardWWCheckBox.isSelected()) {
+                    wachtwoord = inputWachtwoordField.getText();
+                } else {
+                    inputWachtwoordField.setText("");
+                    wachtwoord = "welkom123";
+                }
+                ArrayList<User> alleWerknemers = CarbonBattles.getUsers();
+                alleWerknemers.add(new Medewerker(naam, gebruikersNaam, wachtwoord));
+
+                toevoegenGelukt();
+        }
+        else {
+                toevoegenNietGelukt();
+                if (!gebruikersNaamInUse){
+                    errorMessage.setText("Kies een andere gebruikersnaam");
+                }
+                else {errorMessage.setText("Vul alle velden in");}
+        }
     }
+
+    public void toevoegenGelukt(){
+        FillTransition fillTransition = new FillTransition(Duration.millis(600), rectangle);
+        fillTransition.setToValue(Color.web("#a7e99c"));
+        fillTransition.setCycleCount(2);
+        fillTransition.setAutoReverse(true);
+        fillTransition.play();
+
+        RotateTransition rotate = new RotateTransition();
+        rotate.setNode(plusButtonImageView);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setByAngle(180);
+        rotate.play();
+
+        errorMessage.setText("");
+    }
+
+    public void toevoegenNietGelukt(){
+
+        FillTransition fillTransition = new FillTransition(Duration.millis(600), rectangle);
+        fillTransition.setToValue(Color.web("#FF8A8A"));
+        fillTransition.setCycleCount(2);
+        fillTransition.setAutoReverse(true);
+        fillTransition.play();
+    }
+
 
 
     //knop om terug te gaan naar het menu
@@ -119,4 +180,8 @@ public class BeherenUsersController implements Initializable {
             stage.show();
     }
 
+
+    public boolean checkCredentials(){
+        return inputNaamField.getText().isEmpty() || inputGebruikersNaamField.getText().isEmpty() || (inputWachtwoordField.getText().isEmpty() && !standaardWWCheckBox.isSelected());
+    }
 }

@@ -53,7 +53,7 @@
                   <DropShadow />
                </effect>
             </Circle>
-            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f9f9f999" height="200.0" layoutX="327.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
+            <Rectangle fx:id="rectangle" arcHeight="50.0" arcWidth="50.0" fill="#f9f9f999" height="200.0" layoutX="327.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
                <effect>
                   <DropShadow>
                      <color>
@@ -97,6 +97,7 @@
                </effect>
             </TextField>
             <Label layoutX="410.0" layoutY="14.0" text="Naam" textAlignment="CENTER" />
+            <Label fx:id="errorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="310.0" layoutY="192.0" prefHeight="17.0" prefWidth="229.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </bottom>
