@@ -54,7 +54,7 @@
                </effect>
             </Circle>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a7e99c" height="82.0" layoutX="342.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
-            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f9f9f999" height="200.0" layoutX="327.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f9f9f999" height="200.0" layoutX="327.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0"/>
             <Rectangle fx:id="rectangle" arcHeight="50.0" arcWidth="50.0" fill="#f9f9f999" height="200.0" layoutX="327.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
                <effect>
                   <DropShadow>
