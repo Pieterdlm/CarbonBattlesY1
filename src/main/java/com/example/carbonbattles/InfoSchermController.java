@@ -12,8 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -57,7 +55,7 @@ public class InfoSchermController implements Initializable {
         int puntenVanIngelogdeUser = CarbonBattles.getIngelogdeUser().getAantalPunten();
         String puntentotaal = "" + puntenVanIngelogdeUser;
 
-        double CO2UitstootVanIngelogdeUser = CarbonBattles.getIngelogdeUser().getCO2Uitstoot();
+        double CO2UitstootVanIngelogdeUser = CarbonBattles.getIngelogdeUser().getAantalCO2Uitstoot();
         String CO2Totaal = "" + CO2UitstootVanIngelogdeUser;
         aantalTotalePunten.setText(puntentotaal);
         aantalCO2Uitgestoten.setText(CO2Totaal + "g");
@@ -66,18 +64,21 @@ public class InfoSchermController implements Initializable {
     @FXML
     private void displaySelected(MouseEvent event) {
         Rit rit = ListView.getSelectionModel().getSelectedItem();
+        Beloning beloning = ListView1.getSelectionModel().getSelectedItem();
 
-        if (rit == null) {
+        if (rit == null && beloning == null) {
             myTextArea.setText("U heeft nog geen rit of beloning geselecteerd");
         } else {
-
-            String reistext = "Op: " + rit.getDatum() + " heeft u " + rit.getAantalKilometers() + " kilometer gereisd met de " +
-                    rit.getVoertuig() + ".\nU kreeg voor deze rit " + rit.berekenAantalPunten() + " punten" +".\nU heeft voor deze rit " +rit.berekenAantalCO2Uitstoot() + "g CO2 uitgestoten.";
-
-              myTextArea.setText(reistext);
+            if (rit == null) {
+                String reistext = "Op: " + beloning.getDatum() + " heeft u de beloning '" + beloning.getBeloning() + "' ontvangen.\nDit koste u " + beloning.getNettoPuntenVerandering()+ " punten";
+                myTextArea.setText(reistext);
+            } else {
+                String reistext = "Op: " + rit.getDatum() + " heeft u " + rit.getAantalKilometers() + " kilometer gereisd met de " +
+                        rit.getVoertuig() + ".\nU kreeg voor deze rit " + rit.berekenAantalPunten() + " punten" + ".\nU heeft voor deze rit " + rit.berekenAantalCO2Uitstoot() + "g CO2 uitgestoten.";
+                myTextArea.setText(reistext);
+            }
         }
     }
-
     @FXML
     void gaTerugNaarMenu(ActionEvent event) throws IOException {
         if (CarbonBattles.getUsers().get(0).isAdmin()) {
@@ -96,6 +97,7 @@ public class InfoSchermController implements Initializable {
             stage.setTitle("CarbonBattles");
             stage.setResizable(false);
             stage.show();
+
         }
     }
 }

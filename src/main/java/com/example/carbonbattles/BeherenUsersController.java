@@ -54,6 +54,7 @@ public class BeherenUsersController implements Initializable {
     @FXML
     private Rectangle rectangle;
 
+public static User clickedUser;
 
     //Invulvelden items
     @FXML
@@ -73,6 +74,7 @@ public class BeherenUsersController implements Initializable {
 
     Manager manager = new Manager("Admin", "admin", "admin");
 
+    WaarschuwingDeleteUserController warning = new WaarschuwingDeleteUserController();
 
     //Toont de tableview met de juiste colums en info
     @Override
@@ -178,6 +180,29 @@ public class BeherenUsersController implements Initializable {
             stage.setTitle("CarbonBattles");
             stage.setResizable(false);
             stage.show();
+    }
+    @FXML
+    void deleteUserTrashcan(MouseEvent event) throws IOException {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("WarningScreenUserDelete.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("CarbonBattles");
+            stage.show();
+            clickedUser = WerknemersTableView.getSelectionModel().getSelectedItem();
+
+    }
+
+
+public static User getClickedUser(){
+        return clickedUser;
+}
+    @FXML
+    void refreshButton(MouseEvent event) {
+        WerknemersTableView.getItems().clear();
+        list.addAll(manager.alleenMedewerkers());
+        WerknemersTableView.setItems(list);
     }
 
 

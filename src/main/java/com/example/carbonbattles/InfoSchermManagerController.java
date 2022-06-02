@@ -13,8 +13,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -54,7 +52,7 @@ public class InfoSchermManagerController implements Initializable {
         ListViewBeloning.getItems().addAll(belonings);
         logo.setVisible(true);
 
-        double CO2UitstootVanGekozenMedewerker = InzichtPortaalController.getClickedUser().getCO2Uitstoot();
+        double CO2UitstootVanGekozenMedewerker = InzichtPortaalController.getClickedUser().getAantalCO2Uitstoot();
         String CO2totaal = "" + CO2UitstootVanGekozenMedewerker;
 
         int puntenVanGekozenMedewerker = InzichtPortaalController.getClickedUser().getAantalPunten();
@@ -66,18 +64,33 @@ public class InfoSchermManagerController implements Initializable {
     @FXML
     private void displaySelected(MouseEvent event) {
         Rit rit = ListViewRitten.getSelectionModel().getSelectedItem();
+        Beloning beloning = ListViewBeloning.getSelectionModel().getSelectedItem();
 
-        if (rit == null) {
+        if (rit == null && beloning == null) {
             text.setText("U heeft nog geen rit of beloning geselecteerd");
-        } else {
-
-            String reisText = "Op: " + rit.getDatum() + " heeft " + InzichtPortaalController.getClickedUser().getNaam() + " " + rit.getAantalKilometers() + " kilometer gereisd met de " +
-                    rit.getVoertuig() + ".\n" + InzichtPortaalController.getClickedUser().getNaam() +  " kreeg voor deze rit " + rit.berekenAantalPunten() + " punten" +
-                    ".\n" + InzichtPortaalController.getClickedUser().getNaam() + " heeft voor deze rit " + rit.berekenAantalCO2Uitstoot() + "g CO2 uitgestoten.";
-
-            text.setText(reisText);
         }
-    }
+        else{
+            if (rit == null){
+                String reistext = "Op: " + beloning.getDatum() + " heeft " + InzichtPortaalController.getClickedUser().getNaam() +  " de beloning '" + beloning.getBeloning() +
+                        "' ontvangen.\nDit koste " + InzichtPortaalController.getClickedUser().getNaam() + " " + beloning.getNettoPuntenVerandering()+ " punten";
+                text.setText(reistext);
+            }
+            else{
+                String reisText = "Op: " + rit.getDatum() + " heeft " + InzichtPortaalController.getClickedUser().getNaam() + " " + rit.getAantalKilometers() + " kilometer gereisd met de " +
+                        rit.getVoertuig() + ".\n" + InzichtPortaalController.getClickedUser().getNaam() +  " kreeg voor deze rit " + rit.berekenAantalPunten() + " punten" +
+                        ".\n" + InzichtPortaalController.getClickedUser().getNaam() + " heeft voor deze rit " + rit.berekenAantalCO2Uitstoot() + "g CO2 uitgestoten.";
+
+                text.setText(reisText);
+            }
+        }
+        }
+
+
+
+
+
+
+
 
     @FXML
     void gaTerugNaarLijst(ActionEvent event) throws IOException {

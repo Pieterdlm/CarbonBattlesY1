@@ -22,5 +22,4 @@ public class Auto extends Voertuig{
         }
         return kilometers * 121.8;
     }
-
 }

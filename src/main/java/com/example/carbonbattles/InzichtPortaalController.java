@@ -26,6 +26,13 @@ public class InzichtPortaalController implements Initializable {
     private TableView<User> tabelUsers;
     @FXML
     private TableColumn<User, String> naamColumn;
+
+    @FXML
+    private TableColumn<User, Integer> puntenColumn;
+
+    @FXML
+    private TableColumn<User, Double> Co2Column;
+
     private static User clickedUser;
 
     ObservableList<User> list = FXCollections.observableArrayList();
@@ -35,6 +42,8 @@ public class InzichtPortaalController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         inzichtPortaal portaal = new inzichtPortaal();
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
+        puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
+        Co2Column.setCellValueFactory(new PropertyValueFactory<>("aantalCO2Uitstoot"));
         ArrayList<User> AtotZ = portaal.getAtotZLijst();
         list.addAll(AtotZ);
         tabelUsers.setItems(list);
