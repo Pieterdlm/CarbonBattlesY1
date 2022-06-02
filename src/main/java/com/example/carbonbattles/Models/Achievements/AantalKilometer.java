@@ -28,13 +28,13 @@ public class AantalKilometer extends Achievement {
     @Override
     public String setIcon() {
         if (currentLevel.toString().equals("Niet_Behaald")) {
-            return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
+            return "file:src/main/resources/com/example/carbonbattles/aantal km icon nog niet behaald.png";
         } else if (currentLevel.toString().equals("Bronze")) {
-            return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
+            return "file:src/main/resources/com/example/carbonbattles/aantal km icon brons.png";
         } else if (currentLevel.toString().equals("Silver")) {
-            return "file:src/main/resources/com/example/carbonbattles/silver-metallic.jpg";
+            return "file:src/main/resources/com/example/carbonbattles/aantal km icon silver.jpg";
         } else if (currentLevel.toString().equals("Gold")) {
-            return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
+            return "file:src/main/resources/com/example/carbonbattles/aantal km icon gold.png";
         }
         return "No Value";
     }

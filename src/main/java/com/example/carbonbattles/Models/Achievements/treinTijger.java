@@ -37,14 +37,13 @@ public class treinTijger extends Achievement {
     @Override
     public String setIcon() {
         if (currentLevel.toString().equals("Niet_Behaald")) {
-            return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
-        }
-        else if (currentLevel.toString().equals("Bronze")) {
-            return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
+            return "file:src/main/resources/com/example/carbonbattles/trein nog niet behaald.png";
+        } else if (currentLevel.toString().equals("Bronze")) {
+            return "file:src/main/resources/com/example/carbonbattles/trein brons.png";
         } else if (currentLevel.toString().equals("Silver")) {
-            return "file:src/main/resources/com/example/carbonbattles/silver-metallic.jpg";
+            return "file:src/main/resources/com/example/carbonbattles/treins silver.png";
         } else if (currentLevel.toString().equals("Gold")) {
-            return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
+            return "file:src/main/resources/com/example/carbonbattles/trein gold.png";
         }
         return "No Value";
     }

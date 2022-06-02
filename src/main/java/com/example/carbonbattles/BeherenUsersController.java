@@ -74,7 +74,6 @@ public static User clickedUser;
 
     Manager manager = new Manager("Admin", "admin", "admin");
 
-    WaarschuwingDeleteUserController warning = new WaarschuwingDeleteUserController();
 
     //Toont de tableview met de juiste colums en info
     @Override
