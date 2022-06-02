@@ -48,11 +48,12 @@
                   <TableColumn fx:id="puntenColumn" prefWidth="77.0" text="Punten" />
               </columns>
             </TableView>
-            <Circle fill="#a7e99c" layoutX="470.0" layoutY="279.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+            <Circle fill="#a7e99c" layoutX="488.0" layoutY="279.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                <effect>
                   <DropShadow />
                </effect>
             </Circle>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a7e99c" height="82.0" layoutX="342.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
             <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f9f9f999" height="200.0" layoutX="327.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
                <effect>
                   <DropShadow>
@@ -61,7 +62,12 @@
                      </color>
                   </DropShadow>
                </effect></Rectangle>
-            <ImageView fx:id="plusButtonImageView" fitHeight="79.0" fitWidth="85.0" layoutX="431.0" layoutY="240.0" onMouseClicked="#voegUserToe" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="trashCan" fitHeight="88.0" fitWidth="80.0" layoutX="343.0" layoutY="240.0" onMouseClicked="#deleteUserTrashcan" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@open-trash-can.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="plusButtonImageView" fitHeight="79.0" fitWidth="85.0" layoutX="448.0" layoutY="240.0" onMouseClicked="#voegUserToe" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@plus-symbol.png" />
                </image>
@@ -97,6 +103,12 @@
                </effect>
             </TextField>
             <Label layoutX="410.0" layoutY="14.0" text="Naam" textAlignment="CENTER" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a7e99c" height="32.0" layoutX="276.0" layoutY="255.0" onMouseClicked="#refreshButton" stroke="BLACK" strokeType="INSIDE" width="33.0" />
+            <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="281.0" layoutY="259.0" onMouseClicked="#refreshButton" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@updatePijl.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </bottom>
