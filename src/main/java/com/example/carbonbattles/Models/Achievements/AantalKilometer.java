@@ -9,11 +9,11 @@ public class AantalKilometer extends Achievement {
 
     @Override
     public boolean checkBehaald() {
-        int aantalKilometers = CarbonBattles.getIngelogdeUser().getRitten().size() - 1;
+        int laatstUitgevoerdeRit = CarbonBattles.getIngelogdeUser().getRitten().size() - 1;
 
-        if (!CarbonBattles.getIngelogdeUser().getRitten().get(aantalKilometers).getVoertuig().getNaamVoertuig().equals("Auto")) {
-            aantalKilometers = aantalKilometers + CarbonBattles.getIngelogdeUser().getRitten().get(aantalKilometers).getAantalKilometers();
-            if (aantalKilometers == kilometerGehaald) {
+        if (!CarbonBattles.getIngelogdeUser().getRitten().get(laatstUitgevoerdeRit).getVoertuig().getNaamVoertuig().equals("Auto")) {
+            aantalKilometer= aantalKilometer + CarbonBattles.getIngelogdeUser().getRitten().get(laatstUitgevoerdeRit).getAantalKilometers();
+            if (aantalKilometer >= kilometerGehaald) {
                 setBehaald(true);
                 levelOpwaarderen();
                 kilometerGehaald = kilometerGehaald * 2;
@@ -21,21 +21,22 @@ public class AantalKilometer extends Achievement {
                 System.out.println(currentLevel);
                 return true;
             }
-        }else {
-            aantalKilometer = 0;
         }
         return false;
     }
 
     @Override
     public String setIcon() {
-            if(currentLevel.toString().equals("Bronze")) {
-                return "file:src/main/resources/com/example/carbonbattles/fiets icon.png";
-            }else if(currentLevel.toString().equals("Silver")){
-                return "file:src/main/resources/com/example/carbonbattles/CarbonBattles.png";
-            }else if(currentLevel.toString().equals("Gold")){
-            }
-            return "";
+        if (currentLevel.toString().equals("Niet_Behaald")) {
+            return "file:src/main/resources/com/example/carbonbattles/aantal km icon nog niet behaald.png";
+        } else if (currentLevel.toString().equals("Bronze")) {
+            return "file:src/main/resources/com/example/carbonbattles/aantal km icon brons.png";
+        } else if (currentLevel.toString().equals("Silver")) {
+            return "file:src/main/resources/com/example/carbonbattles/aantal km icon silver.jpg";
+        } else if (currentLevel.toString().equals("Gold")) {
+            return "file:src/main/resources/com/example/carbonbattles/aantal km icon gold.png";
+        }
+        return "No Value";
     }
 
     public AantalKilometer() {

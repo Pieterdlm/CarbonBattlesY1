@@ -1,6 +1,6 @@
 package com.example.carbonbattles;
 
-import com.example.carbonbattles.Models.Achievements.Achievement;
+import com.example.carbonbattles.Models.Achievements.*;
 import com.example.carbonbattles.Models.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,17 +52,21 @@ public class AchievementController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        fietsIcon.setImage(new Image("file:src/main/resources/com/example/carbonbattles/zV1CtKT5.png"));
-//        for (Achievement a : achievements) {
-//            checkLevel(a);
-//        }
-
-        checkLevel(achievements.get(0));
-
+        for (Achievement a : achievements) {
+            checkLevel(a);
+        }
     }
 
+    //Nachecken Hoe je per Subclass de Icon aanpast van de bijbehorende Class
     private void checkLevel(Achievement a) {
-        System.out.println("TestTest");
-        fietsIcon.setImage(new Image(a.setIcon()));
+        if (a instanceof FietsAchievement) {
+            fietsIcon.setImage(new Image(a.setIcon()));
+        } else if (a instanceof treinTijger) {
+            treinIcon.setImage(new Image(a.setIcon()));
+        } else if (a instanceof PuntaBit) {
+            puntenIcon.setImage(new Image(a.setIcon()));
+        } else if (a instanceof AantalKilometer) {
+            kilometerIcon.setImage(new Image(a.setIcon()));
+        }
     }
 }
