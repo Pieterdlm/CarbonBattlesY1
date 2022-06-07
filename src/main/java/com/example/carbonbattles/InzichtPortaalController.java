@@ -74,6 +74,7 @@ public class InzichtPortaalController implements Initializable {
         stage.setTitle("CarbonBattles");
         stage.setResizable(false);
         stage.show();
+    }
 
     public static User getClickedUser() {
         return clickedUser;
