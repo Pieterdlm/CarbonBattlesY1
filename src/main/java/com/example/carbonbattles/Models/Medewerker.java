@@ -1,17 +1,52 @@
 package com.example.carbonbattles.Models;
 
-public class Medewerker extends User {
+
+
+import com.example.carbonbattles.Models.Achievements.*;
+
+import java.util.ArrayList;
+
+public class Medewerker extends User implements IObservable {
+
+    private final ArrayList<IObserver> observers = new ArrayList<>();
+    private final ArrayList<Achievement> achievements = initializeAchievements();
+    private String statusLaatsteRit;
+
+
 
     public Medewerker(String naam, String gebruikersnaam, String wachtwoord) {
         super(naam, gebruikersnaam, wachtwoord);
         setAdmin(false);
+        observers.addAll(achievements);
     }
+
 
     @Override
     public void createARit(Integer kilometers, Voertuig voertuig, boolean elektrischOfNiet, String datum) {
         Rit rit = new Rit(kilometers, voertuig, elektrischOfNiet, datum);
-        setAantalPunten(rit.berekenAantalPunten() + getAantalPunten());
+        int aantalPunten = rit.berekenAantalPunten() + getAantalPunten();
+        double aantalCO2 = rit.berekenAantalCO2Uitstoot() + getAantalCO2Uitstoot();
+        setAantalPunten(aantalPunten);
+        setCO2Uitstoot(aantalCO2);
         getRitten().add(rit);
+        notifyObservers();
+        statusChecker(rit);
+    }
+
+    public boolean statusChecker(Rit rit){
+        if(rit.getAantalKilometers() < 30 || rit.getElektrischOfNiet()){
+            statusLaatsteRit = "Goed Gedaan";
+            return true;
+        }   else{
+            statusLaatsteRit = "Kan Beter!";
+        }
+        return false;
+    }
+
+    public void notifyObservers() {
+        for(IObserver o : observers){
+            o.update();
+        }
     }
 
     @Override
@@ -19,5 +54,26 @@ public class Medewerker extends User {
         Beloning beloning1 = new Beloning(redenVoorBeloning, beloning, nettoPuntenVerandering, datum);
         setAantalPunten(getAantalPunten() - nettoPuntenVerandering);
         getBeloningen().add(beloning1);
+    }
+
+    @Override
+    public void checkAchievements(Achievement achievement) {
+       achievement.checkBehaald();
+    }
+
+
+    public ArrayList<Achievement> initializeAchievements() {
+        ArrayList<Achievement> lijst = new ArrayList<>();
+        //Aanmaken van achievements voor Gebruikers
+        lijst.add(new FietsAchievement());
+        lijst.add(new treinTijger());
+        lijst.add(new PuntaBit());
+        lijst.add(new AantalKilometer());
+        //lijst.add -> Andere achievements
+        return lijst;
+    }
+
+    public ArrayList<Achievement> getAchievements() {
+        return achievements;
     }
 }

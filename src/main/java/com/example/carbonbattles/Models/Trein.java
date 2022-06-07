@@ -11,4 +11,9 @@ public class Trein extends Voertuig{
     public int berekenPunten(int kilometers, boolean elektrischOfNiet) {
         return kilometers;
     }
+
+    @Override
+    public double berekenCO2Uitstoot(int kilometers, boolean elektrischOfNiet) {
+        return 0;
+    }
 }

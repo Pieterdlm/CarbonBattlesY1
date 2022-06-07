@@ -5,6 +5,7 @@ public class Beloning {
     private String Beloning;
     private Integer nettoPuntenVerandering;
     private String datum;
+
     public Beloning(String naam, String beloning, Integer nettoPuntenVerandering, String datum) {
         this.naam = naam;
         Beloning = beloning;
@@ -12,16 +13,16 @@ public class Beloning {
         this.datum = datum;
     }
 
-    public String getBeloning() {
-        return Beloning;
-    }
-
     public String getDatum() {
         return datum;
     }
 
-    public String getNaam() {
-        return naam;
+    public String getBeloning() {
+        return Beloning;
+    }
+
+    public Integer getNettoPuntenVerandering() {
+        return nettoPuntenVerandering;
     }
 
     @Override

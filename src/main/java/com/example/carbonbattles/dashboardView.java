@@ -37,6 +37,8 @@ public class dashboardView implements Initializable {
     private TextField redenVoorBeloning;
     @FXML
     private TableColumn<User, Integer> puntenColumn;
+    @FXML
+    private TableColumn<User, Double> Co2Column;
 
     private Dashboard dashboard;
 
@@ -48,7 +50,8 @@ public class dashboardView implements Initializable {
         dashboard = new Dashboard();
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("naam"));
         puntenColumn.setCellValueFactory(new PropertyValueFactory<>("aantalPunten"));
-        ArrayList<User> top5 = dashboard.toonRanglijstManager(dashboard.getTop5());
+        Co2Column.setCellValueFactory(new PropertyValueFactory<>("aantalCO2Uitstoot"));
+        ArrayList<User> top5 = dashboard.getTop5();
         list.addAll(top5);
         tabelUsers.setItems(list);
 
