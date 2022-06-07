@@ -13,7 +13,7 @@ public class CarbonBattlesApplication extends Application {
 
 @Override
 public void start(Stage stage2) throws IOException {
-    Parent root = FXMLLoader.load(getClass().getResource("Auth.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("BeherenUsers-view.fxml"));
     Scene scene = new Scene(root);
     stage.setTitle("CarbonBattles");
     stage.setScene(scene);
