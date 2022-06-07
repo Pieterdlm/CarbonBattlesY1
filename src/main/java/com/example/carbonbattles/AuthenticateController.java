@@ -1,7 +1,6 @@
 package com.example.carbonbattles;
 
 
-import com.example.carbonbattles.Models.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AuthenticateController extends CarbonBattles {
+public class AuthenticateController{
 
 
     @FXML
@@ -35,37 +34,28 @@ public class AuthenticateController extends CarbonBattles {
     private Stage stage;
 
 
-    public void signInButtonOnAction(ActionEvent event) throws IOException {
-        Parent root;
 
-        for (User u : CarbonBattles.getUsers()) {
-            if (u.getGebruikersNaam().equals(usernameTextField.getText().toString())) {
-                if (u.getWachtwoord().equals(passwordField.getText().toString())) {
-                    if (u.isAdmin()) {
-                        setIngelogdeUser(u);
-                        root = FXMLLoader.load(getClass().getResource("ManagerMenu.fxml"));
-                    } else {
-                        setIngelogdeUser(u);
-                        root = FXMLLoader.load(getClass().getResource("MedewerkerMenu.fxml"));
-                    }
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.setTitle("CarbonBattles");
-                    stage.setResizable(false);
-                    stage.show();
-                    break;
-
-                } else {
-                    loginMessageLabel.setText("Incorrect credentials!");
-                }
-            }
-            else if (usernameTextField.getText().isBlank() && passwordField.getText().isBlank()){
-                loginMessageLabel.setText("Please enter your Username and Password.");
+    public void checkLogin(ActionEvent event) throws IOException{
+        if (Authenticate.checkBlank(usernameTextField.getText(), passwordField.getText())){
+            loginMessageLabel.setText("Please enter your Username and Password.");
+        }
+        else if (Authenticate.checkCredentials(usernameTextField.getText(), passwordField.getText())){
+            if (CarbonBattles.getIngelogdeUser().isAdmin()){
+                root = FXMLLoader.load(getClass().getResource("ManagerMenu.fxml"));
             }
             else {
-                loginMessageLabel.setText("Incorrect credentials!");
+                root = FXMLLoader.load(getClass().getResource("MedewerkerMenu.fxml"));
             }
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("CarbonBattles");
+            stage.setResizable(false);
+            stage.show();
+
+        }
+        else {
+            loginMessageLabel.setText("Incorrect credentials!");
         }
     }
 }

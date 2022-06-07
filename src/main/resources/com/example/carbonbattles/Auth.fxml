@@ -34,7 +34,7 @@
                     <Font name="Candara" size="14.0" />
                 </font>
             </TextField>
-            <Button fx:id="signInButton" contentDisplay="CENTER" layoutX="60.0" layoutY="245.0" mnemonicParsing="false" onAction="#signInButtonOnAction" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: black; -fx-background-radius: 90;" text="SIGN IN" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="signInButton" contentDisplay="CENTER" layoutX="60.0" layoutY="245.0" mnemonicParsing="false" onAction="#checkLogin" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: black; -fx-background-radius: 90;" text="SIGN IN" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font name="Calibri Bold" size="14.0" />
                 </font>

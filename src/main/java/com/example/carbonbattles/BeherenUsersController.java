@@ -92,6 +92,12 @@ public static User clickedUser;
         //User aanmaken en toevoegen aan arraylist
         UserToevoegen();
 
+        // Testen of arraylist klopt. Print in de terminal  ------- Later verwijderen.
+        for (User users : CarbonBattles.getUsers()){
+            System.out.println(users.getNaam() + " - " + users.getGebruikersNaam() + " - " + users.getWachtwoord() + "");
+        }
+        System.out.println("------------------");
+
         //updaten van tableview
         WerknemersTableView.getItems().clear();
         list.addAll(manager.alleenMedewerkers());
