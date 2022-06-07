@@ -84,14 +84,6 @@ public class InfoSchermManagerController implements Initializable {
             }
         }
         }
-
-
-
-
-
-
-
-
     @FXML
     void gaTerugNaarLijst(ActionEvent event) throws IOException {
         if (CarbonBattles.getIngelogdeUser().isAdmin()) {
