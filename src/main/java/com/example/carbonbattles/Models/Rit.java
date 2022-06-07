@@ -18,9 +18,17 @@ public class Rit {
         this.datum = datum;
     }
 
+//    public int berekenAantalPunten() {
+//        if (voertuig.berekenPunten(aantalKilometers, elektrischOfNiet) > 0) {
+//            return voertuig.berekenPunten(aantalKilometers, elektrischOfNiet);
+//        } else {
+//            return 0;
+//        }
+//    }
+
     public int berekenAantalPunten() {
-        if (voertuig.berekenPunten(aantalKilometers, elektrischOfNiet) > 0) {
-            return voertuig.berekenPunten(aantalKilometers, elektrischOfNiet);
+        if (voertuig.berekenPuntenMethod(aantalKilometers, elektrischOfNiet) > 0) {
+            return voertuig.berekenPuntenMethod(aantalKilometers, elektrischOfNiet);
         } else {
             return 0;
         }

@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -61,6 +62,18 @@ public class InzichtPortaalController implements Initializable {
             stage.setResizable(false);
             stage.show();
         }
+
+
+    @FXML
+    void buttonBekijkAchievements(ActionEvent event) throws IOException {
+        clickedUser = tabelUsers.getSelectionModel().getSelectedItem();
+        Parent root = FXMLLoader.load(getClass().getResource("Achievements-admin-view.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("CarbonBattles");
+        stage.setResizable(false);
+        stage.show();
 
     public static User getClickedUser() {
         return clickedUser;

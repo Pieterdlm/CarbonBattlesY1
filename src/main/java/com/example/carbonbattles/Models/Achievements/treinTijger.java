@@ -19,10 +19,9 @@ public class treinTijger extends Achievement {
         int indexLaatsteRit = CarbonBattles.getIngelogdeUser().getRitten().size() - 1;
 
         if (CarbonBattles.getIngelogdeUser().getRitten().get(indexLaatsteRit).getVoertuig().getNaamVoertuig().equals("Trein")) {
-
             aantalKilometers = aantalKilometers + CarbonBattles.getIngelogdeUser().getRitten().get(indexLaatsteRit).getAantalKilometers();
 
-            if (aantalKilometers == waardeBehaald) {
+            if (aantalKilometers >= waardeBehaald) {
                 setBehaald(true);
                 levelOpwaarderen();
                 waardeBehaald = waardeBehaald * 2;

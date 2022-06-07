@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.InzichtPortaalController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carbonbattles.InzichtPortaalController">
    <top>
       <AnchorPane prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: a7e99c;" BorderPane.alignment="CENTER">
          <children>
@@ -53,7 +53,7 @@
                   </DropShadow>
                </effect>
             </TableView>
-            <Button fx:id="buttonBekijkGegevens" layoutX="395.0" layoutY="466.0" mnemonicParsing="false" onAction="#buttonBekijkGegevens" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: a7e99c;" text="Toon gegevens">
+            <Button fx:id="buttonBekijkGegevens" layoutX="251.0" layoutY="466.0" mnemonicParsing="false" onAction="#buttonBekijkGegevens" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: a7e99c;" text="Toon gegevens">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>
@@ -70,6 +70,18 @@
                   <Font name="Arial Rounded MT Bold" size="23.0" />
                </font>
             </Text>
+            <Button fx:id="buttonBekijkAchievements" layoutX="423.0" layoutY="466.0" mnemonicParsing="false" onAction="#buttonBekijkAchievements" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: a7e99c;" text="Toon Achievements">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+               <effect>
+                  <DropShadow offsetY="5.0">
+                     <color>
+                        <Color red="0.7368420958518982" green="0.7368420958518982" blue="0.7368420958518982" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
          </children>
       </AnchorPane>
    </bottom>
