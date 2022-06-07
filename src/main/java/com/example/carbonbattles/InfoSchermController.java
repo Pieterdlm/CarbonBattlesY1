@@ -74,7 +74,8 @@ public class InfoSchermController implements Initializable {
                 myTextArea.setText(reistext);
             } else {
                 String reistext = "Op: " + rit.getDatum() + " heeft u " + rit.getAantalKilometers() + " kilometer gereisd met de " +
-                        rit.getVoertuig() + ".\nU kreeg voor deze rit " + rit.berekenAantalPunten() + " punten" + ".\nU heeft voor deze rit " + rit.berekenAantalCO2Uitstoot() + "g CO2 uitgestoten.";
+                        rit.getVoertuig() + ".\nU kreeg voor deze rit " + rit.berekenAantalPunten() + " punten" + ".\nU heeft voor deze rit " + rit.berekenAantalCO2Uitstoot() + "g CO2 uitgestoten." +
+                        ".\nDit was een " + rit.checkCO2UitstootPerRit(rit.berekenAantalCO2Uitstoot());
                 myTextArea.setText(reistext);
             }
         }

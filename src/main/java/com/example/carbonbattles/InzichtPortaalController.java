@@ -62,6 +62,10 @@ public class InzichtPortaalController implements Initializable {
             stage.show();
         }
 
+    public static User getClickedUser() {
+        return clickedUser;
+    }
+
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
         if (CarbonBattles.getIngelogdeUser().isAdmin()) {
@@ -83,7 +87,4 @@ public class InzichtPortaalController implements Initializable {
         }
     }
 
-    public static User getClickedUser() {
-        return clickedUser;
-    }
 }

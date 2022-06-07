@@ -78,7 +78,8 @@ public class InfoSchermManagerController implements Initializable {
             else{
                 String reisText = "Op: " + rit.getDatum() + " heeft " + InzichtPortaalController.getClickedUser().getNaam() + " " + rit.getAantalKilometers() + " kilometer gereisd met de " +
                         rit.getVoertuig() + ".\n" + InzichtPortaalController.getClickedUser().getNaam() +  " kreeg voor deze rit " + rit.berekenAantalPunten() + " punten" +
-                        ".\n" + InzichtPortaalController.getClickedUser().getNaam() + " heeft voor deze rit " + rit.berekenAantalCO2Uitstoot() + "g CO2 uitgestoten.";
+                        ".\n" + InzichtPortaalController.getClickedUser().getNaam() + " heeft voor deze rit " + rit.berekenAantalCO2Uitstoot() + "g CO2 uitgestoten." +
+                        ".\nDit was een " + rit.checkCO2UitstootPerRit(rit.berekenAantalCO2Uitstoot());
 
                 text.setText(reisText);
             }
