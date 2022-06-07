@@ -26,3 +26,4 @@ public class WaarschuwingDeleteUserTest {
         Assert.assertEquals(lijstMetusersBeforeDelete - lijstMetUsersAfterDelete,1);
     }
 }
+
