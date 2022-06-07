@@ -60,17 +60,13 @@ public class Rit {
     public String checkCO2UitstootPerRit(double aantalCO2Rit){
         if (aantalCO2Rit >= 2500.0){
             CO2_BewustheidRit = "CO2 uitstoot zeer onbewuste rit";
-            return CO2_BewustheidRit;
         }
         else if (aantalCO2Rit >= 500.0){
             CO2_BewustheidRit = "CO2 uitstoot onbewuste rit";
-            return CO2_BewustheidRit;
         }
         else if (aantalCO2Rit >= 0.0){
             CO2_BewustheidRit = "CO2 uitstoot zeer bewuste rit";
-            return CO2_BewustheidRit;
         }
-        CO2_BewustheidRit = "Error";
         return CO2_BewustheidRit;
     }
 

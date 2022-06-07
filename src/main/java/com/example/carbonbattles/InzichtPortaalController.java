@@ -63,6 +63,7 @@ public class InzichtPortaalController implements Initializable {
             stage.show();
         }
 
+
     @FXML
     void buttonBekijkAchievements(ActionEvent event) throws IOException {
         clickedUser = tabelUsers.getSelectionModel().getSelectedItem();
@@ -73,6 +74,9 @@ public class InzichtPortaalController implements Initializable {
         stage.setTitle("CarbonBattles");
         stage.setResizable(false);
         stage.show();
+
+    public static User getClickedUser() {
+        return clickedUser;
     }
 
 
@@ -96,7 +100,4 @@ public class InzichtPortaalController implements Initializable {
         }
     }
 
-    public static User getClickedUser() {
-        return clickedUser;
-    }
 }
