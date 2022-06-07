@@ -31,6 +31,11 @@ public class Manager extends User {
 
     }
 
+    @Override
+    public boolean veranderWachtwoord(String text) {
+        return false;
+    }
+
 
     public ArrayList<User> alleenMedewerkers() {
         ArrayList<User> alleMedewerkers = new ArrayList<>();
