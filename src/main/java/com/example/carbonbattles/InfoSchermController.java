@@ -101,6 +101,16 @@ public class InfoSchermController implements Initializable {
 
         }
     }
+
+    @FXML
+    void wijzigWachtwoord(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("WijzigWachtwoord-view.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("CarbonBattles");
+        stage.show();
+    }
 }
 
 

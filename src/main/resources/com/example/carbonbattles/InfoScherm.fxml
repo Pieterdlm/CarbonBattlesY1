@@ -84,5 +84,10 @@
          </font>
       </Text>
       <Text fx:id="TotaleCO2uitstoot" layoutX="387.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Totaal CO2 uitgestoten" textAlignment="CENTER" wrappingWidth="131.13671875" />
+      <Button fx:id="wijzigWachtwoordButton" layoutX="357.0" layoutY="18.0" mnemonicParsing="false" onAction="#wijzigWachtwoord" style="-fx-background-color: white; -fx-border-color: grey; -fx-background-radius: 50; -fx-border-radius: 50;" text="Wijzig wachtwoord">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
