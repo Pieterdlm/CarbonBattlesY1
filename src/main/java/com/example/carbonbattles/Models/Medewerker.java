@@ -70,7 +70,7 @@ public class Medewerker extends User implements IObservable {
     }
 
 
-    public ArrayList<Achievement> initializeAchievements() {
+    private ArrayList<Achievement> initializeAchievements() {
         ArrayList<Achievement> lijst = new ArrayList<>();
         //Aanmaken van achievements voor Gebruikers
         lijst.add(new FietsAchievement());

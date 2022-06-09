@@ -3,7 +3,7 @@ package com.example.carbonbattles;
 import com.example.carbonbattles.Models.User;
 
 
-public class Authenticate extends CarbonBattles {
+public class Authenticate{
 
 
     public static boolean checkBlank(String gebruikersnaam, String wachtwoord) {
@@ -20,7 +20,7 @@ public class Authenticate extends CarbonBattles {
         for (User u : CarbonBattles.getUsers()) {
             if (u.getGebruikersNaam().equals(gebruikersnaam)) {
                 if (u.getWachtwoord().equals(wachtwoord)) {
-                    setIngelogdeUser(u);
+                    CarbonBattles.setIngelogdeUser(u);
                     return true;
                 }
             }

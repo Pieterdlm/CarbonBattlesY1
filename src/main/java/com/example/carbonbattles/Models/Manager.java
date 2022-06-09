@@ -28,7 +28,6 @@ public class Manager extends User {
 
     @Override
     public void checkAchievements(Achievement a) {
-
     }
 
     @Override
