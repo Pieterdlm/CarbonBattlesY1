@@ -35,30 +35,30 @@ public class RitTest {
 
     @Test
     public void test_Auto_CO2Uitstoot() {
-        Rit rit = new Rit(50, new Auto(), false, "01-02-2022");
+        Rit rit = new Rit(25, new Auto(), false, "01-02-2022");
         double actual = rit.berekenAantalCO2Uitstoot();
-        Assert.assertEquals(6090.0, actual, 0.0001);
+        Assert.assertEquals(3045.0, actual, 0.0001);
     }
 
     @Test
-    public void test_Fiets_CO2Uitstoot() {
-        Rit rit = new Rit(10, new Fiets(), false, "01-02-2022");
+    public void test_Trein_CO2Uitstoot() {
+        Rit rit = new Rit(15, new Trein(), false, "01-02-2022");
         double actual = rit.berekenAantalCO2Uitstoot();
         Assert.assertEquals(0.0, actual, 0.0001);
     }
 
     @Test
-    public void test_Trein_CO2Uitstoot() {
-        Rit rit = new Rit(70, new Trein(), false, "01-02-2022");
+    public void test_Fiets_CO2Uitstoot() {
+        Rit rit = new Rit(5, new Fiets(), false, "01-02-2022");
         double actual = rit.berekenAantalCO2Uitstoot();
         Assert.assertEquals(0.0, actual, 0.0001);
     }
 
     @Test
     public void test_Scooter_CO2Uitstoot() {
-        Rit rit = new Rit(10, new Scooter(), false, "01-02-2022");
+        Rit rit = new Rit(8, new Scooter(), false, "01-02-2022");
         double actual = rit.berekenAantalCO2Uitstoot();
-        Assert.assertEquals(200.0, actual, 0.0001);
+        Assert.assertEquals(160.0, actual, 0.0001);
     }
 
 
