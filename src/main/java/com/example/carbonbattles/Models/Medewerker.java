@@ -1,7 +1,7 @@
 package com.example.carbonbattles.Models;
 
 
-
+import com.example.carbonbattles.Authenticate;
 import com.example.carbonbattles.Models.Achievements.*;
 
 import java.util.ArrayList;
@@ -11,7 +11,6 @@ public class Medewerker extends User implements IObservable {
     private final ArrayList<IObserver> observers = new ArrayList<>();
     private final ArrayList<Achievement> achievements = initializeAchievements();
     private String statusLaatsteRit;
-
 
 
     public Medewerker(String naam, String gebruikersnaam, String wachtwoord) {
@@ -33,24 +32,24 @@ public class Medewerker extends User implements IObservable {
         statusChecker(rit);
     }
 
-    public boolean statusChecker(Rit rit){
-        if(rit.getAantalKilometers() < 30 || rit.getElektrischOfNiet()){
+    public boolean statusChecker(Rit rit) {
+        if (rit.getAantalKilometers() < 30 || rit.getElektrischOfNiet()) {
             statusLaatsteRit = "Goed Gedaan";
             return true;
-        }   else{
+        } else {
             statusLaatsteRit = "Kan Beter!";
         }
         return false;
     }
 
     public void notifyObservers() {
-        for(IObserver o : observers){
+        for (IObserver o : observers) {
             o.update();
         }
     }
 
     @Override
-    public void createABeloning(String redenVoorBeloning, String beloning, Integer nettoPuntenVerandering, String datum){
+    public void createABeloning(String redenVoorBeloning, String beloning, Integer nettoPuntenVerandering, String datum) {
         Beloning beloning1 = new Beloning(redenVoorBeloning, beloning, nettoPuntenVerandering, datum);
         setAantalPunten(getAantalPunten() - nettoPuntenVerandering);
         getBeloningen().add(beloning1);
@@ -58,7 +57,16 @@ public class Medewerker extends User implements IObservable {
 
     @Override
     public void checkAchievements(Achievement achievement) {
-       achievement.checkBehaald();
+        achievement.checkBehaald();
+    }
+
+    @Override
+    public boolean veranderWachtwoord(String text) {
+        if(Authenticate.checkWachtwoord(text)){
+            setWachtwoord(text);
+            return true;
+        }
+        return false;
     }
 
 
@@ -76,4 +84,6 @@ public class Medewerker extends User implements IObservable {
     public ArrayList<Achievement> getAchievements() {
         return achievements;
     }
+
+
 }

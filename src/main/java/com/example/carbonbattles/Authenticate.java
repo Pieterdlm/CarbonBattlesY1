@@ -10,6 +10,12 @@ public class Authenticate extends CarbonBattles {
         return gebruikersnaam.isBlank() && wachtwoord.isBlank();
     }
 
+    public static boolean checkWachtwoord(String ww){
+        if(ww.length() < 8){
+            return false;
+        }return true;
+
+    }
     public static boolean checkCredentials(String gebruikersnaam, String wachtwoord) {
         for (User u : CarbonBattles.getUsers()) {
             if (u.getGebruikersNaam().equals(gebruikersnaam)) {
@@ -21,6 +27,4 @@ public class Authenticate extends CarbonBattles {
         }
         return false;
     }
-
-
 }
