@@ -125,16 +125,16 @@ public class RitTest {
         Assert.assertEquals("CO2 uitstoot zeer bewuste rit", rit.checkCO2UitstootPerRit(0));
 
         Rit rit2 = new Rit(1, new Scooter(), false, "02-03-2022");
-        Assert.assertEquals("CO2 uitstoot zeer bewuste rit", rit2.checkCO2UitstootPerRit(1));
+        Assert.assertEquals("CO2 uitstoot zeer bewuste rit", rit2.checkCO2UitstootPerRit(0.01));
 
         Rit rit3 = new Rit(4, new Auto(), false, "02-03-2022");
-        Assert.assertEquals("CO2 uitstoot zeer bewuste rit", rit3.checkCO2UitstootPerRit(499.0));
+        Assert.assertEquals("CO2 uitstoot zeer bewuste rit", rit3.checkCO2UitstootPerRit(499.99));
 
         Rit rit4 = new Rit(5,  new Auto(), false, "02-03-2022");
         Assert.assertEquals("CO2 uitstoot onbewuste rit", rit4.checkCO2UitstootPerRit(500.0));
 
         Rit rit5 = new Rit(5,  new Auto(), false, "02-03-2022");
-        Assert.assertEquals("CO2 uitstoot onbewuste rit", rit5.checkCO2UitstootPerRit(501.0));
+        Assert.assertEquals("CO2 uitstoot onbewuste rit", rit5.checkCO2UitstootPerRit(500.01));
 
         Rit rit6 = new Rit(24,  new Auto(), false, "02-03-2022");
         Assert.assertEquals("CO2 uitstoot onbewuste rit", rit6.checkCO2UitstootPerRit(2499.0));
@@ -143,7 +143,7 @@ public class RitTest {
         Assert.assertEquals("CO2 uitstoot zeer onbewuste rit", rit7.checkCO2UitstootPerRit(2500.0));
 
         Rit rit8 = new Rit(25,  new Auto(), false, "02-03-2022");
-        Assert.assertEquals("CO2 uitstoot zeer onbewuste rit", rit8.checkCO2UitstootPerRit(2501.0));
+        Assert.assertEquals("CO2 uitstoot zeer onbewuste rit", rit8.checkCO2UitstootPerRit(2500.01));
 
     }
 }
