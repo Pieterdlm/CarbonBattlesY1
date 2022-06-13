@@ -14,7 +14,7 @@ public class WaarschuwingDeleteUserTest {
 
 
 
-
+//test of een medewerker uit de lijst is verwijderd door de size van de arraylist voor de verwijdering wordt vergeleken met de size na de verwijdering
     @Test
     public void testDelete(){
 
