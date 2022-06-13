@@ -1,6 +1,5 @@
 package com.example.carbonbattles;
 import com.example.carbonbattles.Models.User;
-import javafx.stage.Stage;
 
 public class WaarschuwingDeleteUser {
 

@@ -1,7 +1,5 @@
 package com.example.carbonbattles.Models;
 
-import com.example.carbonbattles.Authenticate;
-import com.example.carbonbattles.*;
 import com.example.carbonbattles.CarbonBattles;
 import org.junit.Assert;
 import org.junit.Test;
