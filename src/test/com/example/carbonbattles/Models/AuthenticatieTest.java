@@ -50,4 +50,35 @@ public class AuthenticatieTest {
         String nieuwWachtwoord = CarbonBattles.getIngelogdeUser().getWachtwoord();
         Assert.assertEquals(oudWachtwoord,nieuwWachtwoord);
     }
+
+
+    @Test
+    public void credentialCheckerTest_BlankString(){
+        String gebruikersNaam = "";
+        String wachtwoord = "";
+        Assert.assertTrue(Authenticate.checkBlank(gebruikersNaam, wachtwoord));
+
+    }
+
+    @Test
+    public void credentialCheckerTest_FilledString(){
+        String gebruikersNaam = "test";
+        String wachtwoord = "123";
+        Assert.assertFalse(Authenticate.checkBlank(gebruikersNaam, wachtwoord));
+
+    }
+
+    @Test
+    public void credentialCheckerTest_CorrectCredenials(){
+        String gebruikersNaam = "Admin";
+        String wachtwoord = "123";
+        Assert.assertTrue(Authenticate.checkCredentials(gebruikersNaam, wachtwoord));
+    }
+
+    @Test
+    public void credentialCheckerTest_IncorrectCredenials(){
+        String gebruikersNaam = "Onjuiste";
+        String wachtwoord = "1234";
+        Assert.assertFalse(Authenticate.checkCredentials(gebruikersNaam, wachtwoord));
+    }
 }
