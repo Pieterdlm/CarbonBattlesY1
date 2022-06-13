@@ -35,6 +35,11 @@ public class Manager extends User {
         return false;
     }
 
+    @Override
+    public String haalVoertuigNaamOpVanUser() {
+        return null;
+    }
+
 
     public ArrayList<User> alleenMedewerkers() {
         ArrayList<User> alleMedewerkers = new ArrayList<>();

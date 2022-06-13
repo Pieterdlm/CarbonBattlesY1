@@ -35,4 +35,7 @@ public class CarbonBattles {
         return users;
     }
 
+    public static String haalLaatsteVoertuigNaamOpVanUser() {
+        return ingelogdeUser.haalVoertuigNaamOpVanUser();
+    }
 }

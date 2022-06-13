@@ -8,9 +8,8 @@ public class FietsAchievement extends Achievement {
     public Integer streak = 0;
 
     public boolean checkBehaald() {
-        int indexLaatsteRit = CarbonBattles.getIngelogdeUser().getRitten().size() - 1;
 
-        if (CarbonBattles.getIngelogdeUser().getRitten().get(indexLaatsteRit).getVoertuig().getNaamVoertuig().equals("Fiets")) {
+        if (CarbonBattles.haalLaatsteVoertuigNaamOpVanUser().equals("fiets")) {
             streak++;
 
             if (streak == waardeBehaald) {

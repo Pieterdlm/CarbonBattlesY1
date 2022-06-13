@@ -69,6 +69,15 @@ public class Medewerker extends User implements IObservable {
         return false;
     }
 
+    @Override
+    public String haalVoertuigNaamOpVanUser() {
+        return haalLaatsteRitOp().haalVoertuigNaamOp();
+    }
+
+    private Rit haalLaatsteRitOp() {
+        return getRitten().get(getRitten().size() - 1);
+    }
+
 
     private ArrayList<Achievement> initializeAchievements() {
         ArrayList<Achievement> lijst = new ArrayList<>();

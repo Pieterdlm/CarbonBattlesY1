@@ -1,5 +1,6 @@
 package com.example.carbonbattles.Models;
 
+import java.util.Locale;
 import java.util.Observable;
 
 public class Rit {
@@ -92,4 +93,7 @@ public class Rit {
     }
 
 
+    public String haalVoertuigNaamOp() {
+        return voertuig.getNaamVoertuig().toLowerCase();
+    }
 }
