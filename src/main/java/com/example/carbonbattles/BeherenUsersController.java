@@ -1,12 +1,10 @@
 package com.example.carbonbattles;
 
 import com.example.carbonbattles.Models.Manager;
-import com.example.carbonbattles.Models.Medewerker;
 import com.example.carbonbattles.Models.User;
 import javafx.animation.FillTransition;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
-import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,7 +25,6 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BeherenUsersController implements Initializable {
