@@ -1,4 +1,3 @@
-import com.example.carbonbattles.Models.Fiets;
 import com.example.carbonbattles.Models.Medewerker;
 import com.example.carbonbattles.Models.User;
 import com.example.carbonbattles.inzichtPortaal;
