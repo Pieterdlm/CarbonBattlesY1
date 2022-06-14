@@ -88,4 +88,6 @@ public abstract class User {
     public abstract boolean veranderWachtwoord(String text);
 
     public abstract String haalVoertuigNaamOpVanUser();
+
+    public abstract int haalKilometersOpVanLaatsteRit();
 }

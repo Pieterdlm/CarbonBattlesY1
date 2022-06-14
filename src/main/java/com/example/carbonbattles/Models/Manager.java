@@ -40,6 +40,11 @@ public class Manager extends User {
         return null;
     }
 
+    @Override
+    public int haalKilometersOpVanLaatsteRit() {
+        return 0;
+    }
+
 
     public ArrayList<User> alleenMedewerkers() {
         ArrayList<User> alleMedewerkers = new ArrayList<>();

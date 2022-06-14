@@ -38,4 +38,8 @@ public class CarbonBattles {
     public static String haalLaatsteVoertuigNaamOpVanUser() {
         return ingelogdeUser.haalVoertuigNaamOpVanUser();
     }
+
+    public static int haalKilometersOpVanLaatstUitgevoerdeRit() {
+        return ingelogdeUser.haalKilometersOpVanLaatsteRit();
+    }
 }
