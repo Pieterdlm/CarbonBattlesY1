@@ -1,4 +1,3 @@
-import com.example.carbonbattles.Models.Fiets;
 import com.example.carbonbattles.Models.Medewerker;
 import com.example.carbonbattles.Models.User;
 import com.example.carbonbattles.inzichtPortaal;
@@ -19,6 +18,8 @@ class inzichtPortaalTest {
         Medewerker medewerker1 = new Medewerker("Tarun", "gebruikerTarun", "123");
         Medewerker medewerker2 = new Medewerker("Konrad", "gebruikerKonrad", "123");
         Medewerker medewerker3 = new Medewerker("Pieter", "gebruikerPieter", "123");
+        Medewerker medewerker4 = new Medewerker("Pim", "gebruikerPim", "123");
+        Medewerker medewerker5 = new Medewerker("Adam", "gebruikerAdam", "123");
 
 
         //Medewerkers zitten in een lijst van Users
@@ -26,9 +27,11 @@ class inzichtPortaalTest {
         TestLijst.add(medewerker1);
         TestLijst.add(medewerker2);
         TestLijst.add(medewerker3);
+        TestLijst.add(medewerker4);
+        TestLijst.add(medewerker5);
         ArrayList<User> gesorteerdeLijst = inzicht.lijstMedewerkersA_tot_Z(TestLijst);
         //maken een lijst met wat we verwachten
-        ArrayList<String> expected = new ArrayList<>(Arrays.asList("Konrad", "Pieter", "Tarun"));
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("Adam", "Konrad", "Pieter", "Pim", "Tarun"));
 
         //hier wordt gecheckt of het sorteren is gelukt aan de hand van alphabetische volgorde.
         for (int i = 0; i < gesorteerdeLijst.size() - 1; i++) {

@@ -1,12 +1,10 @@
 package com.example.carbonbattles;
 
 import com.example.carbonbattles.Models.Manager;
-import com.example.carbonbattles.Models.Medewerker;
 import com.example.carbonbattles.Models.User;
 import javafx.animation.FillTransition;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
-import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,7 +25,6 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BeherenUsersController implements Initializable {
@@ -54,7 +51,7 @@ public class BeherenUsersController implements Initializable {
     @FXML
     private Rectangle rectangle;
 
-public static User clickedUser;
+    public static User clickedUser;
 
     //Invulvelden items
     @FXML
@@ -73,7 +70,7 @@ public static User clickedUser;
     private Label errorMessage;
 
     Manager manager = new Manager("Admin", "admin", "admin");
-
+    BeherenUsers beherenUsers = new BeherenUsers();
 
     //Toont de tableview met de juiste colums en info
     @Override
@@ -91,6 +88,12 @@ public static User clickedUser;
     void voegUserToe(MouseEvent event) {
         //User aanmaken en toevoegen aan arraylist
         UserToevoegen();
+
+        // Testen of arraylist klopt. Print in de terminal  ------- Later verwijderen.
+        for (User users : CarbonBattles.getUsers()){
+            System.out.println(users.getNaam() + " - " + users.getGebruikersNaam() + " - " + users.getWachtwoord() + "");
+        }
+        System.out.println("------------------");
 
         //updaten van tableview
         WerknemersTableView.getItems().clear();
@@ -111,38 +114,34 @@ public static User clickedUser;
         String gebruikersNaam = inputGebruikersNaamField.getText();
         String wachtwoord;
 
-        boolean gebruikersNaamInUse =  true;
 
-        for (User users : manager.alleenMedewerkers()) {
-            if (gebruikersNaam.equals(users.getGebruikersNaam())) {
-                errorMessage.setText("Kies andere gebruikersnaam");
-                gebruikersNaamInUse = false;
+        if (!checkCredentials() && !beherenUsers.gebruikersNaamInUse(gebruikersNaam)) {
+            //Wachtwoord instellen
+            if (!standaardWWCheckBox.isSelected()) {
+                wachtwoord = inputWachtwoordField.getText();
+            } else {
+                inputWachtwoordField.setText("");
+                wachtwoord = "welkom123";
             }
+            beherenUsers.userToevoegen(naam, gebruikersNaam, wachtwoord);
+            toevoegenGelukt();
         }
+        else
+        {
 
-        if (!checkCredentials() && gebruikersNaamInUse) {
-
-                if (!standaardWWCheckBox.isSelected()) {
-                    wachtwoord = inputWachtwoordField.getText();
-                } else {
-                    inputWachtwoordField.setText("");
-                    wachtwoord = "welkom123";
-                }
-                ArrayList<User> alleWerknemers = CarbonBattles.getUsers();
-                alleWerknemers.add(new Medewerker(naam, gebruikersNaam, wachtwoord));
-
-                toevoegenGelukt();
-        }
-        else {
-                toevoegenNietGelukt();
-                if (!gebruikersNaamInUse){
-                    errorMessage.setText("Kies een andere gebruikersnaam");
-                }
-                else {errorMessage.setText("Vul alle velden in");}
+            toevoegenNietGelukt();
+            if (beherenUsers.gebruikersNaamInUse(gebruikersNaam)) {
+                errorMessage.setText("Kies een andere gebruikersnaam");
+                System.out.println("Niet correcte naam");
+            } else {
+                errorMessage.setText("Vul alle velden in");
+                System.out.println("niet alle velden ingevuld");
+            }
         }
     }
 
-    public void toevoegenGelukt(){
+    //Maakt rectangle groen en roteert de plus knop als toevoegen is gelukt.
+    public void toevoegenGelukt() {
         FillTransition fillTransition = new FillTransition(Duration.millis(600), rectangle);
         fillTransition.setToValue(Color.web("#a7e99c"));
         fillTransition.setCycleCount(2);
@@ -158,8 +157,8 @@ public static User clickedUser;
         errorMessage.setText("");
     }
 
-    public void toevoegenNietGelukt(){
-
+    //Maakt rectangle rood als toevoegen niet is gelukt
+    public void toevoegenNietGelukt() {
         FillTransition fillTransition = new FillTransition(Duration.millis(600), rectangle);
         fillTransition.setToValue(Color.web("#FF8A8A"));
         fillTransition.setCycleCount(2);
@@ -168,35 +167,36 @@ public static User clickedUser;
     }
 
 
-
     //knop om terug te gaan naar het menu
     @FXML
     void gaNaarMenuScherm(ActionEvent event) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("ManagerMenu.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("CarbonBattles");
-            stage.setResizable(false);
-            stage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("ManagerMenu.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("CarbonBattles");
+        stage.setResizable(false);
+        stage.show();
     }
+
+
     @FXML
     void deleteUserTrashcan(MouseEvent event) throws IOException {
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("WarningScreenUserDelete.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("CarbonBattles");
-            stage.show();
-            clickedUser = WerknemersTableView.getSelectionModel().getSelectedItem();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("WarningScreenUserDelete.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("CarbonBattles");
+        stage.show();
+        clickedUser = WerknemersTableView.getSelectionModel().getSelectedItem();
 
     }
 
 
-public static User getClickedUser(){
+    public static User getClickedUser() {
         return clickedUser;
-}
+    }
+
     @FXML
     void refreshButton(MouseEvent event) {
         WerknemersTableView.getItems().clear();
@@ -204,8 +204,8 @@ public static User getClickedUser(){
         WerknemersTableView.setItems(list);
     }
 
-
-    public boolean checkCredentials(){
+    //Checkt of de invulvelden zijn ingevuld.
+    public boolean checkCredentials() {
         return inputNaamField.getText().isEmpty() || inputGebruikersNaamField.getText().isEmpty() || (inputWachtwoordField.getText().isEmpty() && !standaardWWCheckBox.isSelected());
     }
 }

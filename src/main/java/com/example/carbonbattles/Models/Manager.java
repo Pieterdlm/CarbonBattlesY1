@@ -28,7 +28,21 @@ public class Manager extends User {
 
     @Override
     public void checkAchievements(Achievement a) {
+    }
 
+    @Override
+    public boolean veranderWachtwoord(String text) {
+        return false;
+    }
+
+    @Override
+    public String haalVoertuigNaamOpVanUser() {
+        return null;
+    }
+
+    @Override
+    public int haalKilometersOpVanLaatsteRit() {
+        return 0;
     }
 
 

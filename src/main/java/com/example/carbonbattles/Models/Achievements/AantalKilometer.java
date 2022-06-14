@@ -9,10 +9,10 @@ public class AantalKilometer extends Achievement {
 
     @Override
     public boolean checkBehaald() {
-        int laatstUitgevoerdeRit = CarbonBattles.getIngelogdeUser().getRitten().size() - 1;
 
-        if (!CarbonBattles.getIngelogdeUser().getRitten().get(laatstUitgevoerdeRit).getVoertuig().getNaamVoertuig().equals("Auto")) {
-            aantalKilometer= aantalKilometer + CarbonBattles.getIngelogdeUser().getRitten().get(laatstUitgevoerdeRit).getAantalKilometers();
+        if (!CarbonBattles.haalLaatsteVoertuigNaamOpVanUser().equals("Auto")) {
+
+            aantalKilometer= aantalKilometer + CarbonBattles.haalKilometersOpVanLaatstUitgevoerdeRit();
             if (aantalKilometer >= kilometerGehaald) {
                 setBehaald(true);
                 levelOpwaarderen();
@@ -32,7 +32,7 @@ public class AantalKilometer extends Achievement {
         } else if (currentLevel.toString().equals("Bronze")) {
             return "file:src/main/resources/com/example/carbonbattles/aantal km icon brons.png";
         } else if (currentLevel.toString().equals("Silver")) {
-            return "file:src/main/resources/com/example/carbonbattles/aantal km icon silver.jpg";
+            return "file:src/main/resources/com/example/carbonbattles/aantal km icon silver.png";
         } else if (currentLevel.toString().equals("Gold")) {
             return "file:src/main/resources/com/example/carbonbattles/aantal km icon gold.png";
         }

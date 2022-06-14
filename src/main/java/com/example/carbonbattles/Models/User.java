@@ -81,9 +81,13 @@ public abstract class User {
 
     public abstract void checkAchievements(Achievement a);
 
-
-
     public double getAantalCO2Uitstoot() {
         return aantalCO2Uitstoot;
     }
+
+    public abstract boolean veranderWachtwoord(String text);
+
+    public abstract String haalVoertuigNaamOpVanUser();
+
+    public abstract int haalKilometersOpVanLaatsteRit();
 }

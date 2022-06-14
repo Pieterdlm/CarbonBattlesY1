@@ -32,7 +32,7 @@ public class PuntaBit extends Achievement {
         } else if (currentLevel.toString().equals("Bronze")) {
             return "file:src/main/resources/com/example/carbonbattles/beker punten brons.png";
         } else if (currentLevel.toString().equals("Silver")) {
-            return "file:src/main/resources/com/example/carbonbattles/beker punten silver.jpg";
+            return "file:src/main/resources/com/example/carbonbattles/beker punten silver.png";
         } else if (currentLevel.toString().equals("Gold")) {
             return "file:src/main/resources/com/example/carbonbattles/beker punten gold.png";
         }

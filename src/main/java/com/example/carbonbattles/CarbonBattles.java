@@ -20,13 +20,11 @@ public class CarbonBattles {
         //Medewerker Optie
         lijst.add(new Medewerker("Adam", "Adam1234", "696969"));
         lijst.add(new Medewerker("Tarun", "Tarun123", "696969"));
-        lijst.add(new Medewerker("Tarun3", "Tarun123", "696969"));
-        lijst.add(new Medewerker("Tarun4", "Tarun123", "696969"));
-        lijst.add(new Medewerker("Tarun5", "Tarun123", "696969"));
+        lijst.add(new Medewerker("Tarun3", "Dummy123", "696969"));
+        lijst.add(new Medewerker("Tarun4", "Rob123", "696969"));
+        lijst.add(new Medewerker("Tarun5", "Piet123", "696969"));
         lijst.add(new Medewerker("Konrad", "Konrad123", "696969"));
 
-
-        //Er moet mogelijkheid komen om van User te switchen om beide menus te tonen aan product owner!!!!
 
         //Manager Optie
         lijst.add(new Manager("Admin", "Admin", "123"));
@@ -37,4 +35,11 @@ public class CarbonBattles {
         return users;
     }
 
+    public static String haalLaatsteVoertuigNaamOpVanUser() {
+        return ingelogdeUser.haalVoertuigNaamOpVanUser();
+    }
+
+    public static int haalKilometersOpVanLaatstUitgevoerdeRit() {
+        return ingelogdeUser.haalKilometersOpVanLaatsteRit();
+    }
 }

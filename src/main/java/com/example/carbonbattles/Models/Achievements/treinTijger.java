@@ -19,10 +19,9 @@ public class treinTijger extends Achievement {
         int indexLaatsteRit = CarbonBattles.getIngelogdeUser().getRitten().size() - 1;
 
         if (CarbonBattles.getIngelogdeUser().getRitten().get(indexLaatsteRit).getVoertuig().getNaamVoertuig().equals("Trein")) {
-
             aantalKilometers = aantalKilometers + CarbonBattles.getIngelogdeUser().getRitten().get(indexLaatsteRit).getAantalKilometers();
 
-            if (aantalKilometers == waardeBehaald) {
+            if (aantalKilometers >= waardeBehaald) {
                 setBehaald(true);
                 levelOpwaarderen();
                 waardeBehaald = waardeBehaald * 2;
@@ -41,7 +40,7 @@ public class treinTijger extends Achievement {
         } else if (currentLevel.toString().equals("Bronze")) {
             return "file:src/main/resources/com/example/carbonbattles/trein brons.png";
         } else if (currentLevel.toString().equals("Silver")) {
-            return "file:src/main/resources/com/example/carbonbattles/treins silver.png";
+            return "file:src/main/resources/com/example/carbonbattles/trein silver.png";
         } else if (currentLevel.toString().equals("Gold")) {
             return "file:src/main/resources/com/example/carbonbattles/trein gold.png";
         }
