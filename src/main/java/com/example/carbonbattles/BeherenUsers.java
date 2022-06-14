@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class BeherenUsers {
 
-    Manager manager = new Manager("Admin", "Admin", "Admin");
 
     public void userToevoegen(String naam, String gebruikersNaam, String wachtwoord){
         ArrayList<User> alleWerknemers = CarbonBattles.getUsers();
@@ -16,6 +15,7 @@ public class BeherenUsers {
     }
 
     public boolean gebruikersNaamInUse(String gebruikersnaam) {
+        Manager manager = new Manager("Admin", "Admin", "Admin");
         boolean inGebruik = false;
         for (User users : manager.alleenMedewerkers()) {
             if (gebruikersnaam.equals(users.getGebruikersNaam())) {
