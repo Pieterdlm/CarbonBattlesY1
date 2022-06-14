@@ -6,14 +6,6 @@ public class Auto extends Voertuig{
         super("Auto");
     }
 
-    //Per Rit maximaal aantal punten ? En punten aftrekken naar mate meer kilometers ?
-//    @Override
-//    public int berekenPunten(int kilometers, boolean elektrischOfNiet) {
-//        if (elektrischOfNiet){
-//            return 150 + (getBaseLinePunten() - (kilometers * 4));
-//        }
-//            return getBaseLinePunten() - (kilometers * 4);
-//    }
 
     @Override
     int bepaalPuntenVoorVoertuig(int kilometers) {

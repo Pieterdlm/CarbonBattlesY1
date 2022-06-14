@@ -6,10 +6,6 @@ public class Fiets extends Voertuig{
         super("Fiets");
     }
 
-//    @Override
-//    public int berekenPunten(int kilometers, boolean elektrischOfNiet) {
-//        return kilometers * 50;
-//    }
 
     @Override
     int bepaalPuntenVoorVoertuig(int kilometers) {

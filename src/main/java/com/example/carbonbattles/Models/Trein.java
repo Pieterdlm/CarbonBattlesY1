@@ -7,10 +7,6 @@ public class Trein extends Voertuig{
 
     }
 
-//    @Override
-//    public int berekenPunten(int kilometers, boolean elektrischOfNiet) {
-//        return kilometers;
-//    }
 
     @Override
     int bepaalPuntenVoorVoertuig(int kilometers) {

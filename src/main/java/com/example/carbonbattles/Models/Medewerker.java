@@ -79,7 +79,7 @@ public class Medewerker extends User implements IObservable {
         return haalLaatsteRitOp().getAantalKilometers();
     }
 
-    private Rit haalLaatsteRitOp() {
+    private Rit  haalLaatsteRitOp() {
         return getRitten().get(getRitten().size() - 1);
     }
 
